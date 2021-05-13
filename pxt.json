@@ -9,7 +9,7 @@
     "files": [
         "main.ts",
         "README.md",
-        "custom.ts"
+        "sparkbit.ts"
     ],
     "testFiles": [
         "test.ts"
