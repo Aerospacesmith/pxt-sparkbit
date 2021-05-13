@@ -1,13 +1,12 @@
 {
     "name": "pxt-sparkbit",
-    "description": "",
+    "description": "Microsoft MakeCode package for Kid Spark Education Spark:bit programmable robotics platform.",
     "dependencies": {
         "core": "*",
         "radio": "*",
         "microphone": "*"
     },
     "files": [
-        "main.ts",
         "README.md",
         "sparkbit.ts"
     ],
