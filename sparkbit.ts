@@ -612,7 +612,7 @@ namespace sparkbitO {
 
     /**
      * TODO: describe your function here
-     * @param motor Output (1-4) eg: 1
+     * @param output Output (1-4) eg: 1
      */
     //% block="set light module $output to $color at brightness $brightness percent (\\%) || for $duration ms"
     //% group="Light Module (orange)"
