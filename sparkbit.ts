@@ -92,9 +92,9 @@ enum DegreePercent {
 //% groups="['Bump Sensor (blue)','Angle Sensor (green)','Light Sensor (yellow)','IR Tx/Rx (black/white or gray/white)','Generic Analog Sensor']"
 namespace sparkbitI {
 
-    //% block
+    //% block="analog read sensor $channel"
     //% channel.shadow="inputNumber"
-    //% blockHidden=true
+    //% advanced = true
     export function readAnalogSensor(channel: number): number {
         if (channel < 1) channel = 1;
         if (channel > 8) channel = 8;
@@ -138,14 +138,14 @@ namespace sparkbitI {
 
     /**
      * Returns value of analog sensor in percentage
-     * @param channel Sensor Input (1-8)
+     * @param channel Sensor Input (1-8) eg: 1
      */
     //% block="analog sensor $channel percent (\\%)"
     //% group="Generic Analog Sensor"
     //% weight=1
     //% channel.shadow="inputNumber"
     //% operator.shadow="degreePercentEnum"
-
+    //% advanced = true
     export function readAnalogSensorPercent(channel: number): number {
         let value = readAnalogSensor(channel);
         value = Math.map(value, 0, 1023, 0, 100);
@@ -158,7 +158,7 @@ namespace sparkbitI {
 
     /**
      * Returns true if pressed, false if not pressed
-     * @param channel Sensor Input (1-8)
+     * @param channel Sensor Input (1-8) eg: 1
      */
     //% block="bump sensor $channel is pressed"
     //% group="Bump Sensor (blue)"
@@ -171,7 +171,7 @@ namespace sparkbitI {
 
     /**
      * Returns value of light sensor
-     * @param channel Sensor Input (1-8)
+     * @param channel Sensor Input (1-8) eg: 1
      */
     //% block="light sensor $channel percent (\\%)"
     //% group="Light Sensor (yellow)"
@@ -191,7 +191,7 @@ namespace sparkbitI {
 
     /**
       * Compares Light Percent to Value and returns Boolean
-      * @param channel Sensor Input (1-8)
+      * @param channel Sensor Input (1-8) eg: 1
       */
     //% block="light sensor $channel $operator $value percent (\\%)"
     //% group="Light Sensor (yellow)"
@@ -207,7 +207,7 @@ namespace sparkbitI {
 
     /**
      * Returns value of angle sensor
-     * @param channel Sensor Input (1-8)
+     * @param channel Sensor Input (1-8) eg: 1
      */
     //% block="angle sensor $channel $operator"
     //% group="Angle Sensor (green)"
@@ -227,7 +227,7 @@ namespace sparkbitI {
 
     /**
       * Compares Angle Degree to Value and returns Boolean
-      * @param channel Sensor Input (1-8)
+      * @param channel Sensor Input (1-8) eg: 1
       */
     //% block="angle sensor $channel $operator $value degrees (°)"
     //% group="Angle Sensor (green)"
@@ -242,7 +242,7 @@ namespace sparkbitI {
 
     /**
       * Compares Angle Percent to Value and returns Boolean
-      * @param channel Sensor Input (1-8)
+      * @param channel Sensor Input (1-8) eg: 1
       */
     //% block="angle sensor $channel $operator $value percent (\\%)"
     //% group="Angle Sensor (green)"
@@ -275,8 +275,8 @@ namespace sparkbitI {
 
     /**
      * Pulses IR Transmitter and checks if signal is reflected. Returns Boolean.
-     * @param TXpin Sensor Input (1-8)
-     * @param RXpin Sensor Input (1-8)
+     * @param TXpin Sensor Input (1-8) eg: 1
+     * @param RXpin Sensor Input (1-8) eg: 2
      */
     //% block="IR transmitter $TXpin is received on $RXpin"
     //% group="IR Tx/Rx (black/white or gray/white)"
@@ -289,8 +289,8 @@ namespace sparkbitI {
 
     // /**
     //  * Pulses IR Transmitter and checks if signal is reflected. Returns Boolean.
-    //  * @param TXpin Sensor Input (1-8)
-    //  * @param RXpin Sensor Input (1-8)
+    //  * @param TXpin Sensor Input (1-8) eg: 1
+    //  * @param RXpin Sensor Input (1-8) eg: 2
     //  */
     // //% block="IR transmitter $TXpin is received on $RXpin"
     // //% group="IR Low Power Tx/Rx (gray/white)"
@@ -303,7 +303,7 @@ namespace sparkbitI {
 
     /**
      * Input Port #
-    * @param input [1-8] eg: 1
+    * @param input [1-8]
     */
     //% blockId=inputNumber block="input $input"
     //% blockHidden=true
@@ -428,75 +428,9 @@ namespace sparkbitI {
 //% groups="['Motor Module (red)','Light Module (orange)']"
 namespace sparkbitO {
 
-    //% block="set light module $output to $color at brightness $brightness percent (\\%) || for $duration ms"
-    //% group="Light Module (orange)"
-    //% weight=90
-    //% expandableArgumentMode="toggle"
-    //% inlineInputMode=inline
-    //% output.shadow="outputNumber"
-    //% color.shadow="colorEnum" color.defl=Colors.Green
-    //% brightness.min=0 brightness.max=100 brightness.defl=100
-    //% duration.shadow=timePicker
-    export function setLightModule(output: number, brightness: number, color: Colors, duration?: number): void {
-        brightness = Math.map(brightness, 0, 100, 0, 1023);
-
-        if (duration == undefined) {
-            if (color == Colors.Red) {
-                motorWrite(output, brightness, true);
-            }
-            else if (color == Colors.Green) {
-                motorWrite(output, brightness, false);
-            }
-        }
-        else {
-            switch (output) {
-                case 1:
-                    if (color == Colors.Red) outputsState[0] = true;
-                    else if (color == Colors.Green) outputsState[0] = false;
-                    outputsValue[0] = brightness;
-                    outputsDuration[0] = duration;
-                    control.raiseEvent(EVENTID_OUTPUT_1_DELAY_OFF, 10);
-                    break;
-                case 2:
-                    if (color == Colors.Red) outputsState[1] = true;
-                    else if (color == Colors.Green) outputsState[1] = false;
-                    outputsValue[1] = brightness;
-                    outputsDuration[1] = duration;
-                    control.raiseEvent(EVENTID_OUTPUT_2_DELAY_OFF, 10);
-                    break;
-                case 3:
-                    if (color == Colors.Red) outputsState[2] = true;
-                    else if (color == Colors.Green) outputsState[2] = false;
-                    outputsValue[2] = brightness;
-                    outputsDuration[2] = duration;
-                    control.raiseEvent(EVENTID_OUTPUT_3_DELAY_OFF, 10);
-                    break;
-                case 4:
-                    if (color == Colors.Red) outputsState[3] = true;
-                    else if (color == Colors.Green) outputsState[3] = false;
-                    outputsValue[3] = brightness;
-                    outputsDuration[3] = duration;
-                    control.raiseEvent(EVENTID_OUTPUT_4_DELAY_OFF, 10);
-                    break;
-            }
-        }
-    }
-
     /**
      * TODO: describe your function here
-     * @param output Output (1-4)
-     */
-    //% block="turn off light module $output"
-    //% group="Light Module (orange)"
-    //% weight=60
-    //% output.shadow="outputNumber"
-    export function stopLight(output: number): void {
-        motorWrite(output, 0, false);
-    }
-
-    /**
-     * TODO: describe your function here
-     * @param motor Output (1-4)
+     * @param motor Output (1-4) eg: 1
      */
     //% block="rotate motor module $motor $direction at speed $speed percent (\\%) || for $duration ms"
     //% group="Motor Module (red)"
@@ -554,11 +488,11 @@ namespace sparkbitO {
 
     /**
      * TODO: describe your function here
-     * @param motor Output (1-4)
+     * @param motor Output (1-4) eg: 1
      */
     //% block="stop motor module $motor"
     //% group="Motor Module (red)"
-    //% weight=60
+    //% weight=80
     //% motor.shadow="outputNumber"
     export function stopMotor(motor: number): void {
         motorWrite(motor, 0, false);
@@ -609,21 +543,141 @@ namespace sparkbitO {
         }
     }
 
-    //% block="run motor# $motor at velocity $velocity"
+    /**
+     * TODO: describe your function here
+     * @param motor Output (1-4) eg: 1
+     */
+    //% block="rotate motor module $motor at velocity $velocity percent (\\%) || for $duration ms"
     //% group="Motor Module (red)"
-    //% blockHidden=true
     //% weight=70
+    //% expandableArgumentMode="toggle"
+    //% inlineInputMode=inline
     //% motor.shadow="outputNumber"
-    //% velocity.min=-1023 velocity.max=1023
-    export function motorWriteVel(motor: number, velocity: number): void {
+    //% velocity.min=-100 velocity.max=100
+    //% duration.shadow=timePicker
+    //% advanced = true
+    export function motorWriteVel(motor: number, velocity: number, duration?: number): void {
+        if (velocity > 0){
+            velocity = Math.map(velocity, 0, 100, 0, 1023);
+        }
+        else if (velocity < 0) {
+            velocity = -Math.map(Math.abs(velocity), 0, 100, 0, 1023);
+        }
+
         if (velocity < -1023) velocity = -1023;
         if (velocity > 1023) velocity = 1023;
-        if (velocity > 0) {
-            motorWrite(motor, velocity, COUNTER_CLOCKWISE);
+
+        if (duration == undefined) {
+            if (velocity > 0) {
+                motorWrite(motor, velocity, COUNTER_CLOCKWISE);
+            }
+            else {
+                motorWrite(motor, -velocity, CLOCKWISE);
+            }
         }
         else {
-            motorWrite(motor, -velocity, CLOCKWISE);
+            switch (motor) {
+                case 1:
+                    if (velocity > 0) outputsState[0] = false;
+                    else if (velocity < 0) outputsState[0] = true;
+                    outputsValue[0] = Math.abs(velocity);
+                    outputsDuration[0] = duration;
+                    control.raiseEvent(EVENTID_OUTPUT_1_DELAY_OFF, 10);
+                    break;
+                case 2:
+                    if (velocity > 0) outputsState[1] = false;
+                    else if (velocity < 0) outputsState[1] = true;
+                    outputsValue[1] = Math.abs(velocity);
+                    outputsDuration[1] = duration;
+                    control.raiseEvent(EVENTID_OUTPUT_2_DELAY_OFF, 10);
+                    break;
+                case 3:
+                    if (velocity > 0) outputsState[2] = false;
+                    else if (velocity < 0) outputsState[2] = true;
+                    outputsValue[2] = Math.abs(velocity);
+                    outputsDuration[2] = duration;
+                    control.raiseEvent(EVENTID_OUTPUT_3_DELAY_OFF, 10);
+                    break;
+                case 4:
+                    if (velocity > 0) outputsState[3] = false;
+                    else if (velocity < 0) outputsState[3] = true;
+                    outputsValue[3] = Math.abs(velocity);
+                    outputsDuration[3] = duration;
+                    control.raiseEvent(EVENTID_OUTPUT_4_DELAY_OFF, 10);
+                    break;
+            }
         }
+
+    }
+
+    /**
+     * TODO: describe your function here
+     * @param motor Output (1-4) eg: 1
+     */
+    //% block="set light module $output to $color at brightness $brightness percent (\\%) || for $duration ms"
+    //% group="Light Module (orange)"
+    //% weight=20
+    //% expandableArgumentMode="toggle"
+    //% inlineInputMode=inline
+    //% output.shadow="outputNumber"
+    //% color.shadow="colorEnum" color.defl=Colors.Green
+    //% brightness.min=0 brightness.max=100 brightness.defl=100
+    //% duration.shadow=timePicker
+    export function setLightModule(output: number, brightness: number, color: Colors, duration?: number): void {
+        brightness = Math.map(brightness, 0, 100, 0, 1023);
+
+        if (duration == undefined) {
+            if (color == Colors.Red) {
+                motorWrite(output, brightness, true);
+            }
+            else if (color == Colors.Green) {
+                motorWrite(output, brightness, false);
+            }
+        }
+        else {
+            switch (output) {
+                case 1:
+                    if (color == Colors.Red) outputsState[0] = true;
+                    else if (color == Colors.Green) outputsState[0] = false;
+                    outputsValue[0] = brightness;
+                    outputsDuration[0] = duration;
+                    control.raiseEvent(EVENTID_OUTPUT_1_DELAY_OFF, 10);
+                    break;
+                case 2:
+                    if (color == Colors.Red) outputsState[1] = true;
+                    else if (color == Colors.Green) outputsState[1] = false;
+                    outputsValue[1] = brightness;
+                    outputsDuration[1] = duration;
+                    control.raiseEvent(EVENTID_OUTPUT_2_DELAY_OFF, 10);
+                    break;
+                case 3:
+                    if (color == Colors.Red) outputsState[2] = true;
+                    else if (color == Colors.Green) outputsState[2] = false;
+                    outputsValue[2] = brightness;
+                    outputsDuration[2] = duration;
+                    control.raiseEvent(EVENTID_OUTPUT_3_DELAY_OFF, 10);
+                    break;
+                case 4:
+                    if (color == Colors.Red) outputsState[3] = true;
+                    else if (color == Colors.Green) outputsState[3] = false;
+                    outputsValue[3] = brightness;
+                    outputsDuration[3] = duration;
+                    control.raiseEvent(EVENTID_OUTPUT_4_DELAY_OFF, 10);
+                    break;
+            }
+        }
+    }
+
+    /**
+     * TODO: describe your function here
+     * @param output Output (1-4) eg: 1
+     */
+    //% block="turn off light module $output"
+    //% group="Light Module (orange)"
+    //% weight=10
+    //% output.shadow="outputNumber"
+    export function stopLight(output: number): void {
+        motorWrite(output, 0, false);
     }
 
 
@@ -657,7 +711,7 @@ namespace sparkbitO {
 
     /**
      * Output Port #
-    * @param output eg: 1
+    * @param output
     */
     //% blockId=outputNumber block="output $output"
     //% blockHidden=true
