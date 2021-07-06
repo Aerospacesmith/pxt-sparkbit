@@ -1,0 +1,4 @@
+{
+  "sparkbitI.readAnalogSensorPercent": "Returns value of analog sensor in percentage in Spanish",
+  "sparkbitI.readAnalogSensorPercent|param|channel ": "Example in Spanish"
+}
