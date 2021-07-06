@@ -1,5 +1,6 @@
 {
  "sparkbitI.readAnalogSensor|block": "analog read sensor $channel in Spanish",
+ "sparkbitI.readAnalogSensorPercent|block": "analog sensor $channel percent (\\%)"
   "{id:category}Spark:bit Inputs": "Spark:bit Inputs",
   "{id:category}Spark:bit Outputs": "Spark:bit Outputs"
 }
