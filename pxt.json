@@ -10,7 +10,8 @@
         "main.blocks",
         "main.ts",
         "README.md",
-        "sparkbit.ts"
+        "sparkbit.ts",
+        "_locales/es-ES/sparkbit-strings.json"
     ],
     "testFiles": [],
     "targetVersions": {
