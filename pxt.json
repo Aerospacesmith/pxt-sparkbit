@@ -12,9 +12,7 @@
         "README.md",
         "sparkbit.ts"
     ],
-    "testFiles": [
-        "test.ts"
-    ],
+    "testFiles": [],
     "targetVersions": {
         "branch": "v3.0.17",
         "tag": "v3.0.17",
