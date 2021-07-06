@@ -92,6 +92,10 @@ enum DegreePercent {
 //% groups="['Bump Sensor (blue)','Angle Sensor (green)','Light Sensor (yellow)','IR Tx/Rx (black/white or gray/white)','Generic Analog Sensor']"
 namespace sparkbitI {
 
+    /**
+     * Returns value of analog sensor in percentage
+     * @param channel Sensor Input (1-8) eg: 1
+     */
     //% block="analog read sensor $channel"
     //% channel.shadow="inputNumber"
     //% advanced = true
