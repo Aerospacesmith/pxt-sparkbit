@@ -1,0 +1,5 @@
+{
+ "sparkbitI.readAnalogSensor|block": "analog read sensor $channel in Spanish",
+  "{id:category}Spark:bit Inputs": "Spark:bit Inputs",
+  "{id:category}Spark:bit Outputs": "Spark:bit Outputs"
+}
