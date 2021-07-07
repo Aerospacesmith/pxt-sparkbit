@@ -1,8 +1,6 @@
 {
   "Colors": "Enumeration of LED Colors.",
   "Directions": "Enumeration of directions.",
-  "REG_INPUT_DISABLE_B": "Constants and background functions",
-  "outputsValue": "Use this file to define custom functions and blocks.\r\nRead more at https://makecode.microbit.org/blocks/custom",
   "sparkbitI": "Provides access to Sparkbit functionality.",
   "sparkbitI.bumpSensor": "Returns true if pressed, false if not pressed",
   "sparkbitI.bumpSensor|param|channel": "Sensor Input (1-8) eg: 1",
