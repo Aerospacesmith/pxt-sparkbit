@@ -11,7 +11,7 @@
   "LogicCompare.LogicCompareLTE|block": "≤",
   "LogicCompare.LogicCompareLT|block": "<",
   "LogicCompare.LogicCompareNEQ|block": "≠",
-  "sparkbitI.bumpSensor|block": "bump sensor $channel is pressed",
+  "sparkbitI.bumpSensor|block": "bump sensor $channel is pressed in Spanish",
   "sparkbitI.lightGateRead|block": "true",
   "sparkbitI.proximity|block": "IR transmitter $TXpin is received on $RXpin",
   "sparkbitI.readAnalogSensorPercent|block": "analog sensor $channel percent (\\%)",
