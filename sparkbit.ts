@@ -102,7 +102,7 @@ namespace sparkbitI {
     export function readAnalogSensor(channel: number): number {
         if (channel < 1) channel = 1;
         if (channel > 8) channel = 8;
-        switch (channel) { //reverses sensor ports 1-4 to match schematics. 5-8 are fine.
+        switch (channel) { //reverses sensor ports 1-8 to match schematics.
             case 1:
                 channel = 8;
                 break;
@@ -116,16 +116,16 @@ namespace sparkbitI {
                 channel = 5;
                 break;
             case 5:
-                channel = 1;
+                channel = 4;
                 break;
             case 6:
-                channel = 2;
-                break;
-            case 7:
                 channel = 3;
                 break;
+            case 7:
+                channel = 2;
+                break;
             case 8:
-                channel = 4;
+                channel = 1;
                 break;
         }
         channel -= 1;
