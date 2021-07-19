@@ -133,7 +133,8 @@ namespace sparkbitI {
         let configurationByte = ((channel << 1) & 0b00001110) | 0b01100001;
         pins.i2cWriteNumber(MAX11608_I2C_ADDR, (configurationByte & (~0x80)), NumberFormat.UInt8BE);
 
-        result = pins.i2cReadNumber(MAX11608_I2C_ADDR, NumberFormat.UInt16BE) - 0xFC00;
+        result = pins.i2cReadNumber(MAX11608_I2C_ADDR, NumberFormat.UInt16BE) & 0x03FF;
+        // result = pins.i2cReadNumber(MAX11608_I2C_ADDR, NumberFormat.UInt16BE) - 0xFC00;
         // result = (pins.i2cReadNumber(MAX11608_I2C_ADDR, NumberFormat.UInt8BE, true) & 0x03) << 8;
         // result |= pins.i2cReadNumber(MAX11608_I2C_ADDR, NumberFormat.UInt8BE, false) & 0x00ff;
         return result;
