@@ -924,6 +924,11 @@ setreg(SX1509_I2C_ADDR, REG_DATA_B, 0xAA);
 pins.setAudioPin(AnalogPin.P0)
 music.setSilenceLevel(0)
 
+//Pull all pins down
+for (let index = 0; index <= 7; index++) {
+    setDigitalSensorDir(index + 1, 1)
+}
+
 function setreg(adr: number, reg: number, dat: number): void {
     let buf = pins.createBuffer(2);
     buf[0] = reg;
