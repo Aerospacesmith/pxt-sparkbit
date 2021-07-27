@@ -146,7 +146,6 @@ namespace sparkbitI {
      * @param channel Sensor Input (1-8) eg: 1
      */
     //% block="analog sensor $channel percent (\\%)"
-    //% group="Generic Analog Sensor"
     //% weight=1
     //% channel.shadow="inputNumber"
     //% operator.shadow="degreePercentEnum"
