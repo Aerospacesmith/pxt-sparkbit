@@ -89,7 +89,7 @@ enum DegreePercent {
  * Provides access to Sparkbit functionality.
  */
 //% color="#ff9933"  weight=601 icon="\uf085" block="Spark:bit Inputs"
-//% groups="['Bump Sensor (blue)','Angle Sensor (green)','Light Sensor (yellow)','IR Tx/Rx (black/white or gray/white)','Generic Analog Sensor']"
+//% groups="['Bump Sensor (blue)','Angle Sensor (green)','Light Sensor (yellow)','IR Tx/Rx (black/white or gray/white)']"
 namespace sparkbitI {
 
     /**
