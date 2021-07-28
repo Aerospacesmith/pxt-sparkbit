@@ -722,7 +722,7 @@ namespace sparkbitO {
     //% block="output $output"
     //% blockHidden=true
     //% colorSecondary="#FFFFFF"
-    //% output.fieldEditor="numberdropdown"
+    //% output.fieldEditor="numberdropdown"output.fieldOptions.decompileLiterals=true
     //% output.fieldOptions.data='[["output 1", 1], ["output 2", 2], ["output 3", 3], ["output 4", 4]]'
     export function __outputNumber(output: number): number {
         return output;
