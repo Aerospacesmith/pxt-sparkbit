@@ -719,7 +719,7 @@ namespace sparkbitO {
     * @param output (1-4) eg: 1
     */
     //% blockId=outputNumber
-    //% block="output $output"
+    //% block="outputPort $output"
     //% blockHidden=true
     //% colorSecondary="#FFFFFF"
     //% output.fieldEditor="numberdropdown" output.fieldOptions.decompileLiterals=true
