@@ -719,10 +719,10 @@ namespace sparkbitO {
     * @param output (1-4) eg: 1
     */
     //% blockId=outputNumber
-    //% block="outputPort $output"
+    //% block="output $output"
     //% blockHidden=true
     //% colorSecondary="#FFFFFF"
-    //% output.fieldEditor="numberdropdown" output.fieldOptions.decompileLiterals=true
+    //% output.fieldEditor="numberdropdown"
     //% output.fieldOptions.data='[["output 1", 1], ["output 2", 2], ["output 3", 3], ["output 4", 4]]'
     export function __outputNumber(output: number): number {
         return output;
