@@ -716,9 +716,10 @@ namespace sparkbitO {
 
     /**
      * Output Port #
-    * @param output
+    * @param output (1-4) eg: 1
     */
-    //% blockId=outputNumber block="output $output"
+    //% blockId=outputNumber
+    //% block="output $output"
     //% blockHidden=true
     //% colorSecondary="#FFFFFF"
     //% output.fieldEditor="numberdropdown" output.fieldOptions.decompileLiterals=true
