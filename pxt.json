@@ -13,11 +13,17 @@
         "sparkbit.ts",
         "_locales/es-ES/Sparkbit-strings.json",
         "_locales/es-ES/Sparkbit-jsdoc-strings.json"
-    
     ],
     "testFiles": [
         "tests.ts"
     ],
     "public": true,
+    "targetVersions": {
+        "target": "4.0.12",
+        "targetId": "microbit"
+    },
+    "supportedTargets": [
+        "microbit"
+    ],
     "yotta": {}
 }
