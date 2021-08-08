@@ -13,11 +13,8 @@
         "sparkbit.ts",
         "_locales/es-ES/Sparkbit-strings.json",
         "_locales/es-ES/Sparkbit-jsdoc-strings.json"
-    
     ],
-    "testFiles": [
-        "tests.ts"
-    ],
+    "testFiles": [],
     "public": true,
     "yotta": {}
 }
