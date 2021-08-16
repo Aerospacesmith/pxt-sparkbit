@@ -7,27 +7,77 @@ This repository can be added as an **extension** in MakeCode.
 * click on **Extensions** under the gearwheel menu
 * search for **https://github.com/kidspark/pxt-sparkbit** and import
 
+# Reading the inputs
+
+###
+Use `sparkbitI.readAnalogSensor(...)` to read a particular input sensor.
+
+### Bump Sensor (blue)
+Returns true if pressed, false if not pressed
+
+### Angle Sensor  (green)
+
+### Light Sensor (yellow)
+
+### IR Tx/Rx
 
 
-## Driving the motors individually
 
-If you want more fine grain control of individal motors, use `sparkbitO.rotateMotorDuration(...)` to drive a particular motor either clockwise or counterclockwise.
+
+# Driving the outputs
+
+## Rotate Motor
+Use `sparkbitO.rotateMotorDuration(...)` to drive a particular motor either clockwise or counterclockwise.
 You can specify the direction (Clockwise or Counterclockwise) and speed between 0 and 100. You can specify an optional duration (in milliseconds) for the motor to rotate before it automatically stops.
-```blocks
-// Drive motor #1 clockwise at speed 60%.
-sparkbitO.rotateMotorDuration(1, 60, Directions.Clockwise)
 
-// Drive motor #2 counterclockwise at speed 80% for 10 seconds (10,000 milliseconds).
-sparkbitO.rotateMotorDuration(2, 80, Directions.Counterclockwise, 10000)
-```
+The block takes four parameters: motor select, direction, speed, and optionally duration.
+* Motor select is the output port integer value between `1` and `4`
+* Direction must be either `Clockwise` or `Counterclockwise`
+* Speed is an integer value between `0` and `100`
+* Duration is an integer value in milliseconds
 
 ## Stopping
-When the motor speed is set to zero then it stops. There is also a dedicated command for this.
+When the motor speed is set to zero then it stops. There is also a dedicated function for this.
+Use `sparkbitO.stopMotor(...)` to stop the specified motor module.
+
+### Examples
 ```blocks
-// Stop motor #1.
+// Drive motor #1 at speed 60% and direction clockwise.
+sparkbitO.rotateMotorDuration(1, 60, Directions.Clockwise)
+
+// Drive motor #2 at speed 100% and direction counterclockwise for 10 seconds (10,000 milliseconds).
+sparkbitO.rotateMotorDuration(2, 100, Directions.Counterclockwise, 10000)
+
+//Stop motor #1.
 sparkbitO.stopMotor(1)
 ```
 
+
+## Light module
+Use `setLightModule(...)` to turn on the LED in the light module.
+You can specify the color (Green or Red) and brightness between 0 and 100. You can specify an optional duration (in milliseconds) for the LED to illuminate before it automatically turns off.
+
+The block takes four parameters: light select, color, brightness, and optionally duration.
+* Light select is the output port integer value between `1` and `4`
+* Color must be either `Green` or `Red`
+* Brightness is an integer value between `0` and `100`
+* Duration is an integer value in milliseconds
+
+## Turning off
+When the LED brightness is set to zero then it turns off. There is also a dedicated function for this.
+Use `sparkbitO.stopLight(...)` to turn off the specified light module.
+
+### Examples
+```blocks
+// Turn on light module #2 at brightness 100% and color Red.
+sparkbitO.setLightModule(2, 100, Colors.Red)
+
+// Turn on light module #4 at brightness 80% and color Green for 10 seconds (10,000 milliseconds).
+sparkbitO.setLightModule(4, 80, Colors.Green, 10000)
+
+//Turn off Light #2.
+sparkbitO.stopLight(2)
+```
 
 
 ## Supported targets
