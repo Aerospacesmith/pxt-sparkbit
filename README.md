@@ -13,17 +13,17 @@ This repository can be added as an **extension** in MakeCode.
 Use `sparkbitI.readAnalogSensor(...)` to read a particular input sensor.
 
 ### Bump Sensor (blue)
-    ![Bump Sensor](/assets/images/Bump Sensor.png)
+    ![Bump Sensor](https://raw.githubusercontent.com/KidSpark/pxt-sparkbit/assets/images/Bump Sensor.png)
 Returns true if pressed, false if not pressed
 
 ### Angle Sensor  (green)
-    ![Angle Sensor](/assets/images/AS.png)
+    ![Angle Sensor](https://raw.githubusercontent.com/KidSpark/pxt-sparkbit/assets/images/AS.png)
 
 ### Light Sensor (yellow)
-    ![Light Sensor](/assets/images/Light Sensor.png)
+    ![Light Sensor](https://raw.githubusercontent.com/KidSpark/pxt-sparkbit/assets/images/Light Sensor.png)
 
 ### IR Tx/Rx
-    ![Gate Sensor](/assets/images/IR Sensing Receiver.png)
+    ![Gate Sensor](https://raw.githubusercontent.com/KidSpark/pxt-sparkbit/assets/images/IR Sensing Receiver.png)
     High Power IR Transmitter
     Low Power IR Transmitter
 
@@ -34,7 +34,7 @@ Returns true if pressed, false if not pressed
 # Driving the outputs
 
 ## Rotate Motor
-    ![Motor Module](/assets/images/Motor Module.png)
+    ![Motor Module](https://raw.githubusercontent.com/KidSpark/pxt-sparkbit/assets/images/Motor Module.png)
 Use `sparkbitO.rotateMotorDuration(...)` to drive a particular motor either clockwise or counterclockwise.
 You can specify the direction (Clockwise or Counterclockwise) and speed between 0 and 100. You can specify an optional duration (in milliseconds) for the motor to rotate before it automatically stops.
 
@@ -63,7 +63,7 @@ sparkbitO.stopMotor(1)
   
   
 ## Light module
-    ![Light Module](/assets/images/Light Module.png)
+    ![Light Module](https://raw.githubusercontent.com/KidSpark/pxt-sparkbit/assets/images/Light Module.png)
 Use `setLightModule(...)` to turn on the LED in the light module.
 You can specify the color (Green or Red) and brightness between 0 and 100. You can specify an optional duration (in milliseconds) for the LED to illuminate before it automatically turns off.
 
