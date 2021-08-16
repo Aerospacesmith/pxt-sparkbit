@@ -13,13 +13,17 @@ This repository can be added as an **extension** in MakeCode.
 Use `sparkbitI.readAnalogSensor(...)` to read a particular input sensor.
 
 ### Bump Sensor (blue)
+    ![Bump Sensor](/assets/images/bump.png)
 Returns true if pressed, false if not pressed
 
 ### Angle Sensor  (green)
+    ![Angle Sensor](/assets/images/angle.png)
 
 ### Light Sensor (yellow)
+    ![Light Sensor](/assets/images/light.png)
 
 ### IR Tx/Rx
+    ![Gate Sensor](/assets/images/gate.png)
 
 
 
@@ -28,6 +32,7 @@ Returns true if pressed, false if not pressed
 # Driving the outputs
 
 ## Rotate Motor
+    ![Motor Module](/assets/images/motor.png)
 Use `sparkbitO.rotateMotorDuration(...)` to drive a particular motor either clockwise or counterclockwise.
 You can specify the direction (Clockwise or Counterclockwise) and speed between 0 and 100. You can specify an optional duration (in milliseconds) for the motor to rotate before it automatically stops.
 
@@ -56,6 +61,7 @@ sparkbitO.stopMotor(1)
   
   
 ## Light module
+    ![Light Module](/assets/images/LED.png)
 Use `setLightModule(...)` to turn on the LED in the light module.
 You can specify the color (Green or Red) and brightness between 0 and 100. You can specify an optional duration (in milliseconds) for the LED to illuminate before it automatically turns off.
 
