@@ -13,19 +13,24 @@ This repository can be added as an **extension** in MakeCode.
 Use `sparkbitI.readAnalogSensor(...)` to read a particular input sensor.
 
 ### Bump Sensor (blue)
-![Bump Sensor](https://raw.githubusercontent.com/KidSpark/pxt-sparkbit/assets/images/Bump Sensor.png)
+<img src="https://github.com/KidSpark/pxt-sparkbit/blob/master/assets/images/Bump%20Sensor.png?raw=true" alt="Bump Sensor" width="200"/>
 Returns true if pressed, false if not pressed
 
 ### Angle Sensor  (green)
-![Angle Sensor](https://raw.githubusercontent.com/KidSpark/pxt-sparkbit/assets/images/AS.png)
+<img src="https://github.com/KidSpark/pxt-sparkbit/blob/master/assets/images/AS.png?raw=true" alt="Angle Sensor" width="200"/>
 
 ### Light Sensor (yellow)
-![Light Sensor](https://raw.githubusercontent.com/KidSpark/pxt-sparkbit/assets/images/Light Sensor.png)
+<img src="https://github.com/KidSpark/pxt-sparkbit/blob/master/assets/images/Light%20Sensor.png?raw=true" alt="Light Sensor" width="200"/>
 
 ### IR Tx/Rx
-![Gate Sensor](https://raw.githubusercontent.com/KidSpark/pxt-sparkbit/assets/images/IR Sensing Receiver.png)
-    High Power IR Transmitter
+<img src="drawing.jpg" alt="drawing" width="200"/>
+![Gate Sensor](https://github.com/KidSpark/pxt-sparkbit/blob/master/assets/images/IR%20Sensing%20Receiver.png?raw=true)
+
+https://github.com/KidSpark/pxt-sparkbit/blob/master/assets/images/High%20Power%20IR%20Transmitter.png?raw=true
+    High Power IR Transmitter 
+    
     Low Power IR Transmitter
+    https://github.com/KidSpark/pxt-sparkbit/blob/master/assets/images/Low%20Power%20IR%20Transmitter.png?raw=true
 
 
 
@@ -34,7 +39,7 @@ Returns true if pressed, false if not pressed
 # Driving the outputs
 
 ## Rotate Motor
-![Motor Module](https://raw.githubusercontent.com/KidSpark/pxt-sparkbit/assets/images/Motor Module.png)
+<img src="https://github.com/KidSpark/pxt-sparkbit/blob/master/assets/images/Motor%20Module.png?raw=true" alt="Motor Module" width="200"/>
 Use `sparkbitO.rotateMotorDuration(...)` to drive a particular motor either clockwise or counterclockwise.
 You can specify the direction (Clockwise or Counterclockwise) and speed between 0 and 100. You can specify an optional duration (in milliseconds) for the motor to rotate before it automatically stops.
 
@@ -63,7 +68,7 @@ sparkbitO.stopMotor(1)
   
   
 ## Light module
-![Light Module](https://github.com/KidSpark/pxt-sparkbit/blob/master/assets/images/Light%20Module.png)
+<img src="https://github.com/KidSpark/pxt-sparkbit/blob/master/assets/images/Light%20Module.png" alt="Light Module" width="200"/>
 Use `setLightModule(...)` to turn on the LED in the light module.
 You can specify the color (Green or Red) and brightness between 0 and 100. You can specify an optional duration (in milliseconds) for the LED to illuminate before it automatically turns off.
 
