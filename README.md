@@ -23,18 +23,19 @@ Returns true if pressed, false if not pressed
 <img src="https://github.com/KidSpark/pxt-sparkbit/blob/master/assets/images/Light%20Sensor.png?raw=true" alt="Light Sensor" width="200"/>
 
 ### IR Tx/Rx
-<img src="drawing.jpg" alt="drawing" width="200"/>
-![Gate Sensor](https://github.com/KidSpark/pxt-sparkbit/blob/master/assets/images/IR%20Sensing%20Receiver.png?raw=true)
+## Light Gate
+To make a light gate, use an IR Receiver and Low Power IR Transmitter.
+<img src="https://github.com/KidSpark/pxt-sparkbit/blob/master/assets/images/IR%20Sensing%20Receiver.png?raw=true" alt="IR Receiver" width="200"/>
+<img src="https://github.com/KidSpark/pxt-sparkbit/blob/master/assets/images/High%20Power%20IR%20Transmitter.png?raw=true" alt="High Power IR Transmitter " width="200"/>
 
-https://github.com/KidSpark/pxt-sparkbit/blob/master/assets/images/High%20Power%20IR%20Transmitter.png?raw=true
-    High Power IR Transmitter 
+## Proximity Detector
+To make a proximity detector, use an IR Receiver and High Power IR Transmitter.
+<img src="https://github.com/KidSpark/pxt-sparkbit/blob/master/assets/images/IR%20Sensing%20Receiver.png?raw=true" alt="IR Receiver" width="200"/>
+<img src="https://github.com/KidSpark/pxt-sparkbit/blob/master/assets/images/Low%20Power%20IR%20Transmitter.png?raw=true" alt="Low Power IR Transmitter" width="200"/>
     
-    Low Power IR Transmitter
-    https://github.com/KidSpark/pxt-sparkbit/blob/master/assets/images/Low%20Power%20IR%20Transmitter.png?raw=true
+    
 
 
-
-  
   
 # Driving the outputs
 
