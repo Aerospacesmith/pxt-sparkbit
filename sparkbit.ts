@@ -1,9 +1,51 @@
 
+
 /**
- * Use this file to define custom functions and blocks.
- * Read more at https://makecode.microbit.org/blocks/custom
+ * Initialization on Start
  */
 
+//Setup MAX11608
+pins.i2cWriteNumber(MAX11608_I2C_ADDR, SetupByte, NumberFormat.UInt8BE);
+pins.i2cWriteNumber(MAX11608_I2C_ADDR, ConfigByte, NumberFormat.UInt8BE);
+
+
+//Setup SX1509B
+setreg(SX1509_I2C_ADDR, REG_RESET, 0x12);
+setreg(SX1509_I2C_ADDR, REG_RESET, 0x34);
+
+// setreg(SX1509_I2C_ADDR, REG_PULL_DOWN_A, 0xFF);    // Enable pull-down (RegPullUp) 
+setreg(SX1509_I2C_ADDR, REG_DIR_A, 0xFF);   // Set direction to input (RegDir)
+
+setreg(SX1509_I2C_ADDR, REG_INPUT_DISABLE_B, 0xFF);    // Disable input buffer (RegInputDisable) 
+setreg(SX1509_I2C_ADDR, REG_PULL_UP_B, 0x00);    // Disable pull-up (RegPullUp) 
+setreg(SX1509_I2C_ADDR, REG_DIR_B, 0x00);   // Set direction to output (RegDir)
+setreg(SX1509_I2C_ADDR, REG_CLOCK, 0x40);    // Enable oscillator (RegClock)
+setreg(SX1509_I2C_ADDR, REG_MISC, 0x70);    // Configure LED driver clock and mode if relevant (RegMisc)
+setreg(SX1509_I2C_ADDR, REG_LED_DRIVER_ENABLE_B, 0xFF);    // Enable LED driver operation (RegLEDDriverEnable)
+setreg(SX1509_I2C_ADDR, REG_OPEN_DRAIN_B, 0x00);
+setreg(SX1509_I2C_ADDR, REG_POLARITY_B, 0xFF);  //Invert Polarity
+setreg(SX1509_I2C_ADDR, REG_DATA_B, 0xAA);
+// setreg(SX1509_I2C_ADDR, REG_I_ON_9, 255);
+// setreg(SX1509_I2C_ADDR, REG_I_ON_11, 255);
+// setreg(SX1509_I2C_ADDR, REG_I_ON_13, 255);
+// setreg(SX1509_I2C_ADDR, REG_I_ON_15, 255);
+
+
+//Enable Ext Speaker
+pins.setAudioPin(AnalogPin.P0);
+music.setSilenceLevel(0);
+
+//Pull all pins down
+for (let index = 0; index <= 7; index++) {
+    setDigitalSensorDir(index + 1, 1);
+}
+
+serial.redirectToUSB();
+
+
+/**
+ * Functions to operate Output timers.
+ */
 let outputsValue = [0, 0, 0, 0]
 let outputsState = [true, true, true, true]
 let outputsDuration = [0, 0, 0, 0]
@@ -86,7 +128,7 @@ enum DegreePercent {
 }
 
 /**
- * Provides access to Sparkbit functionality.
+ * Custom Blocks for Sparkbit Input functionality.
  */
 //% color="#ff9933"  weight=601 icon="\uf085" block="Spark:bit Inputs"
 //% groups="['Bump Sensor (blue)','Angle Sensor (green)','Light Sensor (yellow)','IR Tx/Rx (black/white or gray/white)']"
@@ -99,6 +141,7 @@ namespace sparkbitI {
     //% block="analog read sensor $channel"
     //% channel.shadow="inputNumber"
     //% advanced = true
+    //% parts=”v2"
     export function readAnalogSensor(channel: number): number {
         if (channel < 1) channel = 1;
         if (channel > 8) channel = 8;
@@ -150,6 +193,7 @@ namespace sparkbitI {
     //% channel.shadow="inputNumber"
     //% operator.shadow="degreePercentEnum"
     //% advanced = true
+    //% parts=”v2"
     export function readAnalogSensorPercent(channel: number): number {
         let value = readAnalogSensor(channel);
         value = Math.map(value, 0, 1023, 0, 100);
@@ -168,6 +212,7 @@ namespace sparkbitI {
     //% group="Bump Sensor (blue)"
     //% weight=200
     //% channel.shadow="inputNumber"
+    //% parts=”v2"
     export function bumpSensor(channel: number): boolean {
         return readDigitalSensorBool(channel);
     }
@@ -182,7 +227,7 @@ namespace sparkbitI {
     //% channel.shadow="inputNumber"
     //% operator.shadow="degreePercentEnum"
     //% weight=150
-
+    //% parts=”v2"
     export function readLightSensor(channel: number): number {
         let value = readAnalogSensor(channel);
         value = Math.map(value, 0, 1023, 0, 100);
@@ -203,6 +248,7 @@ namespace sparkbitI {
     //% channel.shadow="inputNumber"
     //% operator.shadow="LogicCompare_enum"
     //% value.min=0 value.max=100
+    //% parts=”v2"
     export function testLightSensorPercent(channel: number, operator: LogicCompare, value: number): boolean {
         let percentInputValue = Math.map(readAnalogSensor(channel), 0, 1023, 0, 100);
         return (logicCompare(operator, percentInputValue, value));
@@ -218,6 +264,7 @@ namespace sparkbitI {
     //% channel.shadow="inputNumber"
     //% operator.shadow="degreePercentEnum"
     //% weight=100
+    //% parts=”v2"
     export function readAngleSensorDeg(operator: DegreePercent, channel: number): number {
         if (operator == DegreePercent.Degree) {
             return Math.round(Math.map(readAnalogSensor(channel), 0, 1023, 0, 359));
@@ -239,6 +286,7 @@ namespace sparkbitI {
     //% channel.shadow="inputNumber"
     //% operator.shadow="LogicCompare_enum"
     //% value.min=0 value.max=359
+    //% parts=”v2"
     export function testAngleSensorDeg(channel: number, operator: LogicCompare, value: number): boolean {
         let percentInputValue = Math.map(readAnalogSensor(channel), 0, 1023, 0, 359);
         return (logicCompare(operator, percentInputValue, value));
@@ -254,6 +302,7 @@ namespace sparkbitI {
     //% channel.shadow="inputNumber"
     //% operator.shadow="LogicCompare_enum"
     //% value.min=0 value.max=100
+    //% parts=”v2"
     export function testAngleSensorPercent(channel: number, operator: LogicCompare, value: number): boolean {
         let percentInputValue = Math.map(readAnalogSensor(channel), 0, 1023, 0, 100);
         return (logicCompare(operator, percentInputValue, value));
@@ -262,6 +311,7 @@ namespace sparkbitI {
 
     //% block
     //% blockHidden=true
+    //% parts=”v2"
     export function lightGateRead(TXpin: number, RXpin: number): boolean {
         if (TXpin == RXpin) {   // error, TXpin cannot equal RXpin
             TXpin = 1;
@@ -287,6 +337,7 @@ namespace sparkbitI {
     //% weight=50
     //% TXpin.shadow="inputNumber"
     //% RXpin.shadow="inputNumber"
+    //% parts=”v2"
     export function proximity(TXpin: number, RXpin: number): boolean {
         return lightGateRead(TXpin, RXpin);
     }
@@ -315,6 +366,7 @@ namespace sparkbitI {
     //% colorSecondary="#FFFFFF"
     //% input.fieldEditor="numberdropdown" input.fieldOptions.decompileLiterals=true
     //% input.fieldOptions.data='[["input 1", 1], ["input 2", 2], ["input 3", 3], ["input 4", 4], ["input 5", 5], ["input 6", 6], ["input 7", 7], ["input 8", 8]]'
+    //% parts=”v2"
     export function __inputNumber(input: number): number {
         return input;
     }
@@ -326,6 +378,7 @@ namespace sparkbitI {
     //% operator.fieldEditor="gridpicker"
     //% operator.fieldOptions.width=220
     //% operator.fieldOptions.columns=3
+    //% parts=”v2"
     export function __LogicCompare_enum(operator: LogicCompare): number {
         switch (operator) {
             case LogicCompare.LogicCompareEQ: return 0;
@@ -344,6 +397,7 @@ namespace sparkbitI {
     //% blockId=LogicCompareEQ 
     //% block="="
     //% blockHidden=true
+    //% parts=”v2"
     export function __LogicCompareEQ(): number {
         return 0;
     }
@@ -353,6 +407,7 @@ namespace sparkbitI {
     //% blockId=LogicCompareNEQ 
     //% block="≠"
     //% blockHidden=true
+    //% parts=”v2"
     export function __LogicCompareNEQ(): number {
         return 1;
     }
@@ -362,6 +417,7 @@ namespace sparkbitI {
     //% blockId=LogicCompareLT 
     //% block="<"
     //% blockHidden=true
+    //% parts=”v2"
     export function __LogicCompareLT(): number {
         return 2;
     }
@@ -371,6 +427,7 @@ namespace sparkbitI {
     //% blockId=LogicCompareLTE 
     //% block="≤"
     //% blockHidden=true
+    //% parts=”v2"
     export function __LogicCompareLTE(): number {
         return 3;
     }
@@ -380,6 +437,7 @@ namespace sparkbitI {
     //% blockId=LogicCompareGT 
     //% block=">"
     //% blockHidden=true
+    //% parts=”v2"
     export function __LogicCompareGT(): number {
         return 4;
     }
@@ -389,6 +447,7 @@ namespace sparkbitI {
     //% blockId=LogicCompareGTE 
     //% block="≥"
     //% blockHidden=true
+    //% parts=”v2"
     export function __LogicCompareGTE(): number {
         return 5;
     }
@@ -399,6 +458,7 @@ namespace sparkbitI {
     //% operator.fieldEditor="gridpicker"
     //% operator.fieldOptions.width=220
     //% operator.fieldOptions.columns=3
+    //% parts=”v2"
     export function __degreePercentEnum(operator: DegreePercent): number {
         switch (operator) {
             case DegreePercent.Degree: return 0;
@@ -412,6 +472,7 @@ namespace sparkbitI {
     //% blockId=degreePercentDegree 
     //% block="degrees (°)"
     //% blockHidden=true
+    //% parts=”v2"
     export function __degreePercentDegree(): number {
         return 0;
     }
@@ -421,20 +482,21 @@ namespace sparkbitI {
     //% blockId=degreePercentPercent 
     //% block="percent (\\%)"
     //% blockHidden=true
+    //% parts=”v2"
     export function __degreePercentPercent(): number {
         return 1;
     }
 }
 
 /**
- * Provides access to Sparkbit functionality.
+ * Custom Blocks for Sparkbit Output functionality.
  */
 //% color="#ff9933"  weight=600 icon="\uf085" block="Spark:bit Outputs"
 //% groups="['Motor Module (red)','Light Module (orange)']"
 namespace sparkbitO {
 
     /**
-     * TODO: describe your function here
+     * Turns a motor module with direction, speed (0 to 100), and duration.
      * @param motor Output (1-4) eg: 1
      */
     //% block="rotate motor module $motor $direction at speed $speed percent (\\%) || for $duration ms"
@@ -446,6 +508,7 @@ namespace sparkbitO {
     //% direction.shadow="directionEnum" direction.defl=Directions.Clockwise
     //% speed.min=0 speed.max=100 speed.defl=100
     //% duration.shadow=timePicker
+    //% parts=”v2"
     //% help=github:KidSpark/pxt-sparkbit/README.md
     export function rotateMotorDuration(motor: number, speed: number, direction: Directions, duration?: number): void {
         speed = Math.map(speed, 0, 100, 0, 1023);
@@ -493,17 +556,20 @@ namespace sparkbitO {
     }
 
     /**
-     * TODO: describe your function here
+     * Stops motor module.
      * @param motor Output (1-4) eg: 1
      */
     //% block="stop motor module $motor"
     //% group="Motor Module (red)"
     //% weight=80
     //% motor.shadow="outputNumber"
+    //% parts=”v2"
     export function stopMotor(motor: number): void {
         motorWrite(motor, 0, false);
     }
+    
 
+    //% parts=”v2"
     export function motorWrite(motor: number, speed: number, direction: boolean): void {
         if (speed < 0) speed = 0;
         if (speed > 1023) speed = 1023;
@@ -550,7 +616,7 @@ namespace sparkbitO {
     }
 
     /**
-     * TODO: describe your function here
+     * Turns a motor module with velocity (-100 to 100), and duration.
      * @param motor Output (1-4) eg: 1
      */
     //% block="rotate motor module $motor at velocity $velocity percent (\\%) || for $duration ms"
@@ -562,6 +628,7 @@ namespace sparkbitO {
     //% velocity.min=-100 velocity.max=100
     //% duration.shadow=timePicker
     //% advanced = true
+    //% parts=”v2"
     export function motorWriteVel(motor: number, velocity: number, duration?: number): void {
         if (velocity > 0){
             velocity = Math.map(velocity, 0, 100, 0, 1023);
@@ -617,7 +684,7 @@ namespace sparkbitO {
     }
 
     /**
-     * TODO: describe your function here
+     * Turns on the LED in the light module with color (Green or Red), brightness (0 to 100), and duration.
      * @param output Output (1-4) eg: 1
      */
     //% block="set light module $output to $color at brightness $brightness percent (\\%) || for $duration ms"
@@ -629,6 +696,7 @@ namespace sparkbitO {
     //% color.shadow="colorEnum" color.defl=Colors.Green
     //% brightness.min=0 brightness.max=100 brightness.defl=100
     //% duration.shadow=timePicker
+    //% parts=”v2"
     export function setLightModule(output: number, brightness: number, color: Colors, duration?: number): void {
         brightness = Math.map(brightness, 0, 100, 0, 1023);
 
@@ -675,13 +743,14 @@ namespace sparkbitO {
     }
 
     /**
-     * TODO: describe your function here
+     * Turns off the LED in the light module.
      * @param output Output (1-4) eg: 1
      */
     //% block="turn off light module $output"
     //% group="Light Module (orange)"
     //% weight=10
     //% output.shadow="outputNumber"
+    //% parts=”v2"
     export function stopLight(output: number): void {
         motorWrite(output, 0, false);
     }
@@ -693,6 +762,7 @@ namespace sparkbitO {
     //% direction.fieldEditor="gridpicker"
     //% direction.fieldOptions.width=220
     //% direction.fieldOptions.columns=2
+    //% parts=”v2"
     export function __directionEnum(direction: Directions): Directions {
         //   switch(direction) {
         // 	  case Directions.Counterclockwise: return true;
@@ -707,6 +777,7 @@ namespace sparkbitO {
     //% color.fieldEditor="gridpicker"
     //% color.fieldOptions.width=220
     //% color.fieldOptions.columns=2
+    //% parts=”v2"
     export function __colorEnum(color: Colors): Colors {
         //   switch(color) {
         // 	  case Colors.Green: return false;
@@ -725,6 +796,7 @@ namespace sparkbitO {
     //% colorSecondary="#FFFFFF"
     //% output.fieldEditor="numberdropdown"output.fieldOptions.decompileLiterals=true
     //% output.fieldOptions.data='[["output 1", 1], ["output 2", 2], ["output 3", 3], ["output 4", 4]]'
+    //% parts=”v2"
     export function __outputNumber(output: number): number {
         return output;
     }
@@ -735,6 +807,7 @@ namespace sparkbitO {
     //% group="Motor Directions"
     //% blockHidden=true
     //% weight=11
+    //% parts=”v2"
     export function __clockwise(): Directions {
         return Directions.Clockwise
     }
@@ -744,6 +817,7 @@ namespace sparkbitO {
     //% group="Motor Directions"
     //% blockHidden=true
     //% weight=10
+    //% parts=”v2"
     export function __counterclockwise(): Directions {
         return Directions.Counterclockwise
     }
@@ -753,6 +827,7 @@ namespace sparkbitO {
     //% blockHidden=true
     //% group="Light Colors"
     //% weight=8
+    //% parts=”v2"
     export function __red(): Colors {
         return Colors.Red
     }
@@ -762,6 +837,7 @@ namespace sparkbitO {
     //% blockHidden=true
     //% group="Light Colors"
     //% weight=7
+    //% parts=”v2"
     export function __green(): Colors {
         return Colors.Green
     }
@@ -770,9 +846,8 @@ namespace sparkbitO {
 
 
 /**
- * Constants and background functions
+ * Constants
  */
-
 const REG_INPUT_DISABLE_B = 0x00	//	RegInputDisableB Input buffer disable register _ I/O[15_8] (Bank B) 0000 0000
 const REG_INPUT_DISABLE_A = 0x01	//	RegInputDisableA Input buffer disable register _ I/O[7_0] (Bank A) 0000 0000
 const REG_LONG_SLEW_B = 0x02	//	RegLongSlewB Output buffer long slew register _ I/O[15_8] (Bank B) 0000 0000
@@ -888,48 +963,19 @@ const REG_RESET = 0x7D	//	RegReset Software reset register 0000 0000
 const REG_TEST_1 = 0x7E	//	RegTest1 Test register 0000 0000
 const REG_TEST_2 = 0x7F	//	RegTest2 Test register 0000 0000
 
-const COUNTER_CLOCKWISE = false
-const CLOCKWISE = true
-
-serial.redirectToUSB()
 const SX1509_I2C_ADDR = 0x3E
 const MAX11608_I2C_ADDR = 0b0110011
 const SetupByte = 0b10100000
 const ConfigByte = 0b00001111
 
-//Setup MAX11608
-pins.i2cWriteNumber(MAX11608_I2C_ADDR, SetupByte, NumberFormat.UInt8BE);
-pins.i2cWriteNumber(MAX11608_I2C_ADDR, ConfigByte, NumberFormat.UInt8BE);
-
-//Setup SX1509B
-setreg(SX1509_I2C_ADDR, REG_RESET, 0x12);
-setreg(SX1509_I2C_ADDR, REG_RESET, 0x34);
+const COUNTER_CLOCKWISE = false
+const CLOCKWISE = true
 
 
-// setreg(SX1509_I2C_ADDR, REG_PULL_DOWN_A, 0xFF);    // Enable pull-down (RegPullUp) 
-setreg(SX1509_I2C_ADDR, REG_DIR_A, 0xFF);   // Set direction to input (RegDir)
 
-setreg(SX1509_I2C_ADDR, REG_INPUT_DISABLE_B, 0xFF);    // Disable input buffer (RegInputDisable) 
-setreg(SX1509_I2C_ADDR, REG_PULL_UP_B, 0x00);    // Disable pull-up (RegPullUp) 
-setreg(SX1509_I2C_ADDR, REG_DIR_B, 0x00);   // Set direction to output (RegDir)
-setreg(SX1509_I2C_ADDR, REG_CLOCK, 0x40);    // Enable oscillator (RegClock)
-setreg(SX1509_I2C_ADDR, REG_MISC, 0x70);    // Configure LED driver clock and mode if relevant (RegMisc)
-setreg(SX1509_I2C_ADDR, REG_LED_DRIVER_ENABLE_B, 0xFF);    // Enable LED driver operation (RegLEDDriverEnable)
-setreg(SX1509_I2C_ADDR, REG_OPEN_DRAIN_B, 0x00);
-setreg(SX1509_I2C_ADDR, REG_POLARITY_B, 0xFF);  //Invert Polarity
-setreg(SX1509_I2C_ADDR, REG_DATA_B, 0xAA);
-// setreg(SX1509_I2C_ADDR, REG_I_ON_9, 255);
-// setreg(SX1509_I2C_ADDR, REG_I_ON_11, 255);
-// setreg(SX1509_I2C_ADDR, REG_I_ON_13, 255);
-// setreg(SX1509_I2C_ADDR, REG_I_ON_15, 255);
-
-pins.setAudioPin(AnalogPin.P0)
-music.setSilenceLevel(0)
-
-//Pull all pins down
-for (let index = 0; index <= 7; index++) {
-    setDigitalSensorDir(index + 1, 1)
-}
+/**
+ * Internal functions
+ */
 
 function setreg(adr: number, reg: number, dat: number): void {
     let buf = pins.createBuffer(2);
