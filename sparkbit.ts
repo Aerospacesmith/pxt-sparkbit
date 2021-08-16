@@ -1,6 +1,47 @@
 
 
 /**
+ * Functions to operate Output timers.
+ */
+let outputsValue = [0, 0, 0, 0]
+let outputsState = [true, true, true, true]
+let outputsDuration = [0, 0, 0, 0]
+
+declare const EVENTID_OUTPUT_1_DELAY_OFF = 5000
+declare const EVENTID_OUTPUT_2_DELAY_OFF = 5001
+declare const EVENTID_OUTPUT_3_DELAY_OFF = 5002
+declare const EVENTID_OUTPUT_4_DELAY_OFF = 5003
+
+control.onEvent(EVENTID_OUTPUT_1_DELAY_OFF, 10, function () {
+    sparkbitO.motorWrite(1, outputsValue[0], outputsState[0]);
+    basic.pause(outputsDuration[0]);
+    sparkbitO.motorWrite(1, 0, outputsState[0]);
+    outputsValue[0] = 0;
+    outputsDuration[0] = 0;
+})
+control.onEvent(EVENTID_OUTPUT_2_DELAY_OFF, 10, function () {
+    sparkbitO.motorWrite(2, outputsValue[1], outputsState[1]);
+    basic.pause(outputsDuration[1]);
+    sparkbitO.motorWrite(2, 0, outputsState[1]);
+    outputsValue[1] = 0;
+    outputsDuration[1] = 0;
+})
+control.onEvent(EVENTID_OUTPUT_3_DELAY_OFF, 10, function () {
+    sparkbitO.motorWrite(3, outputsValue[2], outputsState[2]);
+    basic.pause(outputsDuration[2]);
+    sparkbitO.motorWrite(3, 0, outputsState[2]);
+    outputsValue[2] = 0;
+    outputsDuration[2] = 0;
+})
+control.onEvent(EVENTID_OUTPUT_4_DELAY_OFF, 10, function () {
+    sparkbitO.motorWrite(4, outputsValue[3], outputsState[3]);
+    basic.pause(outputsDuration[3]);
+    sparkbitO.motorWrite(4, 0, outputsState[3]);
+    outputsValue[3] = 0;
+    outputsDuration[3] = 0;
+})
+
+/**
   * Enumeration of directions.
   */
 enum Directions {
@@ -423,7 +464,7 @@ namespace sparkbitO {
     //% direction.shadow="directionEnum" direction.defl=Directions.Clockwise
     //% speed.min=0 speed.max=100 speed.defl=100
     //% duration.shadow=timePicker
-    //% parts=”microphone"
+    //% parts=”v2"
     //% help=github:KidSpark/pxt-sparkbit/README.md
     export function rotateMotorDuration(motor: number, speed: number, direction: Directions, duration?: number): void {
         speed = Math.map(speed, 0, 100, 0, 1023);
@@ -930,48 +971,6 @@ for (let index = 0; index <= 7; index++) {
 serial.redirectToUSB();
 
 
-
-
-/**
- * Functions to operate Output timers.
- */
-let outputsValue = [0, 0, 0, 0]
-let outputsState = [true, true, true, true]
-let outputsDuration = [0, 0, 0, 0]
-
-declare const EVENTID_OUTPUT_1_DELAY_OFF = 5000
-declare const EVENTID_OUTPUT_2_DELAY_OFF = 5001
-declare const EVENTID_OUTPUT_3_DELAY_OFF = 5002
-declare const EVENTID_OUTPUT_4_DELAY_OFF = 5003
-
-control.onEvent(EVENTID_OUTPUT_1_DELAY_OFF, 10, function () {
-    sparkbitO.motorWrite(1, outputsValue[0], outputsState[0]);
-    basic.pause(outputsDuration[0]);
-    sparkbitO.motorWrite(1, 0, outputsState[0]);
-    outputsValue[0] = 0;
-    outputsDuration[0] = 0;
-})
-control.onEvent(EVENTID_OUTPUT_2_DELAY_OFF, 10, function () {
-    sparkbitO.motorWrite(2, outputsValue[1], outputsState[1]);
-    basic.pause(outputsDuration[1]);
-    sparkbitO.motorWrite(2, 0, outputsState[1]);
-    outputsValue[1] = 0;
-    outputsDuration[1] = 0;
-})
-control.onEvent(EVENTID_OUTPUT_3_DELAY_OFF, 10, function () {
-    sparkbitO.motorWrite(3, outputsValue[2], outputsState[2]);
-    basic.pause(outputsDuration[2]);
-    sparkbitO.motorWrite(3, 0, outputsState[2]);
-    outputsValue[2] = 0;
-    outputsDuration[2] = 0;
-})
-control.onEvent(EVENTID_OUTPUT_4_DELAY_OFF, 10, function () {
-    sparkbitO.motorWrite(4, outputsValue[3], outputsState[3]);
-    basic.pause(outputsDuration[3]);
-    sparkbitO.motorWrite(4, 0, outputsState[3]);
-    outputsValue[3] = 0;
-    outputsDuration[3] = 0;
-})
 
 
 /**
