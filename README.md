@@ -13,31 +13,30 @@ This repository can be added as an **extension** in MakeCode.
 Use `sparkbitI.readAnalogSensor(...)` to read a particular input sensor.
 
 ### Bump Sensor (blue)
-<img src="https://github.com/KidSpark/pxt-sparkbit/blob/master/assets/images/Bump%20Sensor.png?raw=true" alt="Bump Sensor" width="200"/>
-Returns true if pressed, false if not pressed
+<img src="https://github.com/KidSpark/pxt-sparkbit/blob/master/assets/images/Bump%20Sensor.png?raw=true" alt="Bump Sensor" width="200"/>  
+Returns `true` if pressed, `false` if not pressed.
 
 ### Angle Sensor (green)
-<img src="https://github.com/KidSpark/pxt-sparkbit/blob/master/assets/images/AS.png?raw=true" alt="Angle Sensor" width="200"/>
+<img src="https://github.com/KidSpark/pxt-sparkbit/blob/master/assets/images/AS.png?raw=true" alt="Angle Sensor" width="200"/>  
+Returns angle sensor value as an integer between `0` and `100`.
 
 ### Light Sensor (yellow)
-<img src="https://github.com/KidSpark/pxt-sparkbit/blob/master/assets/images/Light%20Sensor.png?raw=true" alt="Light Sensor" width="200"/>
+<img src="https://github.com/KidSpark/pxt-sparkbit/blob/master/assets/images/Light%20Sensor.png?raw=true" alt="Light Sensor" width="200"/>  
+Returns light sensor value as an integer between `0` and `100`.
 
-### IR Tx/Rx
-## Light Gate
+
+## IR Tx/Rx
+### Light Gate
 To make a light gate, use an IR Receiver (white) and Low Power IR Transmitter (grey).  
-
-<img src="https://github.com/KidSpark/pxt-sparkbit/blob/master/assets/images/IR%20Sensing%20Receiver.png?raw=true" alt="IR Receiver" width="200"/>
-<img src="https://github.com/KidSpark/pxt-sparkbit/blob/master/assets/images/High%20Power%20IR%20Transmitter.png?raw=true" alt="High Power IR Transmitter " width="200"/>  
-
-## Proximity Detector
-To make a proximity detector, use an IR Receiver (white) and High Power IR Transmitter (black).  
-
 <img src="https://github.com/KidSpark/pxt-sparkbit/blob/master/assets/images/IR%20Sensing%20Receiver.png?raw=true" alt="IR Receiver" width="200"/>
 <img src="https://github.com/KidSpark/pxt-sparkbit/blob/master/assets/images/Low%20Power%20IR%20Transmitter.png?raw=true" alt="Low Power IR Transmitter" width="200"/>  
 
-    
-    
+### Proximity Detector
+To make a proximity detector, use an IR Receiver (white) and High Power IR Transmitter (black).  
+<img src="https://github.com/KidSpark/pxt-sparkbit/blob/master/assets/images/IR%20Sensing%20Receiver.png?raw=true" alt="IR Receiver" width="200"/>
+<img src="https://github.com/KidSpark/pxt-sparkbit/blob/master/assets/images/High%20Power%20IR%20Transmitter.png?raw=true" alt="High Power IR Transmitter " width="200"/>  
 
+Returns `true` if an IR signal is received from the IR transmitter indicating no obstical. Use a `not` block 
 
   
 # Driving the outputs
