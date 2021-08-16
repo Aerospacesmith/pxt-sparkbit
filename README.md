@@ -63,7 +63,7 @@ sparkbitO.stopMotor(1)
   
   
 ## Light module
-    ![Light Module](https://raw.githubusercontent.com/KidSpark/pxt-sparkbit/assets/images/Light Module.png)
+    ![Light Module](https://github.com/KidSpark/pxt-sparkbit/blob/master/assets/images/Light%20Module.png)
 Use `setLightModule(...)` to turn on the LED in the light module.
 You can specify the color (Green or Red) and brightness between 0 and 100. You can specify an optional duration (in milliseconds) for the LED to illuminate before it automatically turns off.
 
