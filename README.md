@@ -23,7 +23,8 @@ Returns true if pressed, false if not pressed
 
 
 
-
+  
+  
 # Driving the outputs
 
 ## Rotate Motor
@@ -52,7 +53,8 @@ sparkbitO.rotateMotorDuration(2, 100, Directions.Counterclockwise, 10000)
 sparkbitO.stopMotor(1)
 ```
 
-
+  
+  
 ## Light module
 Use `setLightModule(...)` to turn on the LED in the light module.
 You can specify the color (Green or Red) and brightness between 0 and 100. You can specify an optional duration (in milliseconds) for the LED to illuminate before it automatically turns off.
