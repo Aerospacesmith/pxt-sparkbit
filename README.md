@@ -16,7 +16,7 @@ Use `sparkbitI.readAnalogSensor(...)` to read a particular input sensor.
 <img src="https://github.com/KidSpark/pxt-sparkbit/blob/master/assets/images/Bump%20Sensor.png?raw=true" alt="Bump Sensor" width="200"/>
 Returns true if pressed, false if not pressed
 
-### Angle Sensor  (green)
+### Angle Sensor (green)
 <img src="https://github.com/KidSpark/pxt-sparkbit/blob/master/assets/images/AS.png?raw=true" alt="Angle Sensor" width="200"/>
 
 ### Light Sensor (yellow)
@@ -24,14 +24,17 @@ Returns true if pressed, false if not pressed
 
 ### IR Tx/Rx
 ## Light Gate
-To make a light gate, use an IR Receiver and Low Power IR Transmitter.
+To make a light gate, use an IR Receiver (white) and Low Power IR Transmitter (grey).  
+
 <img src="https://github.com/KidSpark/pxt-sparkbit/blob/master/assets/images/IR%20Sensing%20Receiver.png?raw=true" alt="IR Receiver" width="200"/>
-<img src="https://github.com/KidSpark/pxt-sparkbit/blob/master/assets/images/High%20Power%20IR%20Transmitter.png?raw=true" alt="High Power IR Transmitter " width="200"/>
+<img src="https://github.com/KidSpark/pxt-sparkbit/blob/master/assets/images/High%20Power%20IR%20Transmitter.png?raw=true" alt="High Power IR Transmitter " width="200"/>  
 
 ## Proximity Detector
-To make a proximity detector, use an IR Receiver and High Power IR Transmitter.
+To make a proximity detector, use an IR Receiver (white) and High Power IR Transmitter (black).  
+
 <img src="https://github.com/KidSpark/pxt-sparkbit/blob/master/assets/images/IR%20Sensing%20Receiver.png?raw=true" alt="IR Receiver" width="200"/>
-<img src="https://github.com/KidSpark/pxt-sparkbit/blob/master/assets/images/Low%20Power%20IR%20Transmitter.png?raw=true" alt="Low Power IR Transmitter" width="200"/>
+<img src="https://github.com/KidSpark/pxt-sparkbit/blob/master/assets/images/Low%20Power%20IR%20Transmitter.png?raw=true" alt="Low Power IR Transmitter" width="200"/>  
+
     
     
 
@@ -68,7 +71,7 @@ sparkbitO.stopMotor(1)
 
   
   
-## Light module
+## Light module (orange)
 <img src="https://github.com/KidSpark/pxt-sparkbit/blob/master/assets/images/Light%20Module.png" alt="Light Module" width="200"/>
 Use `setLightModule(...)` to turn on the LED in the light module.
 You can specify the color (Green or Red) and brightness between 0 and 100. You can specify an optional duration (in milliseconds) for the LED to illuminate before it automatically turns off.
