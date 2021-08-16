@@ -423,7 +423,7 @@ namespace sparkbitO {
     //% direction.shadow="directionEnum" direction.defl=Directions.Clockwise
     //% speed.min=0 speed.max=100 speed.defl=100
     //% duration.shadow=timePicker
-    //% parts=”v2"
+    //% parts=”microphone"
     //% help=github:KidSpark/pxt-sparkbit/README.md
     export function rotateMotorDuration(motor: number, speed: number, direction: Directions, duration?: number): void {
         speed = Math.map(speed, 0, 100, 0, 1023);
