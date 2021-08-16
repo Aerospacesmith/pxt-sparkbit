@@ -1,49 +1,6 @@
 
 
 /**
- * Initialization on Start
- */
-
-//Setup MAX11608
-pins.i2cWriteNumber(MAX11608_I2C_ADDR, SetupByte, NumberFormat.UInt8BE);
-pins.i2cWriteNumber(MAX11608_I2C_ADDR, ConfigByte, NumberFormat.UInt8BE);
-
-
-//Setup SX1509B
-setreg(SX1509_I2C_ADDR, REG_RESET, 0x12);
-setreg(SX1509_I2C_ADDR, REG_RESET, 0x34);
-
-// setreg(SX1509_I2C_ADDR, REG_PULL_DOWN_A, 0xFF);    // Enable pull-down (RegPullUp) 
-setreg(SX1509_I2C_ADDR, REG_DIR_A, 0xFF);   // Set direction to input (RegDir)
-
-setreg(SX1509_I2C_ADDR, REG_INPUT_DISABLE_B, 0xFF);    // Disable input buffer (RegInputDisable) 
-setreg(SX1509_I2C_ADDR, REG_PULL_UP_B, 0x00);    // Disable pull-up (RegPullUp) 
-setreg(SX1509_I2C_ADDR, REG_DIR_B, 0x00);   // Set direction to output (RegDir)
-setreg(SX1509_I2C_ADDR, REG_CLOCK, 0x40);    // Enable oscillator (RegClock)
-setreg(SX1509_I2C_ADDR, REG_MISC, 0x70);    // Configure LED driver clock and mode if relevant (RegMisc)
-setreg(SX1509_I2C_ADDR, REG_LED_DRIVER_ENABLE_B, 0xFF);    // Enable LED driver operation (RegLEDDriverEnable)
-setreg(SX1509_I2C_ADDR, REG_OPEN_DRAIN_B, 0x00);
-setreg(SX1509_I2C_ADDR, REG_POLARITY_B, 0xFF);  //Invert Polarity
-setreg(SX1509_I2C_ADDR, REG_DATA_B, 0xAA);
-// setreg(SX1509_I2C_ADDR, REG_I_ON_9, 255);
-// setreg(SX1509_I2C_ADDR, REG_I_ON_11, 255);
-// setreg(SX1509_I2C_ADDR, REG_I_ON_13, 255);
-// setreg(SX1509_I2C_ADDR, REG_I_ON_15, 255);
-
-
-//Enable Ext Speaker
-pins.setAudioPin(AnalogPin.P0);
-music.setSilenceLevel(0);
-
-//Pull all pins down
-for (let index = 0; index <= 7; index++) {
-    setDigitalSensorDir(index + 1, 1);
-}
-
-serial.redirectToUSB();
-
-
-/**
  * Functions to operate Output timers.
  */
 let outputsValue = [0, 0, 0, 0]
@@ -971,6 +928,48 @@ const ConfigByte = 0b00001111
 const COUNTER_CLOCKWISE = false
 const CLOCKWISE = true
 
+
+/**
+ * Initialization on Start
+ */
+
+//Setup MAX11608
+pins.i2cWriteNumber(MAX11608_I2C_ADDR, SetupByte, NumberFormat.UInt8BE);
+pins.i2cWriteNumber(MAX11608_I2C_ADDR, ConfigByte, NumberFormat.UInt8BE);
+
+
+//Setup SX1509B
+setreg(SX1509_I2C_ADDR, REG_RESET, 0x12);
+setreg(SX1509_I2C_ADDR, REG_RESET, 0x34);
+
+// setreg(SX1509_I2C_ADDR, REG_PULL_DOWN_A, 0xFF);    // Enable pull-down (RegPullUp) 
+setreg(SX1509_I2C_ADDR, REG_DIR_A, 0xFF);   // Set direction to input (RegDir)
+
+setreg(SX1509_I2C_ADDR, REG_INPUT_DISABLE_B, 0xFF);    // Disable input buffer (RegInputDisable) 
+setreg(SX1509_I2C_ADDR, REG_PULL_UP_B, 0x00);    // Disable pull-up (RegPullUp) 
+setreg(SX1509_I2C_ADDR, REG_DIR_B, 0x00);   // Set direction to output (RegDir)
+setreg(SX1509_I2C_ADDR, REG_CLOCK, 0x40);    // Enable oscillator (RegClock)
+setreg(SX1509_I2C_ADDR, REG_MISC, 0x70);    // Configure LED driver clock and mode if relevant (RegMisc)
+setreg(SX1509_I2C_ADDR, REG_LED_DRIVER_ENABLE_B, 0xFF);    // Enable LED driver operation (RegLEDDriverEnable)
+setreg(SX1509_I2C_ADDR, REG_OPEN_DRAIN_B, 0x00);
+setreg(SX1509_I2C_ADDR, REG_POLARITY_B, 0xFF);  //Invert Polarity
+setreg(SX1509_I2C_ADDR, REG_DATA_B, 0xAA);
+// setreg(SX1509_I2C_ADDR, REG_I_ON_9, 255);
+// setreg(SX1509_I2C_ADDR, REG_I_ON_11, 255);
+// setreg(SX1509_I2C_ADDR, REG_I_ON_13, 255);
+// setreg(SX1509_I2C_ADDR, REG_I_ON_15, 255);
+
+
+//Enable Ext Speaker
+pins.setAudioPin(AnalogPin.P0);
+music.setSilenceLevel(0);
+
+//Pull all pins down
+for (let index = 0; index <= 7; index++) {
+    setDigitalSensorDir(index + 1, 1);
+}
+
+serial.redirectToUSB();
 
 
 /**
