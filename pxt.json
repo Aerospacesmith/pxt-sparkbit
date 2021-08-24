@@ -14,7 +14,7 @@
         "_locales/es-ES/Sparkbit-jsdoc-strings.json"
     ],
     "testFiles": [
-        "tests.ts"
+        "test.ts"
     ],
     "targetVersions": {
         "target": "4.0.12",
