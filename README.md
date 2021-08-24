@@ -58,11 +58,11 @@ Use `sparkbitO.stopMotor(...)` to stop the specified motor module.
 
 ### Examples
 ```blocks
-// Drive motor #1 at speed 60% and direction clockwise.
-sparkbitO.rotateMotorDuration(1, 60, Directions.Clockwise)
+// Drive motor #1 clockwise at 60% speed.
+sparkbitO.rotateMotorDuration(1, Directions.Clockwise, 60)
 
-// Drive motor #2 at speed 100% and direction counterclockwise for 10 seconds (10,000 milliseconds).
-sparkbitO.rotateMotorDuration(2, 100, Directions.Counterclockwise, 10000)
+// Drive motor #2 counterclockwise at 100% speed for 10 seconds (10,000 milliseconds).
+sparkbitO.rotateMotorDuration(2, Directions.Counterclockwise, 100, 10000)
 
 //Stop motor #1.
 sparkbitO.stopMotor(1)
@@ -87,11 +87,11 @@ Use `sparkbitO.stopLight(...)` to turn off the specified light module.
 
 ### Examples
 ```blocks
-// Turn on light module #2 at brightness 100% and color Red.
-sparkbitO.setLightModule(2, 100, Colors.Red)
+// Turn light module #2 Red at 100% brightness.
+sparkbitO.setLightModule(2, Colors.Red, 100)
 
-// Turn on light module #4 at brightness 80% and color Green for 10 seconds (10,000 milliseconds).
-sparkbitO.setLightModule(4, 80, Colors.Green, 10000)
+// Turn light module #4 Green at 80% brightness for 10 seconds (10,000 milliseconds).
+sparkbitO.setLightModule(4, Colors.Green, 80, 10000)
 
 //Turn off Light #2.
 sparkbitO.stopLight(2)
