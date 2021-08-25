@@ -1,11 +1,11 @@
 {
     // rotate motor on output #1 100 ms clockwise
-    sparkbitO.rotateMotorDuration(sparkbitO.__outputNumber(1), 100, Directions.Clockwise, 100);
+    sparkbitO.rotateMotorDuration(sparkbitO.__outputNumber(1), Directions.Clockwise, 100, 100);
     basic.pause(100);
     sparkbitO.stopMotor(1);
 
     // set light on output #2 red for 100 ms
-    sparkbitO.setLightModule(sparkbitO.__outputNumber(2), 100, Colors.Red, 100);
+    sparkbitO.setLightModule(sparkbitO.__outputNumber(2), Colors.Red, 100, 100);
     basic.pause(100);
     sparkbitO.stopLight(2);
 
