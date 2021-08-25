@@ -425,15 +425,15 @@ namespace sparkbitO {
     //% speed.min=0 speed.max=100 speed.defl=100
     //% duration.shadow=timePicker
     //% parts=”v2"
-    export function rotateMotorDuration(motor: number, speed: number, direction: Directions, duration?: number): void {
+    export function rotateMotorDuration(motor: number, direction: Directions, speed: number, duration?: number): void {
         speed = Math.map(speed, 0, 100, 0, 1023);
 
         if (duration == undefined) {
             if (direction == Directions.Clockwise) {
-                motorWrite(motor, speed, false);
+                motorWrite(motor, false, speed);
             }
             else if (direction == Directions.Counterclockwise) {
-                motorWrite(motor, speed, true);
+                motorWrite(motor, true, speed);
             }
         }
         else {
@@ -480,12 +480,12 @@ namespace sparkbitO {
     //% motor.shadow="outputNumber"
     //% parts=”v2"
     export function stopMotor(motor: number): void {
-        motorWrite(motor, 0, false);
+        motorWrite(motor, false, 0);
     }
     
 
     //% parts=”v2"
-    export function motorWrite(motor: number, speed: number, direction: boolean): void {
+    export function motorWrite(motor: number, direction: boolean, speed: number): void {
         if (speed < 0) speed = 0;
         if (speed > 1023) speed = 1023;
         speed /= 4; //range to 0-255
@@ -557,10 +557,10 @@ namespace sparkbitO {
 
         if (duration == undefined) {
             if (velocity > 0) {
-                motorWrite(motor, velocity, COUNTER_CLOCKWISE);
+                motorWrite(motor, COUNTER_CLOCKWISE, velocity);
             }
             else {
-                motorWrite(motor, -velocity, CLOCKWISE);
+                motorWrite(motor, CLOCKWISE, -velocity);
             }
         }
         else {
@@ -612,15 +612,15 @@ namespace sparkbitO {
     //% brightness.min=0 brightness.max=100 brightness.defl=100
     //% duration.shadow=timePicker
     //% parts=”v2"
-    export function setLightModule(output: number, brightness: number, color: Colors, duration?: number): void {
+    export function setLightModule(output: number, color: Colors, brightness: number, duration?: number): void {
         brightness = Math.map(brightness, 0, 100, 0, 1023);
 
         if (duration == undefined) {
             if (color == Colors.Red) {
-                motorWrite(output, brightness, true);
+                motorWrite(output, true, brightness);
             }
             else if (color == Colors.Green) {
-                motorWrite(output, brightness, false);
+                motorWrite(output, false, brightness);
             }
         }
         else {
@@ -667,7 +667,7 @@ namespace sparkbitO {
     //% output.shadow="outputNumber"
     //% parts=”v2"
     export function stopLight(output: number): void {
-        motorWrite(output, 0, false);
+        motorWrite(output, false, 0);
     }
 
 
@@ -943,30 +943,30 @@ declare const EVENTID_OUTPUT_3_DELAY_OFF = 5002
 declare const EVENTID_OUTPUT_4_DELAY_OFF = 5003
 
 control.onEvent(EVENTID_OUTPUT_1_DELAY_OFF, 10, function () {
-    sparkbitO.motorWrite(1, outputsValue[0], outputsState[0]);
+    sparkbitO.motorWrite(1, outputsState[0], outputsValue[0]);
     basic.pause(outputsDuration[0]);
-    sparkbitO.motorWrite(1, 0, outputsState[0]);
+    sparkbitO.motorWrite(1, outputsState[0], 0);
     outputsValue[0] = 0;
     outputsDuration[0] = 0;
 })
 control.onEvent(EVENTID_OUTPUT_2_DELAY_OFF, 10, function () {
-    sparkbitO.motorWrite(2, outputsValue[1], outputsState[1]);
+    sparkbitO.motorWrite(2, outputsState[1], outputsValue[1]);
     basic.pause(outputsDuration[1]);
-    sparkbitO.motorWrite(2, 0, outputsState[1]);
+    sparkbitO.motorWrite(2, outputsState[1], 0);
     outputsValue[1] = 0;
     outputsDuration[1] = 0;
 })
 control.onEvent(EVENTID_OUTPUT_3_DELAY_OFF, 10, function () {
-    sparkbitO.motorWrite(3, outputsValue[2], outputsState[2]);
+    sparkbitO.motorWrite(3, outputsState[2], outputsValue[2]);
     basic.pause(outputsDuration[2]);
-    sparkbitO.motorWrite(3, 0, outputsState[2]);
+    sparkbitO.motorWrite(3, outputsState[2], 0);
     outputsValue[2] = 0;
     outputsDuration[2] = 0;
 })
 control.onEvent(EVENTID_OUTPUT_4_DELAY_OFF, 10, function () {
-    sparkbitO.motorWrite(4, outputsValue[3], outputsState[3]);
+    sparkbitO.motorWrite(4, outputsState[3], outputsValue[3]);
     basic.pause(outputsDuration[3]);
-    sparkbitO.motorWrite(4, 0, outputsState[3]);
+    sparkbitO.motorWrite(4, outputsState[3], 0);
     outputsValue[3] = 0;
     outputsDuration[3] = 0;
 })
