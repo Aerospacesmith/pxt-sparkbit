@@ -266,7 +266,9 @@ namespace sparkbitI {
     //% input.fieldOptions.data='[["input 1", 1], ["input 2", 2], ["input 3", 3], ["input 4", 4], ["input 5", 5], ["input 6", 6], ["input 7", 7], ["input 8", 8]]'
     //% parts=”v2"
     export function __sparkbitInputPort(input: number | string): number {
-     if(input is number) return input;
+     if(typeof input == 'number'){
+      return input;
+     }
      else {
       let inputVar = parseFloat(input.substr(6, 1));
       if(inputVar < 1) inputVar = 1;
