@@ -255,11 +255,10 @@ namespace sparkbitI {
 
     /**
      * Input Port #
-    * @param input (1-8)
+    * @param input (1-8) eg: 1
     */
     //% blockId=sparkbitInputPort
     //% block="input $input"
-    //% blockHidden=true
     //% colorSecondary="#FFFFFF"
     //% input.fieldEditor="numberdropdown" input.fieldOptions.decompileLiterals=true
     //% input.fieldOptions.data='[["input 1", 1], ["input 2", 2], ["input 3", 3], ["input 4", 4], ["input 5", 5], ["input 6", 6], ["input 7", 7], ["input 8", 8]]'
