@@ -88,13 +88,13 @@ namespace sparkbitI {
 
     /**
      * Returns 10 bit analog value of sensor
-     * @param channel Sensor Input (1-8) eg: SparkbitInPort.Input1
+     * @param channel Sensor Input (1-8) eg: 1
      */
     //% block="analog sensor $channel 10 bit value"
     //% channel.shadow="sparkbitInPortEnum"
     //% advanced = true
     //% parts=”v2"
-    export function analogSensor(channel: SparkbitInPort | number): number {
+    export function analogSensor(channel: number): number {
         if (channel < 1) channel = 1;
         if (channel > 8) channel = 8;
         switch (channel) { //reverses sensor ports 1-8 to match schematics.
@@ -138,7 +138,7 @@ namespace sparkbitI {
 
     /**
      * Returns value of analog sensor in percentage
-     * @param channel Sensor Input (1-8) eg: SparkbitInPort.Input1
+     * @param channel Sensor Input (1-8) eg: 1
      */
     //% block="analog sensor $channel percent (\\%)"
     //% weight=1
@@ -158,7 +158,7 @@ namespace sparkbitI {
 
     /**
      * Returns true if pressed, false if not pressed
-     * @param channel Sensor Input (1-8) eg: SparkbitInPort.Input1
+     * @param channel Sensor Input (1-8) eg: 1
      */
     //% block="bump sensor $channel is pressed"
     //% group="Bump Sensor (blue)"
@@ -172,7 +172,7 @@ namespace sparkbitI {
 
     /**
      * Returns value of angle sensor
-     * @param channel Sensor Input (1-8) eg: SparkbitInPort.Input1
+     * @param channel Sensor Input (1-8) eg: 1
      */
     //% block="angle sensor $channel $operator"
     //% group="Angle Sensor (green)"
@@ -193,7 +193,7 @@ namespace sparkbitI {
 
     /**
       * Compares Angle Degree to Value and returns Boolean
-      * @param channel Sensor Input (1-8) eg: SparkbitInPort.Input1
+      * @param channel Sensor Input (1-8) eg: 1
       */
     //% block="angle sensor $channel $operator $value degrees (°)"
     //% group="Angle Sensor (green)"
@@ -202,7 +202,7 @@ namespace sparkbitI {
     //% operator.shadow="sparkbitLogic_enum"
     //% value.min=0 value.max=359
     //% parts=”v2"
-    export function angleSensorCompareDegree(channel: SparkbitInPort | number, operator: SparkbitLogic, value: number): boolean {
+    export function angleSensorCompareDegree(channel: number, operator: SparkbitLogic, value: number): boolean {
         let percentInputValue = Math.map(analogSensor(channel), 0, 1023, 0, 359);
         return (sparkbitLogicCompare(operator, percentInputValue, value));
     }
@@ -210,7 +210,7 @@ namespace sparkbitI {
  
     /**
       * Compares Angle Percent to Value and returns Boolean
-      * @param channel Sensor Input (1-8) eg: SparkbitInPort.Input1
+      * @param channel Sensor Input (1-8) eg: 1
       */
     //% block="angle sensor $channel $operator $value percent (\\%)"
     //% group="Angle Sensor (green)"
@@ -219,7 +219,7 @@ namespace sparkbitI {
     //% operator.shadow="sparkbitLogic_enum"
     //% value.min=0 value.max=100
     //% parts=”v2"
-    export function angleSensorComparePercent(channel: SparkbitInPort | number, operator: SparkbitLogic, value: number): boolean {
+    export function angleSensorComparePercent(channel: number, operator: SparkbitLogic, value: number): boolean {
         let percentInputValue = Math.map(analogSensor(channel), 0, 1023, 0, 100);
         return (sparkbitLogicCompare(operator, percentInputValue, value));
     }
@@ -227,7 +227,7 @@ namespace sparkbitI {
 
     /**
      * Returns value of light sensor
-     * @param channel Sensor Input (1-8) eg: SparkbitInPort.Input1
+     * @param channel Sensor Input (1-8) eg: 1
      */
     //% block="light sensor $channel percent (\\%)"
     //% group="Light Sensor (yellow)"
@@ -235,7 +235,7 @@ namespace sparkbitI {
     //% operator.shadow="sparkbitAngleEnum"
     //% weight=150
     //% parts=”v2"
-    export function lightSensorPercent(channel: SparkbitInPort | number): number {
+    export function lightSensorPercent(channel: number): number {
         let value = analogSensor(channel);
         value = Math.map(value, 0, 1023, 0, 100);
         value = Math.round(value);
@@ -247,7 +247,7 @@ namespace sparkbitI {
 
     /**
       * Compares Light Percent to Value and returns Boolean
-      * @param channel Sensor Input (1-8) eg: SparkbitInPort.Input1
+      * @param channel Sensor Input (1-8) eg: 1
       */
     //% block="light sensor $channel $operator $value percent (\\%)"
     //% group="Light Sensor (yellow)"
@@ -256,7 +256,7 @@ namespace sparkbitI {
     //% operator.shadow="sparkbitLogic_enum"
     //% value.min=0 value.max=100
     //% parts=”v2"
-    export function lightSensorComparePercent(channel: SparkbitInPort | number, operator: SparkbitLogic, value: number): boolean {
+    export function lightSensorComparePercent(channel: number, operator: SparkbitLogic, value: number): boolean {
         let percentInputValue = Math.map(analogSensor(channel), 0, 1023, 0, 100);
         return (sparkbitLogicCompare(operator, percentInputValue, value));
     }
@@ -264,8 +264,8 @@ namespace sparkbitI {
  
     /**
      * Pulses IR Transmitter and checks if signal is reflected. Returns Boolean.
-     * @param TXpin Sensor Input (1-8) eg: SparkbitInPort.Input1
-     * @param RXpin Sensor Input (1-8) eg: SparkbitInPort.Input2
+     * @param TXpin Sensor Input (1-8) eg: 1
+     * @param RXpin Sensor Input (1-8) eg: 2
      */
     //% block="IR transmitter $TXpin is received on $RXpin"
     //% group="IR Tx/Rx (black/white or gray/white)"
@@ -306,7 +306,7 @@ namespace sparkbitI {
  
    /**
     * Input Port #
-    * @param input (1-8) eg: SparkbitInPort.Input1
+    * @param input (1-8) eg: 1
     */
     //% blockId=sparkbitInPortEnum
     //% block="$input"
@@ -315,7 +315,7 @@ namespace sparkbitI {
     //% input.fieldOptions.width=100
     //% input.fieldOptions.columns=1
     //% parts=”v2"
-    export function _sparkbitInPortEnum(input: SparkbitInPort): number {
+    export function _sparkbitInPortEnum(input: SparkbitInPort): SparkbitInPort {
         return input;
     }
 
@@ -432,6 +432,17 @@ namespace sparkbitI {
     //% blockHidden=true
     //% parts=”v2"
     export function _sparkbitAnglePercent(): number {
+        return 1;
+    }
+ 
+     /**
+      * Return true if both inputs equal each other.
+      */
+    //% blockId=Input1 
+    //% block="input 1"
+    //% blockHidden=true
+    //% parts=”v2"
+    export function _Input1(): number {
         return 1;
     }
  
@@ -741,6 +752,10 @@ namespace sparkbitO {
         return output;
     }
  
+    /**
+    * Output Port #
+    * @param output (1-4) eg: 1
+    */
     //% blockId=sparkbitOutPortEnum
     //% block="$output"
     //% blockHidden=true
