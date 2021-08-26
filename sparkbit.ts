@@ -47,19 +47,19 @@ enum SparkbitInPort {
     //% block="input 1"
     Input1 = 1,
     //% block="input 2"
-    Input1 = 2,
+    Input2 = 2,
     //% block="input 3"
-    Input1 = 3,
+    Input3 = 3,
     //% block="input 4"
-    Input1 = 4,
+    Input4 = 4,
     //% block="input 5"
-    Input1 = 5,
+    Input5 = 5,
     //% block="input 6"
-    Input1 = 6,
+    Input6 = 6,
     //% block="input 7"
-    Input1 = 7,
+    Input7 = 7,
     //% block="input 8"
-    Input1 = 8,
+    Input8 = 8,
 }
 
 /**
