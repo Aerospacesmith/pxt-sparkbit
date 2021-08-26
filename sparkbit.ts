@@ -146,7 +146,7 @@ namespace sparkbitI {
     //% operator.shadow="sparkbitAngleEnum"
     //% advanced = true
     //% parts=”v2"
-    export function analogSensorPercent(channel: SparkbitInPort | number): number {
+    export function analogSensorPercent(channel: number): number {
         let value = analogSensor(channel);
         value = Math.map(value, 0, 1023, 0, 100);
         value = Math.round(value);
@@ -165,7 +165,7 @@ namespace sparkbitI {
     //% weight=200
     //% channel.shadow="sparkbitInPortEnum"
     //% parts=”v2"
-    export function bumpSensorIsPressed(channel: SparkbitInPort | number): boolean {
+    export function bumpSensorIsPressed(channel: number): boolean {
         return readDigitalSensorBool(channel);
     }
 
@@ -180,7 +180,7 @@ namespace sparkbitI {
     //% operator.shadow="sparkbitAngleEnum"
     //% weight=100
     //% parts=”v2"
-    export function angleSensor(channel: SparkbitInPort | number, operator: SparkbitAngle): number {
+    export function angleSensor(channel: number, operator: SparkbitAngle): number {
         if (operator == SparkbitAngle.Degree) {
             return Math.round(Math.map(analogSensor(channel), 0, 1023, 0, 359));
         }
