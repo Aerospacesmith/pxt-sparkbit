@@ -271,6 +271,7 @@ namespace sparkbitI {
       let inputVar = parseFloat(input.substr(6, 1));
       if(inputVar < 1) inputVar = 1;
       if(inputVar > 8) inputVar = 8;
+      return inputVar;
      }
     }
 
