@@ -47,22 +47,36 @@ enum SparkbitAngle {
   * Enumeration of Inputs.
   */
 enum SparkbitInPort {
-    //% blockId="sparkbitInput1" block="input 1"
-    InputOne = 1,
-    //% blockId="sparkbitInput2" block="input 2"
-    InpuTwo = 2,
-    //% blockId="sparkbitInput3" block="input 3"
-    InputThree = 3,
-    //% blockId="sparkbitInput4" block="input 4"
-    InputFour = 4,
-    //% blockId="sparkbitInput5" block="input 5"
-    InputFive = 5,
-    //% blockId="sparkbitInput6" block="input 6"
-    InputSix = 6,
-    //% blockId="sparkbitInput7" block="input 7"
-    InputSeven = 7,
-    //% blockId="sparkbitInput8" block="input 8"
-    InputEight = 8
+    //% block="input 1"
+    Input1 = 1,
+    //% block="input 2"
+    Input2 = 2,
+    //% block="input 3"
+    Input3 = 3,
+    //% block="input 4"
+    Input4 = 4,
+    //% block="input 5"
+    Input5 = 5,
+    //% block="input 6"
+    Input6 = 6,
+    //% block="input 7"
+    Input7 = 7,
+    //% block="input 8"
+    Input8 = 8
+}
+
+  /**
+  * Enumeration of Inputs.
+  */
+enum SparkbitOutPort {
+    //% block="output 1"
+    Output1 = 1,
+    //% block="output 2"
+    Output2 = 2,
+    //% block="output 3"
+    Output3 = 3,
+    //% block="output 4"
+    Output4 = 4
 }
 
 /**
@@ -439,7 +453,7 @@ namespace sparkbitO {
     //% weight=90
     //% expandableArgumentMode="toggle"
     //% inlineInputMode=inline
-    //% motor.shadow="sparkbitOutputPort"
+    //% motor.shadow="sparkbitOutPortEnum"
     //% direction.shadow="sparkbitDirectionEnum" direction.defl=SparkbitDirection.Clockwise
     //% speed.min=0 speed.max=100 speed.defl=100
     //% duration.shadow=timePicker
@@ -724,6 +738,21 @@ namespace sparkbitO {
     //% output.fieldOptions.data='[["output 1", 1], ["output 2", 2], ["output 3", 3], ["output 4", 4]]'
     //% parts=”v2"
     export function _sparkbitOutputPort(output: number): number {
+        return output;
+    }
+ 
+    /**
+    * Output Port #
+    * @param output (1-4) eg: 1
+    */
+    //% blockId=sparkbitOutPortEnum
+    //% block="$output"
+    //% blockHidden=true
+    //% output.fieldEditor="gridpicker"
+    //% output.fieldOptions.width=100
+    //% output.fieldOptions.columns=1
+    //% parts=”v2"
+    export function _sparkbitOutPortEnum(output: SparkbitOutPort): SparkbitOutPort {
         return output;
     }
 
