@@ -180,7 +180,7 @@ namespace sparkbitI {
     //% operator.shadow="sparkbitAngleEnum"
     //% weight=100
     //% parts=”v2"
-    export function angleSensor(channel: SparkbitInPort | number, operator: SparkbitAngle): number {
+    export function angleSensor(channel: SparkbitInPort, operator: SparkbitAngle): number {
         if (operator == SparkbitAngle.Degree) {
             return Math.round(Math.map(analogSensor(channel), 0, 1023, 0, 359));
         }
