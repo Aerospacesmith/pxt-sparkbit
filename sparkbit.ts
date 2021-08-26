@@ -259,7 +259,7 @@ namespace sparkbitI {
     //% TXpin.shadow="sparkbitInPortEnum" TXpin.defl=SparkbitInPort.Input1
     //% RXpin.shadow="sparkbitInputPort"
     //% parts=”v2"
-    export function irTransmitterIsReceived(TXpin: SparkbitInPort | number, RXpin: number): boolean {
+    export function irTransmitterIsReceived(TXpin: SparkbitInPort, RXpin: number): boolean {
         if (TXpin == RXpin) {   // error, TXpin cannot equal RXpin
             TXpin = 1;
             RXpin = 2;
