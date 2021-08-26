@@ -289,6 +289,17 @@ namespace sparkbitI {
     export function __sparkbitInputPort(input: number): number {
       return input;
     }
+ 
+    //% blockId=sparkbitInPortEnum
+    //% block="$inputPort"
+    //% blockHidden=false
+    //% inputPort.fieldEditor="gridpicker"
+    //% inputPort.fieldOptions.width=200
+    //% inputPort.fieldOptions.columns=1
+    //% parts=”v2"
+    export function __sparkbitInPortEnum(inputPort: SparkbitInPort): SparkbitInPort {
+        return inputPort;
+    }
 
 
     //% blockId=sparkbitLogic_enum
@@ -405,19 +416,6 @@ namespace sparkbitI {
     export function __sparkbitAnglePercent(): number {
         return 1;
     }
- 
- 
-    //% blockId=sparkbitInPortEnum
-    //% block="$inputPort"
-    //% blockHidden=true
-    //% inputPort.fieldEditor="gridpicker"
-    //% inputPort.fieldOptions.width=200
-    //% inputPort.fieldOptions.columns=1
-    //% parts=”v2"
-    export function __sparkbitInPortEnum(inputPort: SparkbitInPort): SparkbitInPort {
-        return inputPort;
-    }
-
  
 }
 
