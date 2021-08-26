@@ -43,6 +43,25 @@ enum SparkbitAngle {
     Percent
 }
 
+enum SparkbitInPort {
+    //% block="input 1"
+    Input1 = 1,
+    //% block="input 2"
+    Input1 = 2,
+    //% block="input 3"
+    Input1 = 3,
+    //% block="input 4"
+    Input1 = 4,
+    //% block="input 5"
+    Input1 = 5,
+    //% block="input 6"
+    Input1 = 6,
+    //% block="input 7"
+    Input1 = 7,
+    //% block="input 8"
+    Input1 = 8,
+}
+
 /**
  * Custom Blocks for Sparkbit Input functionality.
  */
@@ -213,7 +232,7 @@ namespace sparkbitI {
       * Compares Light Percent to Value and returns Boolean
       * @param channel Sensor Input (1-8) eg: 1
       */
-    //% block="light sensor input$channel $operator $value percent (\\%)"
+    //% block="light sensor $channel $operator $value percent (\\%)"
     //% group="Light Sensor (yellow)"
     //% weight=149
     //% channel.shadow="sparkbitInputPort"
@@ -234,10 +253,10 @@ namespace sparkbitI {
     //% block="IR transmitter input $TXpin is received on input $RXpin"
     //% group="IR Tx/Rx (black/white or gray/white)"
     //% weight=50
-    //% TXpin.shadow="sparkbitInputPort"
+    //% TXpin.shadow="sparkbitInPortEnum"
     //% RXpin.shadow="sparkbitInputPort"
     //% parts=”v2"
-    export function irTransmitterIsReceived(TXpin: number, RXpin: number): boolean {
+    export function irTransmitterIsReceived(TXpin: number | SparkbitInPort, RXpin: number): boolean {
         if (TXpin == RXpin) {   // error, TXpin cannot equal RXpin
             TXpin = 1;
             RXpin = 2;
@@ -383,6 +402,79 @@ namespace sparkbitI {
     export function __sparkbitAnglePercent(): number {
         return 1;
     }
+ 
+ 
+    //% blockId=sparkbitInPort_enum
+    //% block="sparkbitInPort"
+    //% blockHidden=true
+    //% sparkbitInPort.fieldEditor="gridpicker"
+    //% sparkbitInPort.fieldOptions.width=220
+    //% sparkbitInPort.fieldOptions.columns=8
+    //% parts=”v2"
+    export function __sparkbitInPortEnum(sparkbitInPort: SparkbitInPort): SparkbitInPort {
+        //   switch(direction) {
+        // 	  case SparkbitDirection.Counterclockwise: return true;
+        // 	  case SparkbitDirection.Clockwise:  return false;
+        // 	}
+        return sparkbitInPort;
+    }
+    //% blockId=sparkbitInPort1
+    //% block="input 1"
+    //% blockHidden=true
+    //% parts=”v2"
+    export function __sparkbitInPort1(): SparkbitInPort {
+        return SparkbitInPort.Input1;
+    }
+    //% blockId=sparkbitInPort2
+    //% block="input 2"
+    //% blockHidden=true
+    //% parts=”v2"
+    export function __sparkbitInPort2(): SparkbitInPort {
+        return SparkbitInPort.Input2;
+    }
+    //% blockId=sparkbitInPort3 
+    //% block="input 3"
+    //% blockHidden=true
+    //% parts=”v2"
+    export function __sparkbitInPort3(): SparkbitInPort {
+        return SparkbitInPort.Input3;
+    }
+    //% blockId=sparkbitInPort4 
+    //% block="input 4"
+    //% blockHidden=true
+    //% parts=”v2"
+    export function __sparkbitInPort4(): SparkbitInPort {
+        return SparkbitInPort.Input4;
+    }
+    //% blockId=sparkbitInPort5 
+    //% block="input 5"
+    //% blockHidden=true
+    //% parts=”v2"
+    export function __sparkbitInPort5(): SparkbitInPort {
+        return SparkbitInPort.Input5;
+    }
+    //% blockId=sparkbitInPort6 
+    //% block="input 6"
+    //% blockHidden=true
+    //% parts=”v2"
+    export function __sparkbitInPort6(): SparkbitInPort {
+        return SparkbitInPort.Input6;
+    }
+    //% blockId=sparkbitInPort7 
+    //% block="input 7"
+    //% blockHidden=true
+    //% parts=”v2"
+    export function __sparkbitInPort7(): SparkbitInPort {
+        return SparkbitInPort.Input7;
+    }
+    //% blockId=sparkbitInPort8 
+    //% block="input 8"
+    //% blockHidden=true
+    //% parts=”v2"
+    export function __sparkbitInPort8(): SparkbitInPort {
+        return SparkbitInPort.Input8;
+    }
+ 
 }
 
 /**
