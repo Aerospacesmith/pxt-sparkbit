@@ -250,7 +250,7 @@ namespace sparkbitI {
  
     /**
      * Pulses IR Transmitter and checks if signal is reflected. Returns Boolean.
-     * @param TXpin Sensor Input (1-8)
+     * @param TXpin Sensor Input (1-8) eg: 1
      * @param RXpin Sensor Input (1-8) eg: 2
      */
     //% block="IR transmitter input $TXpin is received on input $RXpin"
@@ -414,7 +414,7 @@ namespace sparkbitI {
     //% inputPort.fieldOptions.width=220
     //% inputPort.fieldOptions.columns=1
     //% parts=”v2"
-    export function __sparkbitInPortEnum(inputPort: SparkbitInPort): SparkbitInPort {
+    export function __sparkbitInPortEnum(inputPort: SparkbitInPort): number {
         return inputPort;
     }
 
