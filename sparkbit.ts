@@ -422,7 +422,7 @@ namespace sparkbitI {
     //% inputPort.fieldOptions.width=220
     //% inputPort.fieldOptions.columns=1
     //% parts=”v2"
-    export function __sparkbitInPortEnum(inputPort: SparkbitInPort): number {
+    export function __sparkbitInPortEnum(inputPort: SparkbitInPort): SparkbitInPort {
         return inputPort;
     }
 
@@ -704,10 +704,6 @@ namespace sparkbitO {
     //% direction.fieldOptions.columns=1
     //% parts=”v2"
     export function __sparkbitDirectionEnum(direction: SparkbitDirection): SparkbitDirection {
-        //   switch(direction) {
-        // 	  case SparkbitDirection.Counterclockwise: return true;
-        // 	  case SparkbitDirection.Clockwise:  return false;
-        // 	}
         return direction;
     }
 
@@ -719,10 +715,6 @@ namespace sparkbitO {
     //% color.fieldOptions.columns=1
     //% parts=”v2"
     export function __sparkbitColorEnum(color: SparkbitColor): SparkbitColor {
-        //   switch(color) {
-        // 	  case SparkbitColor.Green: return false;
-        // 	  case SparkbitColor.Red:  return true;
-        // 	}
         return color;
     }
 
