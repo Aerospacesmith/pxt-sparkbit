@@ -102,7 +102,7 @@ namespace sparkbitI {
 
     /**
      * Returns value of analog sensor in percentage
-     * @param channel Sensor Input (1-8) eg: 1
+     * @param channel Sensor Input (1-8)
      */
     //% block="analog sensor $channel percent (\\%)"
     //% weight=1
@@ -131,43 +131,6 @@ namespace sparkbitI {
     //% parts=”v2"
     export function bumpSensorIsPressed(channel: number): boolean {
         return readDigitalSensorBool(channel);
-    }
-
-
-    /**
-     * Returns value of light sensor
-     * @param channel Sensor Input (1-8) eg: 1
-     */
-    //% block="light sensor $channel percent (\\%)"
-    //% group="Light Sensor (yellow)"
-    //% channel.shadow="sparkbitInputPort"
-    //% operator.shadow="sparkbitAngleEnum"
-    //% weight=150
-    //% parts=”v2"
-    export function lightSensorPercent(channel: number): number {
-        let value = analogSensor(channel);
-        value = Math.map(value, 0, 1023, 0, 100);
-        value = Math.round(value);
-        if (value > 100) value = 100;
-        if (value < 0) value = 0;
-        return value;
-    }
-
-
-    /**
-      * Compares Light Percent to Value and returns Boolean
-      * @param channel Sensor Input (1-8) eg: 1
-      */
-    //% block="light sensor $channel $operator $value percent (\\%)"
-    //% group="Light Sensor (yellow)"
-    //% weight=149
-    //% channel.shadow="sparkbitInputPort"
-    //% operator.shadow="sparkbitLogic_enum"
-    //% value.min=0 value.max=100
-    //% parts=”v2"
-    export function lightSensorComparePercent(channel: number, operator: SparkbitLogic, value: number): boolean {
-        let percentInputValue = Math.map(analogSensor(channel), 0, 1023, 0, 100);
-        return (sparkbitLogicCompare(operator, percentInputValue, value));
     }
 
 
@@ -208,6 +171,7 @@ namespace sparkbitI {
         return (sparkbitLogicCompare(operator, percentInputValue, value));
     }
 
+ 
     /**
       * Compares Angle Percent to Value and returns Boolean
       * @param channel Sensor Input (1-8) eg: 1
@@ -220,6 +184,43 @@ namespace sparkbitI {
     //% value.min=0 value.max=100
     //% parts=”v2"
     export function angleSensorComparePercent(channel: number, operator: SparkbitLogic, value: number): boolean {
+        let percentInputValue = Math.map(analogSensor(channel), 0, 1023, 0, 100);
+        return (sparkbitLogicCompare(operator, percentInputValue, value));
+    }
+
+
+    /**
+     * Returns value of light sensor
+     * @param channel Sensor Input (1-8) eg: 1
+     */
+    //% block="light sensor $channel percent (\\%)"
+    //% group="Light Sensor (yellow)"
+    //% channel.shadow="sparkbitInputPort"
+    //% operator.shadow="sparkbitAngleEnum"
+    //% weight=150
+    //% parts=”v2"
+    export function lightSensorPercent(channel: number): number {
+        let value = analogSensor(channel);
+        value = Math.map(value, 0, 1023, 0, 100);
+        value = Math.round(value);
+        if (value > 100) value = 100;
+        if (value < 0) value = 0;
+        return value;
+    }
+
+
+    /**
+      * Compares Light Percent to Value and returns Boolean
+      * @param channel Sensor Input (1-8) eg: 1
+      */
+    //% block="light sensor $channel $operator $value percent (\\%)"
+    //% group="Light Sensor (yellow)"
+    //% weight=149
+    //% channel.shadow="sparkbitInputPort"
+    //% operator.shadow="sparkbitLogic_enum"
+    //% value.min=0 value.max=100
+    //% parts=”v2"
+    export function lightSensorComparePercent(channel: number, operator: SparkbitLogic, value: number): boolean {
         let percentInputValue = Math.map(analogSensor(channel), 0, 1023, 0, 100);
         return (sparkbitLogicCompare(operator, percentInputValue, value));
     }
