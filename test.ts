@@ -5,7 +5,7 @@
     sparkbitO.stopMotorModule(1);
 
     // set light on output #2 red for 500 ms
-    sparkbitO.setLightModule(sparkbitO.__sparkbitOutputPort(2), SparkbitColors.Red, 100, 500);
+    sparkbitO.setLightModule(sparkbitO.__sparkbitOutputPort(2), SparkbitColor.Red, 100, 500);
     basic.pause(100);
     sparkbitO.stopLightModule(2);
 
