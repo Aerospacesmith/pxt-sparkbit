@@ -47,21 +47,29 @@ enum SparkbitAngle {
   * Enumeration of Inputs.
   */
 enum SparkbitInPort {
-    //% block="input1"
+    //% block="input 1"
+    //% blockId=input1
     Input1 = 1,
-    //% block="input2"
+    //% block="input 2"
+    //% blockId=input2
     Input2 = 2,
-    //% block="input3"
+    //% block="input 3"
+    //% blockId=input3
     Input3 = 3,
-    //% block="input4"
+    //% block="input 4"
+    //% blockId=input4
     Input4 = 4,
-    //% block="input5"
+    //% block="input 5"
+    //% blockId=input5
     Input5 = 5,
-    //% block="input6"
+    //% block="input 6"
+    //% blockId=input6
     Input6 = 6,
-    //% block="input7"
+    //% block="input 7"
+    //% blockId=input7
     Input7 = 7,
-    //% block="input8"
+    //% block="input 8"
+    //% blockId=input8
     Input8 = 8
 }
 
