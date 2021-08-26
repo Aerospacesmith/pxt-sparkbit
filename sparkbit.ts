@@ -55,7 +55,7 @@ enum SparkbitInPort {
     Input3 = 3,
     //% block="input 4"
     Input4 = 4,
-    //% block=input 5
+    //% block="input 5"
     Input5 = 5,
     //% block="input 6"
     Input6 = 6,
@@ -253,13 +253,13 @@ namespace sparkbitI {
      * @param TXpin Sensor Input (1-8) eg: 1
      * @param RXpin Sensor Input (1-8) eg: 2
      */
-    //% block="IR transmitter input $TXpin is received on input $RXpin"
+    //% block="IR transmitter $TXpin is received on $RXpin"
     //% group="IR Tx/Rx (black/white or gray/white)"
     //% weight=50
     //% TXpin.shadow="sparkbitInPortEnum" TXpin.defl=SparkbitInPort.Input1
-    //% RXpin.shadow="sparkbitInputPort"
+    //% RXpin.shadow="sparkbitInPortEnum" RXpin.defl=SparkbitInPort.Input2
     //% parts=”v2"
-    export function irTransmitterIsReceived(TXpin: SparkbitInPort | number, RXpin: number): boolean {
+    export function irTransmitterIsReceived(TXpin: SparkbitInPort | number, RXpin: SparkbitInPort | number): boolean {
         if (TXpin == RXpin) {   // error, TXpin cannot equal RXpin
             TXpin = 1;
             RXpin = 2;
