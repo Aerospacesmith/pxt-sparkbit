@@ -55,7 +55,7 @@ enum SparkbitInPort {
     Input3 = 3,
     //% block="input 4"
     Input4 = 4,
-    //% block="input 5
+    //% block='input 5'
     Input5 = 5,
     //% block="input 6"
     Input6 = 6,
