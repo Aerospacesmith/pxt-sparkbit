@@ -407,9 +407,9 @@ namespace sparkbitI {
     //% blockId=sparkbitInPort_enum
     //% block="$inputPort"
     //% blockHidden=true
-    //% sparkbitInPort.fieldEditor="gridpicker"
-    //% sparkbitInPort.fieldOptions.width=220
-    //% sparkbitInPort.fieldOptions.columns=8
+    //% $inputPort.fieldEditor="gridpicker"
+    //% $inputPort.fieldOptions.width=220
+    //% $inputPort.fieldOptions.columns=8
     //% parts=”v2"
     export function __sparkbitInPortEnum(inputPort: SparkbitInPort): SparkbitInPort {
         return inputPort;
