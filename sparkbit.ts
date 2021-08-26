@@ -213,7 +213,7 @@ namespace sparkbitI {
       * Compares Light Percent to Value and returns Boolean
       * @param channel Sensor Input (1-8) eg: 1
       */
-    //% block="light sensor $channel $operator $value percent (\\%)"
+    //% block="light sensor input$channel $operator $value percent (\\%)"
     //% group="Light Sensor (yellow)"
     //% weight=149
     //% channel.shadow="sparkbitInputPort"
@@ -231,7 +231,7 @@ namespace sparkbitI {
      * @param TXpin Sensor Input (1-8) eg: 1
      * @param RXpin Sensor Input (1-8) eg: 2
      */
-    //% block="IR transmitter $TXpin is received on $RXpin"
+    //% block="IR transmitter input $TXpin is received on input $RXpin"
     //% group="IR Tx/Rx (black/white or gray/white)"
     //% weight=50
     //% TXpin.shadow="sparkbitInputPort"
@@ -258,21 +258,14 @@ namespace sparkbitI {
     * @param input (1-8) eg: 1
     */
     //% blockId=sparkbitInputPort
-    //% block="input $input"
+    //% block="$input"
     //% colorSecondary="#FFFFFF"
+    //% blockHidden=true
     //% input.fieldEditor="numberdropdown" input.fieldOptions.decompileLiterals=true
     //% input.fieldOptions.data='[["input 1", 1], ["input 2", 2], ["input 3", 3], ["input 4", 4], ["input 5", 5], ["input 6", 6], ["input 7", 7], ["input 8", 8]]'
     //% parts=”v2"
-    export function __sparkbitInputPort(input: number | string): number {
-     if(typeof input == 'number'){
+    export function __sparkbitInputPort(input: number): number {
       return input;
-     }
-     else {
-      let inputVar = parseFloat(input.substr(6, 1));
-      if(inputVar < 1) inputVar = 1;
-      if(inputVar > 8) inputVar = 8;
-      return inputVar;
-     }
     }
 
 
