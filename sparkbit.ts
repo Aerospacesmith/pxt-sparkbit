@@ -280,7 +280,7 @@ namespace sparkbitI {
     * @param input (1-8) eg: 1
     */
     //% blockId=sparkbitInputPort
-    //% block="$input"
+    //% block="input $input"
     //% colorSecondary="#FFFFFF"
     //% blockHidden=true
     //% input.fieldEditor="numberdropdown" input.fieldOptions.decompileLiterals=true
