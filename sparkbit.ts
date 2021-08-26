@@ -258,7 +258,7 @@ namespace sparkbitI {
  
     /**
      * Pulses IR Transmitter and checks if signal is reflected. Returns Boolean.
-     * @param TXpin Sensor Input (1-8) eg: 1
+     * @param TXpin Sensor Input (1-8) eg: SparkbitInPort.Input1
      * @param RXpin Sensor Input (1-8) eg: 2
      */
     //% block="IR transmitter input $TXpin is received on input $RXpin"
