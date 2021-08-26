@@ -405,18 +405,14 @@ namespace sparkbitI {
  
  
     //% blockId=sparkbitInPort_enum
-    //% block="sparkbitInPort"
+    //% block="$inputPort"
     //% blockHidden=true
     //% sparkbitInPort.fieldEditor="gridpicker"
     //% sparkbitInPort.fieldOptions.width=220
     //% sparkbitInPort.fieldOptions.columns=8
     //% parts=”v2"
-    export function __sparkbitInPortEnum(sparkbitInPort: SparkbitInPort): SparkbitInPort {
-        //   switch(direction) {
-        // 	  case SparkbitDirection.Counterclockwise: return true;
-        // 	  case SparkbitDirection.Clockwise:  return false;
-        // 	}
-        return sparkbitInPort;
+    export function __sparkbitInPortEnum(inputPort: SparkbitInPort): SparkbitInPort {
+        return inputPort;
     }
     //% blockId=sparkbitInPort1
     //% block="input 1"
