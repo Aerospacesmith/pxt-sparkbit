@@ -43,25 +43,25 @@ enum SparkbitAngle {
     Percent
 }
 
-/**
+  /**
   * Enumeration of Inputs.
   */
 enum SparkbitInPort {
-    //% block="input1"
+    //% block="input 1"
     Input1 = 1,
-    //% block="input2"
+    //% block="input 2"
     Input2 = 2,
-    //% block="input3"
+    //% block="input 3"
     Input3 = 3,
-    //% block="input4"
+    //% block="input 4"
     Input4 = 4,
-    //% block="input5"
+    //% block="input 5"
     Input5 = 5,
-    //% block="input6"
+    //% block="input 6"
     Input6 = 6,
-    //% block="input7"
+    //% block="input 7"
     Input7 = 7,
-    //% block="input8"
+    //% block="input 8"
     Input8 = 8
 }
 
@@ -256,10 +256,10 @@ namespace sparkbitI {
     //% block="IR transmitter input $TXpin is received on input $RXpin"
     //% group="IR Tx/Rx (black/white or gray/white)"
     //% weight=50
-    //% TXpin.shadow="sparkbitInPortEnum" TXpin.defl=SparkbitInPort.Input1
+    //% TXpin.shadow="sparkbitInPort_enum" TXpin.defl=SparkbitInPort.Input1
     //% RXpin.shadow="sparkbitInputPort"
     //% parts=”v2"
-    export function irTransmitterIsReceived(TXpin: SparkbitInPort, RXpin: number): boolean {
+    export function irTransmitterIsReceived(TXpin: SparkbitInPort | number, RXpin: number): boolean {
         if (TXpin == RXpin) {   // error, TXpin cannot equal RXpin
             TXpin = 1;
             RXpin = 2;
@@ -407,14 +407,14 @@ namespace sparkbitI {
     }
  
  
-    //% blockId=sparkbitInPort_enum
+    //% blockId=sparkbitInPortEnum
     //% block="$inputPort"
     //% blockHidden=true
     //% $inputPort.fieldEditor="gridpicker"
     //% $inputPort.fieldOptions.width=220
     //% $inputPort.fieldOptions.columns=8
     //% parts=”v2"
-    export function __sparkbitInPortEnum(inputPort: SparkbitInPort): SparkbitInPort {
+    export function __sparkbitInPortEnum(inputPort: SparkbitInPort): number {
         return inputPort;
     }
     //% blockId=Input1
@@ -743,7 +743,7 @@ namespace sparkbitO {
     }
 
 
-    //% blockId=direction_enum
+    //% blockId=sparkbitDirectionEnum
     //% block="$direction"
     //% blockHidden=true
     //% direction.fieldEditor="gridpicker"
@@ -758,7 +758,7 @@ namespace sparkbitO {
         return direction;
     }
 
-    //% blockId=color_enum
+    //% blockId=sparkbitColorEnum
     //% block="$color"
     //% blockHidden=true
     //% color.fieldEditor="gridpicker"
