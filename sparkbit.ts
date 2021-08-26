@@ -414,56 +414,56 @@ namespace sparkbitI {
     export function __sparkbitInPortEnum(inputPort: SparkbitInPort): SparkbitInPort {
         return inputPort;
     }
-    //% blockId=sparkbitInPort1
+    //% blockId=Input1
     //% block="input 1"
     //% blockHidden=true
     //% parts=”v2"
     export function __sparkbitInPort1(): SparkbitInPort {
         return SparkbitInPort.Input1;
     }
-    //% blockId=sparkbitInPort2
+    //% blockId=Input2
     //% block="input 2"
     //% blockHidden=true
     //% parts=”v2"
     export function __sparkbitInPort2(): SparkbitInPort {
         return SparkbitInPort.Input2;
     }
-    //% blockId=sparkbitInPort3 
+    //% blockId=Input3
     //% block="input 3"
     //% blockHidden=true
     //% parts=”v2"
     export function __sparkbitInPort3(): SparkbitInPort {
         return SparkbitInPort.Input3;
     }
-    //% blockId=sparkbitInPort4 
+    //% blockId=Input4
     //% block="input 4"
     //% blockHidden=true
     //% parts=”v2"
     export function __sparkbitInPort4(): SparkbitInPort {
         return SparkbitInPort.Input4;
     }
-    //% blockId=sparkbitInPort5 
+    //% blockId=Input5
     //% block="input 5"
     //% blockHidden=true
     //% parts=”v2"
     export function __sparkbitInPort5(): SparkbitInPort {
         return SparkbitInPort.Input5;
     }
-    //% blockId=sparkbitInPort6 
+    //% blockId=Input6
     //% block="input 6"
     //% blockHidden=true
     //% parts=”v2"
     export function __sparkbitInPort6(): SparkbitInPort {
         return SparkbitInPort.Input6;
-    }
-    //% blockId=sparkbitInPort7 
+    
+    //% blockId=Input7
     //% block="input 7"
     //% blockHidden=true
     //% parts=”v2"
     export function __sparkbitInPort7(): SparkbitInPort {
         return SparkbitInPort.Input7;
     }
-    //% blockId=sparkbitInPort8 
+    //% blockId=Input8 
     //% block="input 8"
     //% blockHidden=true
     //% parts=”v2"
