@@ -418,56 +418,56 @@ namespace sparkbitI {
     //% block="input 1"
     //% blockHidden=true
     //% parts=”v2"
-    export function __sparkbitInPort1(): SparkbitInPort {
+    export function __Input1(): SparkbitInPort {
         return SparkbitInPort.Input1;
     }
     //% blockId=Input2
     //% block="input 2"
     //% blockHidden=true
     //% parts=”v2"
-    export function __sparkbitInPort2(): SparkbitInPort {
+    export function __Input2(): SparkbitInPort {
         return SparkbitInPort.Input2;
     }
     //% blockId=Input3
     //% block="input 3"
     //% blockHidden=true
     //% parts=”v2"
-    export function __sparkbitInPort3(): SparkbitInPort {
+    export function __Input3(): SparkbitInPort {
         return SparkbitInPort.Input3;
     }
     //% blockId=Input4
     //% block="input 4"
     //% blockHidden=true
     //% parts=”v2"
-    export function __sparkbitInPort4(): SparkbitInPort {
+    export function __Input4(): SparkbitInPort {
         return SparkbitInPort.Input4;
     }
     //% blockId=Input5
     //% block="input 5"
     //% blockHidden=true
     //% parts=”v2"
-    export function __sparkbitInPort5(): SparkbitInPort {
+    export function __Input5(): SparkbitInPort {
         return SparkbitInPort.Input5;
     }
     //% blockId=Input6
     //% block="input 6"
     //% blockHidden=true
     //% parts=”v2"
-    export function __sparkbitInPort6(): SparkbitInPort {
+    export function __Input6(): SparkbitInPort {
         return SparkbitInPort.Input6;
     }    
     //% blockId=Input7
     //% block="input 7"
     //% blockHidden=true
     //% parts=”v2"
-    export function __sparkbitInPort7(): SparkbitInPort {
+    export function __Input7(): SparkbitInPort {
         return SparkbitInPort.Input7;
     }
     //% blockId=Input8 
     //% block="input 8"
     //% blockHidden=true
     //% parts=”v2"
-    export function __sparkbitInPort8(): SparkbitInPort {
+    export function __Input8(): SparkbitInPort {
         return SparkbitInPort.Input8;
     }
  
