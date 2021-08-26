@@ -91,7 +91,7 @@ namespace sparkbitI {
      * @param channel Sensor Input (1-8) eg: 1
      */
     //% block="analog sensor $channel 10 bit value"
-    //% channel.shadow="sparkbitInputPort"
+    //% channel.shadow="sparkbitInPortEnum"
     //% advanced = true
     //% parts=”v2"
     export function analogSensor(channel: number): number {
@@ -142,7 +142,7 @@ namespace sparkbitI {
      */
     //% block="analog sensor $channel percent (\\%)"
     //% weight=1
-    //% channel.shadow="sparkbitInputPort"
+    //% channel.shadow="sparkbitInPortEnum"
     //% operator.shadow="sparkbitAngleEnum"
     //% advanced = true
     //% parts=”v2"
@@ -163,7 +163,7 @@ namespace sparkbitI {
     //% block="bump sensor $channel is pressed"
     //% group="Bump Sensor (blue)"
     //% weight=200
-    //% channel.shadow="sparkbitInputPort"
+    //% channel.shadow="sparkbitInPortEnum"
     //% parts=”v2"
     export function bumpSensorIsPressed(channel: number): boolean {
         return readDigitalSensorBool(channel);
@@ -176,7 +176,7 @@ namespace sparkbitI {
      */
     //% block="angle sensor $channel $operator"
     //% group="Angle Sensor (green)"
-    //% channel.shadow="sparkbitInputPort"
+    //% channel.shadow="sparkbitInPortEnum"
     //% operator.shadow="sparkbitAngleEnum"
     //% weight=100
     //% parts=”v2"
@@ -198,7 +198,7 @@ namespace sparkbitI {
     //% block="angle sensor $channel $operator $value degrees (°)"
     //% group="Angle Sensor (green)"
     //% weight=99
-    //% channel.shadow="sparkbitInputPort"
+    //% channel.shadow="sparkbitInPortEnum"
     //% operator.shadow="sparkbitLogic_enum"
     //% value.min=0 value.max=359
     //% parts=”v2"
@@ -215,7 +215,7 @@ namespace sparkbitI {
     //% block="angle sensor $channel $operator $value percent (\\%)"
     //% group="Angle Sensor (green)"
     //% weight=98
-    //% channel.shadow="sparkbitInputPort"
+    //% channel.shadow="sparkbitInPortEnum"
     //% operator.shadow="sparkbitLogic_enum"
     //% value.min=0 value.max=100
     //% parts=”v2"
@@ -231,7 +231,7 @@ namespace sparkbitI {
      */
     //% block="light sensor $channel percent (\\%)"
     //% group="Light Sensor (yellow)"
-    //% channel.shadow="sparkbitInputPort"
+    //% channel.shadow="sparkbitInPortEnum"
     //% operator.shadow="sparkbitAngleEnum"
     //% weight=150
     //% parts=”v2"
@@ -252,7 +252,7 @@ namespace sparkbitI {
     //% block="light sensor $channel $operator $value percent (\\%)"
     //% group="Light Sensor (yellow)"
     //% weight=149
-    //% channel.shadow="sparkbitInputPort"
+    //% channel.shadow="sparkbitInPortEnum"
     //% operator.shadow="sparkbitLogic_enum"
     //% value.min=0 value.max=100
     //% parts=”v2"
@@ -510,7 +510,7 @@ namespace sparkbitO {
     //% block="stop motor module $motor"
     //% group="Motor Module (red)"
     //% weight=80
-    //% motor.shadow="sparkbitOutputPort"
+    //% motor.shadow="sparkbitOutPortEnum"
     //% parts=”v2"
     export function stopMotorModule(motor: number): void {
         motorWrite(motor, false, 0);
@@ -572,7 +572,7 @@ namespace sparkbitO {
     //% weight=70
     //% expandableArgumentMode="toggle"
     //% inlineInputMode=inline
-    //% motor.shadow="sparkbitOutputPort"
+    //% motor.shadow="sparkbitOutPortEnum"
     //% velocity.min=-100 velocity.max=100
     //% duration.shadow=timePicker
     //% advanced = true
@@ -640,7 +640,7 @@ namespace sparkbitO {
     //% weight=20
     //% expandableArgumentMode="toggle"
     //% inlineInputMode=inline
-    //% output.shadow="sparkbitOutputPort"
+    //% output.shadow="sparkbitOutPortEnum"
     //% color.shadow="sparkbitColorEnum" color.defl=SparkbitColor.Green
     //% brightness.min=0 brightness.max=100 brightness.defl=100
     //% duration.shadow=timePicker
@@ -697,7 +697,7 @@ namespace sparkbitO {
     //% block="turn off light module $output"
     //% group="Light Module (orange)"
     //% weight=10
-    //% output.shadow="sparkbitOutputPort"
+    //% output.shadow="sparkbitOutPortEnum"
     //% parts=”v2"
     export function stopLightModule(output: number): void {
         motorWrite(output, false, 0);
