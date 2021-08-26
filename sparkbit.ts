@@ -296,7 +296,7 @@ namespace sparkbitI {
     //% blockHidden=true
     //% operator.fieldEditor="gridpicker"
     //% operator.fieldOptions.width=220
-    //% operator.fieldOptions.columns=3
+    //% operator.fieldOptions.columns=1
     //% parts=”v2"
     export function __sparkbitLogic_enum(operator: SparkbitLogic): number {
         switch (operator) {
@@ -376,7 +376,7 @@ namespace sparkbitI {
     //% blockHidden=true
     //% operator.fieldEditor="gridpicker"
     //% operator.fieldOptions.width=220
-    //% operator.fieldOptions.columns=3
+    //% operator.fieldOptions.columns=1
     //% parts=”v2"
     export function __sparkbitAngleEnum(operator: SparkbitAngle): number {
         switch (operator) {
@@ -412,7 +412,7 @@ namespace sparkbitI {
     //% blockHidden=true
     //% inputPort.fieldEditor="gridpicker"
     //% inputPort.fieldOptions.width=220
-    //% inputPort.fieldOptions.columns=8
+    //% inputPort.fieldOptions.columns=1
     //% parts=”v2"
     export function __sparkbitInPortEnum(inputPort: SparkbitInPort): SparkbitInPort {
         return inputPort;
@@ -693,7 +693,7 @@ namespace sparkbitO {
     //% blockHidden=true
     //% direction.fieldEditor="gridpicker"
     //% direction.fieldOptions.width=220
-    //% direction.fieldOptions.columns=2
+    //% direction.fieldOptions.columns=1
     //% parts=”v2"
     export function __sparkbitDirectionEnum(direction: SparkbitDirection): SparkbitDirection {
         //   switch(direction) {
@@ -708,7 +708,7 @@ namespace sparkbitO {
     //% blockHidden=true
     //% color.fieldEditor="gridpicker"
     //% color.fieldOptions.width=220
-    //% color.fieldOptions.columns=2
+    //% color.fieldOptions.columns=1
     //% parts=”v2"
     export function __sparkbitColorEnum(color: SparkbitColor): SparkbitColor {
         //   switch(color) {
@@ -733,46 +733,6 @@ namespace sparkbitO {
         return output;
     }
 
-
-    //% blockId=clockwise 
-    //% block="clockwise"
-    //% group="Motor Directions"
-    //% blockHidden=true
-    //% weight=11
-    //% parts=”v2"
-    export function __clockwise(): SparkbitDirection {
-        return SparkbitDirection.Clockwise
-    }
-
-    //% blockId=counterclockwise 
-    //% block="counterclockwise"
-    //% group="Motor Directions"
-    //% blockHidden=true
-    //% weight=10
-    //% parts=”v2"
-    export function __counterclockwise(): SparkbitDirection {
-        return SparkbitDirection.Counterclockwise
-    }
-
-    //% blockId=ledRed 
-    //% block="red"
-    //% blockHidden=true
-    //% group="Light Colors"
-    //% weight=8
-    //% parts=”v2"
-    export function __red(): SparkbitColor {
-        return SparkbitColor.Red
-    }
-
-    //% blockId=ledGreen 
-    //% block="green"
-    //% blockHidden=true
-    //% group="Light Colors"
-    //% weight=7
-    //% parts=”v2"
-    export function __green(): SparkbitColor {
-        return SparkbitColor.Green
-    }
 
 }
 
