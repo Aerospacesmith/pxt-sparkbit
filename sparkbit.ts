@@ -286,7 +286,7 @@ namespace sparkbitI {
     //% input.fieldEditor="numberdropdown" input.fieldOptions.decompileLiterals=true
     //% input.fieldOptions.data='[["input 1", 1], ["input 2", 2], ["input 3", 3], ["input 4", 4], ["input 5", 5], ["input 6", 6], ["input 7", 7], ["input 8", 8]]'
     //% parts=”v2"
-    export function __sparkbitInputPort(input: number): number {
+    export function _sparkbitInputPort(input: number): number {
       return input;
     }
  
@@ -297,7 +297,7 @@ namespace sparkbitI {
     //% inputPort.fieldOptions.width=200
     //% inputPort.fieldOptions.columns=1
     //% parts=”v2"
-    export function __sparkbitInPortEnum(inputPort: SparkbitInPort): SparkbitInPort {
+    export function _sparkbitInPortEnum(inputPort: SparkbitInPort): SparkbitInPort {
         return inputPort;
     }
 
@@ -309,7 +309,7 @@ namespace sparkbitI {
     //% operator.fieldOptions.width=220
     //% operator.fieldOptions.columns=1
     //% parts=”v2"
-    export function __sparkbitLogic_enum(operator: SparkbitLogic): number {
+    export function _sparkbitLogic_enum(operator: SparkbitLogic): number {
         switch (operator) {
             case SparkbitLogic.EQ: return 0;
             case SparkbitLogic.NEQ: return 1;
@@ -328,7 +328,7 @@ namespace sparkbitI {
     //% block="="
     //% blockHidden=true
     //% parts=”v2"
-    export function __EQ(): number {
+    export function _EQ(): number {
         return 0;
     }
     /**
@@ -338,7 +338,7 @@ namespace sparkbitI {
     //% block="≠"
     //% blockHidden=true
     //% parts=”v2"
-    export function __NEQ(): number {
+    export function _NEQ(): number {
         return 1;
     }
     /**
@@ -348,7 +348,7 @@ namespace sparkbitI {
     //% block="<"
     //% blockHidden=true
     //% parts=”v2"
-    export function __LT(): number {
+    export function _LT(): number {
         return 2;
     }
     /**
@@ -358,7 +358,7 @@ namespace sparkbitI {
     //% block="≤"
     //% blockHidden=true
     //% parts=”v2"
-    export function __LTE(): number {
+    export function _LTE(): number {
         return 3;
     }
     /**
@@ -368,7 +368,7 @@ namespace sparkbitI {
     //% block=">"
     //% blockHidden=true
     //% parts=”v2"
-    export function __GT(): number {
+    export function _GT(): number {
         return 4;
     }
     /**
@@ -378,7 +378,7 @@ namespace sparkbitI {
     //% block="≥"
     //% blockHidden=true
     //% parts=”v2"
-    export function __GTE(): number {
+    export function _GTE(): number {
         return 5;
     }
 
@@ -389,7 +389,7 @@ namespace sparkbitI {
     //% operator.fieldOptions.width=220
     //% operator.fieldOptions.columns=1
     //% parts=”v2"
-    export function __sparkbitAngleEnum(operator: SparkbitAngle): number {
+    export function _sparkbitAngleEnum(operator: SparkbitAngle): number {
         switch (operator) {
             case SparkbitAngle.Degree: return 0;
             case SparkbitAngle.Percent: return 1;
@@ -403,7 +403,7 @@ namespace sparkbitI {
     //% block="degrees (°)"
     //% blockHidden=true
     //% parts=”v2"
-    export function __sparkbitAngleDegree(): number {
+    export function _sparkbitAngleDegree(): number {
         return 0;
     }
     /**
@@ -413,7 +413,7 @@ namespace sparkbitI {
     //% block="percent (\\%)"
     //% blockHidden=true
     //% parts=”v2"
-    export function __sparkbitAnglePercent(): number {
+    export function _sparkbitAnglePercent(): number {
         return 1;
     }
  
@@ -693,7 +693,7 @@ namespace sparkbitO {
     //% direction.fieldOptions.width=220
     //% direction.fieldOptions.columns=1
     //% parts=”v2"
-    export function __sparkbitDirectionEnum(direction: SparkbitDirection): SparkbitDirection {
+    export function _sparkbitDirectionEnum(direction: SparkbitDirection): SparkbitDirection {
         return direction;
     }
 
@@ -704,7 +704,7 @@ namespace sparkbitO {
     //% color.fieldOptions.width=220
     //% color.fieldOptions.columns=1
     //% parts=”v2"
-    export function __sparkbitColorEnum(color: SparkbitColor): SparkbitColor {
+    export function _sparkbitColorEnum(color: SparkbitColor): SparkbitColor {
         return color;
     }
 
@@ -719,7 +719,7 @@ namespace sparkbitO {
     //% output.fieldEditor="numberdropdown"output.fieldOptions.decompileLiterals=true
     //% output.fieldOptions.data='[["output 1", 1], ["output 2", 2], ["output 3", 3], ["output 4", 4]]'
     //% parts=”v2"
-    export function __sparkbitOutputPort(output: number): number {
+    export function _sparkbitOutputPort(output: number): number {
         return output;
     }
 
