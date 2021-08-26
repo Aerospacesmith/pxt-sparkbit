@@ -275,8 +275,8 @@ namespace sparkbitI {
     }
 
 
-    /**
-     * Input Port #
+   /**
+    * Input Port #
     * @param input (1-8) eg: 1
     */
     //% blockId=sparkbitInputPort
@@ -290,6 +290,10 @@ namespace sparkbitI {
       return input;
     }
  
+   /**
+    * Input Port #
+    * @param input (1-8) eg: 1
+    */
     //% blockId=sparkbitInPortEnum
     //% block="$inputPort"
     //% blockHidden=false
