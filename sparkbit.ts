@@ -59,7 +59,7 @@ enum SparkbitInPort {
     //% block="input 7"
     Input7 = 7,
     //% block="input 8"
-    Input8 = 8,
+    Input8 = 8
 }
 
 /**
