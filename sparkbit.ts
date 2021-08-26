@@ -414,7 +414,7 @@ namespace sparkbitI {
     //% $inputPort.fieldOptions.width=220
     //% $inputPort.fieldOptions.columns=8
     //% parts=”v2"
-    export function __sparkbitInPortEnum(inputPort: SparkbitInPort): number {
+    export function __sparkbitInPortEnum(inputPort: SparkbitInPort): SparkbitInPort {
         return inputPort;
     }
     //% blockId=Input1
