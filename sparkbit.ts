@@ -4,39 +4,39 @@
 /**
   * Enumeration of directions.
   */
-enum Directions {
-    //% block="counterclockwise"
-    Counterclockwise = 1,
+enum SparkbitDirection {
     //% block="clockwise"
-    Clockwise = 0
+    Clockwise = 0,
+    //% block="counterclockwise"
+    Counterclockwise = 1
 }
 
 /**
   * Enumeration of LED Colors.
   */
-enum Colors {
+enum SparkbitColor {
     //% block="green"
     Green = 0,
     //% block="red"
     Red = 1
 }
 
-enum LogicCompare {
+enum SparkbitLogic {
     //% block="="
-    LogicCompareEQ,
+    EQ,
     //% block="≠"
-    LogicCompareNEQ,
+    NEQ,
     //% block="<"
-    LogicCompareLT,
+    LT,
     //% block="≤"
-    LogicCompareLTE,
+    LTE,
     //% block=">"
-    LogicCompareGT,
+    GT,
     //% block="≥"
-    LogicCompareGTE
+    GTE
 }
 
-enum DegreePercent {
+enum SparkbitAngle {
     //% block="degrees (°)"
     Degree,
     //% block="percent (%)"
@@ -51,14 +51,14 @@ enum DegreePercent {
 namespace sparkbitI {
 
     /**
-     * Returns value of analog sensor in percentage
+     * Returns 10 bit analog value of sensor
      * @param channel Sensor Input (1-8) eg: 1
      */
-    //% block="analog read sensor $channel"
-    //% channel.shadow="inputNumber"
+    //% block="analog sensor $channel 10 bit value"
+    //% channel.shadow="sparkbitInputPort"
     //% advanced = true
     //% parts=”v2"
-    export function readAnalogSensor(channel: number): number {
+    export function analogSensor(channel: number): number {
         if (channel < 1) channel = 1;
         if (channel > 8) channel = 8;
         switch (channel) { //reverses sensor ports 1-8 to match schematics.
@@ -106,16 +106,16 @@ namespace sparkbitI {
      */
     //% block="analog sensor $channel percent (\\%)"
     //% weight=1
-    //% channel.shadow="inputNumber"
-    //% operator.shadow="degreePercentEnum"
+    //% channel.shadow="sparkbitInputPort"
+    //% operator.shadow="sparkbitAngleEnum"
     //% advanced = true
     //% parts=”v2"
-    export function readAnalogSensorPercent(channel: number): number {
-        let value = readAnalogSensor(channel);
+    export function analogSensorPercent(channel: number): number {
+        let value = analogSensor(channel);
         value = Math.map(value, 0, 1023, 0, 100);
         value = Math.round(value);
-        if (value >= 99) value = 100;
-        if (value <= 1) value = 0;
+        if (value > 99) value = 100;
+        if (value < 1) value = 0;
         return value;
     }
 
@@ -127,9 +127,9 @@ namespace sparkbitI {
     //% block="bump sensor $channel is pressed"
     //% group="Bump Sensor (blue)"
     //% weight=200
-    //% channel.shadow="inputNumber"
+    //% channel.shadow="sparkbitInputPort"
     //% parts=”v2"
-    export function bumpSensor(channel: number): boolean {
+    export function bumpSensorIsPressed(channel: number): boolean {
         return readDigitalSensorBool(channel);
     }
 
@@ -140,12 +140,12 @@ namespace sparkbitI {
      */
     //% block="light sensor $channel percent (\\%)"
     //% group="Light Sensor (yellow)"
-    //% channel.shadow="inputNumber"
-    //% operator.shadow="degreePercentEnum"
+    //% channel.shadow="sparkbitInputPort"
+    //% operator.shadow="sparkbitAngleEnum"
     //% weight=150
     //% parts=”v2"
-    export function readLightSensor(channel: number): number {
-        let value = readAnalogSensor(channel);
+    export function lightSensorPercent(channel: number): number {
+        let value = analogSensor(channel);
         value = Math.map(value, 0, 1023, 0, 100);
         value = Math.round(value);
         if (value > 100) value = 100;
@@ -161,13 +161,13 @@ namespace sparkbitI {
     //% block="light sensor $channel $operator $value percent (\\%)"
     //% group="Light Sensor (yellow)"
     //% weight=149
-    //% channel.shadow="inputNumber"
-    //% operator.shadow="LogicCompare_enum"
+    //% channel.shadow="sparkbitInputPort"
+    //% operator.shadow="sparkbitLogic_enum"
     //% value.min=0 value.max=100
     //% parts=”v2"
-    export function testLightSensorPercent(channel: number, operator: LogicCompare, value: number): boolean {
-        let percentInputValue = Math.map(readAnalogSensor(channel), 0, 1023, 0, 100);
-        return (logicCompare(operator, percentInputValue, value));
+    export function lightSensorComparePercent(channel: number, operator: SparkbitLogic, value: number): boolean {
+        let percentInputValue = Math.map(analogSensor(channel), 0, 1023, 0, 100);
+        return (sparkbitLogicCompare(operator, percentInputValue, value));
     }
 
 
@@ -177,16 +177,16 @@ namespace sparkbitI {
      */
     //% block="angle sensor $channel $operator"
     //% group="Angle Sensor (green)"
-    //% channel.shadow="inputNumber"
-    //% operator.shadow="degreePercentEnum"
+    //% channel.shadow="sparkbitInputPort"
+    //% operator.shadow="sparkbitAngleEnum"
     //% weight=100
     //% parts=”v2"
-    export function readAngleSensorDeg(operator: DegreePercent, channel: number): number {
-        if (operator == DegreePercent.Degree) {
-            return Math.round(Math.map(readAnalogSensor(channel), 0, 1023, 0, 359));
+    export function angleSensor(channel: number, operator: SparkbitAngle): number {
+        if (operator == SparkbitAngle.Degree) {
+            return Math.round(Math.map(analogSensor(channel), 0, 1023, 0, 359));
         }
-        else if (operator == DegreePercent.Percent) {
-            return Math.round(Math.map(readAnalogSensor(channel), 0, 1023, 0, 100));
+        else if (operator == SparkbitAngle.Percent) {
+            return Math.round(Math.map(analogSensor(channel), 0, 1023, 0, 100));
         }
         else return 0;
     }
@@ -199,13 +199,13 @@ namespace sparkbitI {
     //% block="angle sensor $channel $operator $value degrees (°)"
     //% group="Angle Sensor (green)"
     //% weight=99
-    //% channel.shadow="inputNumber"
-    //% operator.shadow="LogicCompare_enum"
+    //% channel.shadow="sparkbitInputPort"
+    //% operator.shadow="sparkbitLogic_enum"
     //% value.min=0 value.max=359
     //% parts=”v2"
-    export function testAngleSensorDeg(channel: number, operator: LogicCompare, value: number): boolean {
-        let percentInputValue = Math.map(readAnalogSensor(channel), 0, 1023, 0, 359);
-        return (logicCompare(operator, percentInputValue, value));
+    export function angleSensorCompareDegree(channel: number, operator: SparkbitLogic, value: number): boolean {
+        let percentInputValue = Math.map(analogSensor(channel), 0, 1023, 0, 359);
+        return (sparkbitLogicCompare(operator, percentInputValue, value));
     }
 
     /**
@@ -215,20 +215,28 @@ namespace sparkbitI {
     //% block="angle sensor $channel $operator $value percent (\\%)"
     //% group="Angle Sensor (green)"
     //% weight=98
-    //% channel.shadow="inputNumber"
-    //% operator.shadow="LogicCompare_enum"
+    //% channel.shadow="sparkbitInputPort"
+    //% operator.shadow="sparkbitLogic_enum"
     //% value.min=0 value.max=100
     //% parts=”v2"
-    export function testAngleSensorPercent(channel: number, operator: LogicCompare, value: number): boolean {
-        let percentInputValue = Math.map(readAnalogSensor(channel), 0, 1023, 0, 100);
-        return (logicCompare(operator, percentInputValue, value));
+    export function angleSensorComparePercent(channel: number, operator: SparkbitLogic, value: number): boolean {
+        let percentInputValue = Math.map(analogSensor(channel), 0, 1023, 0, 100);
+        return (sparkbitLogicCompare(operator, percentInputValue, value));
     }
 
-
-    //% block
-    //% blockHidden=true
+ 
+    /**
+     * Pulses IR Transmitter and checks if signal is reflected. Returns Boolean.
+     * @param TXpin Sensor Input (1-8) eg: 1
+     * @param RXpin Sensor Input (1-8) eg: 2
+     */
+    //% block="IR transmitter $TXpin is received on $RXpin"
+    //% group="IR Tx/Rx (black/white or gray/white)"
+    //% weight=50
+    //% TXpin.shadow="sparkbitInputPort"
+    //% RXpin.shadow="sparkbitInputPort"
     //% parts=”v2"
-    export function lightGateRead(TXpin: number, RXpin: number): boolean {
+    export function irTransmitterIsReceived(TXpin: number, RXpin: number): boolean {
         if (TXpin == RXpin) {   // error, TXpin cannot equal RXpin
             TXpin = 1;
             RXpin = 2;
@@ -243,66 +251,38 @@ namespace sparkbitI {
         return ProxIn;
     }
 
-    /**
-     * Pulses IR Transmitter and checks if signal is reflected. Returns Boolean.
-     * @param TXpin Sensor Input (1-8) eg: 1
-     * @param RXpin Sensor Input (1-8) eg: 2
-     */
-    //% block="IR transmitter $TXpin is received on $RXpin"
-    //% group="IR Tx/Rx (black/white or gray/white)"
-    //% weight=50
-    //% TXpin.shadow="inputNumber"
-    //% RXpin.shadow="inputNumber"
-    //% parts=”v2"
-    export function proximity(TXpin: number, RXpin: number): boolean {
-        return lightGateRead(TXpin, RXpin);
-    }
-
-    // /**
-    //  * Pulses IR Transmitter and checks if signal is reflected. Returns Boolean.
-    //  * @param TXpin Sensor Input (1-8) eg: 1
-    //  * @param RXpin Sensor Input (1-8) eg: 2
-    //  */
-    // //% block="IR transmitter $TXpin is received on $RXpin"
-    // //% group="IR Low Power Tx/Rx (gray/white)"
-    // //% TXpin.shadow="inputNumber"
-    // //% RXpin.shadow="inputNumber"
-    // export function lightGate(TXpin: number, RXpin: number): boolean {
-    //     return lightGateRead(TXpin, RXpin);
-    // }
-
 
     /**
      * Input Port #
     * @param input (1-8) eg: 1
     */
-    //% blockId=inputNumber 
+    //% blockId=sparkbitInputPort
     //% block="input $input"
     //% blockHidden=true
     //% colorSecondary="#FFFFFF"
     //% input.fieldEditor="numberdropdown" input.fieldOptions.decompileLiterals=true
     //% input.fieldOptions.data='[["input 1", 1], ["input 2", 2], ["input 3", 3], ["input 4", 4], ["input 5", 5], ["input 6", 6], ["input 7", 7], ["input 8", 8]]'
     //% parts=”v2"
-    export function __inputNumber(input: number): number {
+    export function __sparkbitInputPort(input: number): number {
         return input;
     }
 
 
-    //% blockId=LogicCompare_enum
+    //% blockId=sparkbitLogic_enum
     //% block="$operator"
     //% blockHidden=true
     //% operator.fieldEditor="gridpicker"
     //% operator.fieldOptions.width=220
     //% operator.fieldOptions.columns=3
     //% parts=”v2"
-    export function __LogicCompare_enum(operator: LogicCompare): number {
+    export function __sparkbitLogic_enum(operator: SparkbitLogic): number {
         switch (operator) {
-            case LogicCompare.LogicCompareEQ: return 0;
-            case LogicCompare.LogicCompareNEQ: return 1;
-            case LogicCompare.LogicCompareLT: return 2;
-            case LogicCompare.LogicCompareLTE: return 3;
-            case LogicCompare.LogicCompareGT: return 4;
-            case LogicCompare.LogicCompareGTE: return 5;
+            case SparkbitLogic.EQ: return 0;
+            case SparkbitLogic.NEQ: return 1;
+            case SparkbitLogic.LT: return 2;
+            case SparkbitLogic.LTE: return 3;
+            case SparkbitLogic.GT: return 4;
+            case SparkbitLogic.GTE: return 5;
             default: return -1;
         }
     }
@@ -310,96 +290,96 @@ namespace sparkbitI {
     /**
       * Return true if both inputs equal each other.
       */
-    //% blockId=LogicCompareEQ 
+    //% blockId=EQ 
     //% block="="
     //% blockHidden=true
     //% parts=”v2"
-    export function __LogicCompareEQ(): number {
+    export function __EQ(): number {
         return 0;
     }
     /**
       * Return true if both inputs are not equal to each other.
       */
-    //% blockId=LogicCompareNEQ 
+    //% blockId=NEQ 
     //% block="≠"
     //% blockHidden=true
     //% parts=”v2"
-    export function __LogicCompareNEQ(): number {
+    export function __NEQ(): number {
         return 1;
     }
     /**
       * Return true if the first input is smaller than the second input.
       */
-    //% blockId=LogicCompareLT 
+    //% blockId=LT 
     //% block="<"
     //% blockHidden=true
     //% parts=”v2"
-    export function __LogicCompareLT(): number {
+    export function __LT(): number {
         return 2;
     }
     /**
       * Return true if the first input is smaller than or equal to the second input.
       */
-    //% blockId=LogicCompareLTE 
+    //% blockId=LTE 
     //% block="≤"
     //% blockHidden=true
     //% parts=”v2"
-    export function __LogicCompareLTE(): number {
+    export function __LTE(): number {
         return 3;
     }
     /**
       * Return true if the first input is greater than the second input.
       */
-    //% blockId=LogicCompareGT 
+    //% blockId=GT 
     //% block=">"
     //% blockHidden=true
     //% parts=”v2"
-    export function __LogicCompareGT(): number {
+    export function __GT(): number {
         return 4;
     }
     /**
       * Return true if the first input is greater than or equal to the second input.
       */
-    //% blockId=LogicCompareGTE 
+    //% blockId=GTE 
     //% block="≥"
     //% blockHidden=true
     //% parts=”v2"
-    export function __LogicCompareGTE(): number {
+    export function __GTE(): number {
         return 5;
     }
 
-    //% blockId=degreePercentEnum
+    //% blockId=sparkbitAngleEnum
     //% block="$operator"
     //% blockHidden=true
     //% operator.fieldEditor="gridpicker"
     //% operator.fieldOptions.width=220
     //% operator.fieldOptions.columns=3
     //% parts=”v2"
-    export function __degreePercentEnum(operator: DegreePercent): number {
+    export function __sparkbitAngleEnum(operator: SparkbitAngle): number {
         switch (operator) {
-            case DegreePercent.Degree: return 0;
-            case DegreePercent.Percent: return 1;
+            case SparkbitAngle.Degree: return 0;
+            case SparkbitAngle.Percent: return 1;
             default: return -1;
         }
     }
     /**
       * Returns a number value of 0-359
       */
-    //% blockId=degreePercentDegree 
+    //% blockId=sparkbitAngleDegree 
     //% block="degrees (°)"
     //% blockHidden=true
     //% parts=”v2"
-    export function __degreePercentDegree(): number {
+    export function __sparkbitAngleDegree(): number {
         return 0;
     }
     /**
      * Returns a number value of 0-100
      */
-    //% blockId=degreePercentPercent 
+    //% blockId=sparkbitAnglePercent 
     //% block="percent (\\%)"
     //% blockHidden=true
     //% parts=”v2"
-    export function __degreePercentPercent(): number {
+    export function __sparkbitAnglePercent(): number {
         return 1;
     }
 }
@@ -420,48 +400,48 @@ namespace sparkbitO {
     //% weight=90
     //% expandableArgumentMode="toggle"
     //% inlineInputMode=inline
-    //% motor.shadow="outputNumber"
-    //% direction.shadow="directionEnum" direction.defl=Directions.Clockwise
+    //% motor.shadow="sparkbitOutputPort"
+    //% direction.shadow="sparkbitDirectionEnum" direction.defl=SparkbitDirection.Clockwise
     //% speed.min=0 speed.max=100 speed.defl=100
     //% duration.shadow=timePicker
     //% parts=”v2"
-    export function rotateMotorDuration(motor: number, direction: Directions, speed: number, duration?: number): void {
+    export function rotateMotorModule(motor: number, direction: SparkbitDirection, speed: number, duration?: number): void {
         speed = Math.map(speed, 0, 100, 0, 1023);
 
         if (duration == undefined) {
-            if (direction == Directions.Clockwise) {
+            if (direction == SparkbitDirection.Clockwise) {
                 motorWrite(motor, false, speed);
             }
-            else if (direction == Directions.Counterclockwise) {
+            else if (direction == SparkbitDirection.Counterclockwise) {
                 motorWrite(motor, true, speed);
             }
         }
         else {
             switch (motor) {
                 case 1:
-                    if (direction == Directions.Clockwise) outputsState[0] = false;
-                    else if (direction == Directions.Counterclockwise) outputsState[0] = true;
+                    if (direction == SparkbitDirection.Clockwise) outputsState[0] = false;
+                    else if (direction == SparkbitDirection.Counterclockwise) outputsState[0] = true;
                     outputsValue[0] = speed;
                     outputsDuration[0] = duration;
                     control.raiseEvent(EVENTID_OUTPUT_1_DELAY_OFF, 10);
                     break;
                 case 2:
-                    if (direction == Directions.Clockwise) outputsState[1] = false;
-                    else if (direction == Directions.Counterclockwise) outputsState[1] = true;
+                    if (direction == SparkbitDirection.Clockwise) outputsState[1] = false;
+                    else if (direction == SparkbitDirection.Counterclockwise) outputsState[1] = true;
                     outputsValue[1] = speed;
                     outputsDuration[1] = duration;
                     control.raiseEvent(EVENTID_OUTPUT_2_DELAY_OFF, 10);
                     break;
                 case 3:
-                    if (direction == Directions.Clockwise) outputsState[2] = false;
-                    else if (direction == Directions.Counterclockwise) outputsState[2] = true;
+                    if (direction == SparkbitDirection.Clockwise) outputsState[2] = false;
+                    else if (direction == SparkbitDirection.Counterclockwise) outputsState[2] = true;
                     outputsValue[2] = speed;
                     outputsDuration[2] = duration;
                     control.raiseEvent(EVENTID_OUTPUT_3_DELAY_OFF, 10);
                     break;
                 case 4:
-                    if (direction == Directions.Clockwise) outputsState[3] = false;
-                    else if (direction == Directions.Counterclockwise) outputsState[3] = true;
+                    if (direction == SparkbitDirection.Clockwise) outputsState[3] = false;
+                    else if (direction == SparkbitDirection.Counterclockwise) outputsState[3] = true;
                     outputsValue[3] = speed;
                     outputsDuration[3] = duration;
                     control.raiseEvent(EVENTID_OUTPUT_4_DELAY_OFF, 10);
@@ -477,9 +457,9 @@ namespace sparkbitO {
     //% block="stop motor module $motor"
     //% group="Motor Module (red)"
     //% weight=80
-    //% motor.shadow="outputNumber"
+    //% motor.shadow="sparkbitOutputPort"
     //% parts=”v2"
-    export function stopMotor(motor: number): void {
+    export function stopMotorModule(motor: number): void {
         motorWrite(motor, false, 0);
     }
     
@@ -539,12 +519,12 @@ namespace sparkbitO {
     //% weight=70
     //% expandableArgumentMode="toggle"
     //% inlineInputMode=inline
-    //% motor.shadow="outputNumber"
+    //% motor.shadow="sparkbitOutputPort"
     //% velocity.min=-100 velocity.max=100
     //% duration.shadow=timePicker
     //% advanced = true
     //% parts=”v2"
-    export function motorWriteVel(motor: number, velocity: number, duration?: number): void {
+    export function rotateMotorModuleVelocity(motor: number, velocity: number, duration?: number): void {
         if (velocity > 0){
             velocity = Math.map(velocity, 0, 100, 0, 1023);
         }
@@ -607,48 +587,48 @@ namespace sparkbitO {
     //% weight=20
     //% expandableArgumentMode="toggle"
     //% inlineInputMode=inline
-    //% output.shadow="outputNumber"
-    //% color.shadow="colorEnum" color.defl=Colors.Green
+    //% output.shadow="sparkbitOutputPort"
+    //% color.shadow="sparkbitColorEnum" color.defl=SparkbitColor.Green
     //% brightness.min=0 brightness.max=100 brightness.defl=100
     //% duration.shadow=timePicker
     //% parts=”v2"
-    export function setLightModule(output: number, color: Colors, brightness: number, duration?: number): void {
+    export function setLightModule(output: number, color: SparkbitColor, brightness: number, duration?: number): void {
         brightness = Math.map(brightness, 0, 100, 0, 1023);
 
         if (duration == undefined) {
-            if (color == Colors.Red) {
+            if (color == SparkbitColor.Red) {
                 motorWrite(output, true, brightness);
             }
-            else if (color == Colors.Green) {
+            else if (color == SparkbitColor.Green) {
                 motorWrite(output, false, brightness);
             }
         }
         else {
             switch (output) {
                 case 1:
-                    if (color == Colors.Red) outputsState[0] = true;
-                    else if (color == Colors.Green) outputsState[0] = false;
+                    if (color == SparkbitColor.Red) outputsState[0] = true;
+                    else if (color == SparkbitColor.Green) outputsState[0] = false;
                     outputsValue[0] = brightness;
                     outputsDuration[0] = duration;
                     control.raiseEvent(EVENTID_OUTPUT_1_DELAY_OFF, 10);
                     break;
                 case 2:
-                    if (color == Colors.Red) outputsState[1] = true;
-                    else if (color == Colors.Green) outputsState[1] = false;
+                    if (color == SparkbitColor.Red) outputsState[1] = true;
+                    else if (color == SparkbitColor.Green) outputsState[1] = false;
                     outputsValue[1] = brightness;
                     outputsDuration[1] = duration;
                     control.raiseEvent(EVENTID_OUTPUT_2_DELAY_OFF, 10);
                     break;
                 case 3:
-                    if (color == Colors.Red) outputsState[2] = true;
-                    else if (color == Colors.Green) outputsState[2] = false;
+                    if (color == SparkbitColor.Red) outputsState[2] = true;
+                    else if (color == SparkbitColor.Green) outputsState[2] = false;
                     outputsValue[2] = brightness;
                     outputsDuration[2] = duration;
                     control.raiseEvent(EVENTID_OUTPUT_3_DELAY_OFF, 10);
                     break;
                 case 4:
-                    if (color == Colors.Red) outputsState[3] = true;
-                    else if (color == Colors.Green) outputsState[3] = false;
+                    if (color == SparkbitColor.Red) outputsState[3] = true;
+                    else if (color == SparkbitColor.Green) outputsState[3] = false;
                     outputsValue[3] = brightness;
                     outputsDuration[3] = duration;
                     control.raiseEvent(EVENTID_OUTPUT_4_DELAY_OFF, 10);
@@ -664,9 +644,9 @@ namespace sparkbitO {
     //% block="turn off light module $output"
     //% group="Light Module (orange)"
     //% weight=10
-    //% output.shadow="outputNumber"
+    //% output.shadow="sparkbitOutputPort"
     //% parts=”v2"
-    export function stopLight(output: number): void {
+    export function stopLightModule(output: number): void {
         motorWrite(output, false, 0);
     }
 
@@ -678,10 +658,10 @@ namespace sparkbitO {
     //% direction.fieldOptions.width=220
     //% direction.fieldOptions.columns=2
     //% parts=”v2"
-    export function __directionEnum(direction: Directions): Directions {
+    export function __sparkbitDirectionEnum(direction: SparkbitDirection): SparkbitDirection {
         //   switch(direction) {
-        // 	  case Directions.Counterclockwise: return true;
-        // 	  case Directions.Clockwise:  return false;
+        // 	  case SparkbitDirection.Counterclockwise: return true;
+        // 	  case SparkbitDirection.Clockwise:  return false;
         // 	}
         return direction;
     }
@@ -693,10 +673,10 @@ namespace sparkbitO {
     //% color.fieldOptions.width=220
     //% color.fieldOptions.columns=2
     //% parts=”v2"
-    export function __colorEnum(color: Colors): Colors {
+    export function __sparkbitColorEnum(color: SparkbitColor): SparkbitColor {
         //   switch(color) {
-        // 	  case Colors.Green: return false;
-        // 	  case Colors.Red:  return true;
+        // 	  case SparkbitColor.Green: return false;
+        // 	  case SparkbitColor.Red:  return true;
         // 	}
         return color;
     }
@@ -705,14 +685,14 @@ namespace sparkbitO {
      * Output Port #
     * @param output (1-4) eg: 1
     */
-    //% blockId=outputNumber
+    //% blockId=sparkbitOutputPort
     //% block="output $output"
     //% blockHidden=true
     //% colorSecondary="#FFFFFF"
     //% output.fieldEditor="numberdropdown"output.fieldOptions.decompileLiterals=true
     //% output.fieldOptions.data='[["output 1", 1], ["output 2", 2], ["output 3", 3], ["output 4", 4]]'
     //% parts=”v2"
-    export function __outputNumber(output: number): number {
+    export function __sparkbitOutputPort(output: number): number {
         return output;
     }
 
@@ -723,8 +703,8 @@ namespace sparkbitO {
     //% blockHidden=true
     //% weight=11
     //% parts=”v2"
-    export function __clockwise(): Directions {
-        return Directions.Clockwise
+    export function __clockwise(): SparkbitDirection {
+        return SparkbitDirection.Clockwise
     }
 
     //% blockId=counterclockwise 
@@ -733,8 +713,8 @@ namespace sparkbitO {
     //% blockHidden=true
     //% weight=10
     //% parts=”v2"
-    export function __counterclockwise(): Directions {
-        return Directions.Counterclockwise
+    export function __counterclockwise(): SparkbitDirection {
+        return SparkbitDirection.Counterclockwise
     }
 
     //% blockId=ledRed 
@@ -743,8 +723,8 @@ namespace sparkbitO {
     //% group="Light Colors"
     //% weight=8
     //% parts=”v2"
-    export function __red(): Colors {
-        return Colors.Red
+    export function __red(): SparkbitColor {
+        return SparkbitColor.Red
     }
 
     //% blockId=ledGreen 
@@ -753,8 +733,8 @@ namespace sparkbitO {
     //% group="Light Colors"
     //% weight=7
     //% parts=”v2"
-    export function __green(): Colors {
-        return Colors.Green
+    export function __green(): SparkbitColor {
+        return SparkbitColor.Green
     }
 
 }
@@ -1128,19 +1108,19 @@ function writeDigitalSensor(sensor: number, writeVal: number): void {
     setreg(SX1509_I2C_ADDR, REG_DATA_A, regDada);   //set pins
 }
 
-function logicCompare(operator: LogicCompare, val1: number, val2: number): boolean {
+function sparkbitLogicCompare(operator: SparkbitLogic, val1: number, val2: number): boolean {
     switch (operator) {
-        case LogicCompare.LogicCompareEQ: if (val1 == val2) { return (true); }
+        case SparkbitLogic.EQ: if (val1 == val2) { return (true); }
         else { return (false); }
-        case LogicCompare.LogicCompareNEQ: if (val1 != val2) { return (true); }
+        case SparkbitLogic.NEQ: if (val1 != val2) { return (true); }
         else { return (false); }
-        case LogicCompare.LogicCompareLT: if (val1 < val2) { return (true); }
+        case SparkbitLogic.LT: if (val1 < val2) { return (true); }
         else { return (false); }
-        case LogicCompare.LogicCompareLTE: if (val1 <= val2) { return (true); }
+        case SparkbitLogic.LTE: if (val1 <= val2) { return (true); }
         else { return (false); }
-        case LogicCompare.LogicCompareGT: if (val1 > val2) { return (true); }
+        case SparkbitLogic.GT: if (val1 > val2) { return (true); }
         else { return (false); }
-        case LogicCompare.LogicCompareGTE: if (val1 >= val2) { return (true); }
+        case SparkbitLogic.GTE: if (val1 >= val2) { return (true); }
         else { return (false); }
         default: return (false);
     }
