@@ -410,77 +410,14 @@ namespace sparkbitI {
     //% blockId=sparkbitInPortEnum
     //% block="$inputPort"
     //% blockHidden=true
-    //% $inputPort.fieldEditor="gridpicker"
-    //% $inputPort.fieldOptions.width=220
-    //% $inputPort.fieldOptions.columns=8
+    //% inputPort.fieldEditor="gridpicker"
+    //% inputPort.fieldOptions.width=220
+    //% inputPort.fieldOptions.columns=8
     //% parts=”v2"
     export function __sparkbitInPortEnum(inputPort: SparkbitInPort): SparkbitInPort {
         return inputPort;
     }
- 
-    //% blockId=Input1
-    //% block="input 1"
-    //% blockHidden=true
-    //% parts=”v2"
-    export function __Input1(): SparkbitInPort {
-        return SparkbitInPort.Input1;
-    }
- 
-    //% blockId=Input2
-    //% block="input 2"
-    //% blockHidden=true
-    //% parts=”v2"
-    export function __Input2(): SparkbitInPort {
-        return SparkbitInPort.Input2;
-    }
- 
-    //% blockId=Input3
-    //% block="input 3"
-    //% blockHidden=true
-    //% parts=”v2"
-    export function __Input3(): SparkbitInPort {
-        return SparkbitInPort.Input3;
-    }
- 
-    //% blockId=Input4
-    //% block="input 4"
-    //% blockHidden=true
-    //% parts=”v2"
-    export function __Input4(): SparkbitInPort {
-        return SparkbitInPort.Input4;
-    }
- 
-    //% blockId=Input5
-    //% block="input 5"
-    //% blockHidden=true
-    //% parts=”v2"
-    export function __Input5(): SparkbitInPort {
-        return SparkbitInPort.Input5;
-    }
- 
-    //% blockId=Input6
-    //% block="input 6"
-    //% blockHidden=true
-    //% parts=”v2"
-    export function __Input6(): SparkbitInPort {
-        return SparkbitInPort.Input6;
-    }   
- 
-    //% blockId=Input7
-    //% block="input 7"
-    //% blockHidden=true
-    //% parts=”v2"
-    export function __Input7(): SparkbitInPort {
-        return SparkbitInPort.Input7;
-    }
- 
-    //% blockId=Input8 
-    //% block="input 8"
-    //% blockHidden=true
-    //% parts=”v2"
-    export function __Input8(): SparkbitInPort {
-        return SparkbitInPort.Input8;
-    }
+
  
 }
 
