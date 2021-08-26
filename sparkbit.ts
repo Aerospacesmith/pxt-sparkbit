@@ -440,7 +440,7 @@ namespace sparkbitI {
       */
     //% blockId=Input1 
     //% block="input 1"
-    //% blockHidden=true
+    //% blockHidden=false
     //% parts=”v2"
     export function _Input1(): number {
         return 1;
