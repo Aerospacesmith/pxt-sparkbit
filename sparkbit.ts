@@ -102,7 +102,7 @@ namespace sparkbitI {
 
     /**
      * Returns value of analog sensor in percentage
-     * @param channel Sensor Input (1-8)
+     * @param channel Sensor Input (1-8) eg: 1
      */
     //% block="analog sensor $channel percent (\\%)"
     //% weight=1
@@ -255,12 +255,13 @@ namespace sparkbitI {
 
     /**
      * Input Port #
-    * @param input (1-8) eg: 1
+    * @param input (1-8)
     */
     //% blockId=sparkbitInputPort
     //% block="input $input"
     //% blockHidden=true
     //% colorSecondary="#FFFFFF"
+    //% input.defl=1
     //% input.fieldEditor="numberdropdown" input.fieldOptions.decompileLiterals=true
     //% input.fieldOptions.data='[["input 1", 1], ["input 2", 2], ["input 3", 3], ["input 4", 4], ["input 5", 5], ["input 6", 6], ["input 7", 7], ["input 8", 8]]'
     //% parts=”v2"
