@@ -1,13 +1,13 @@
 {
     // rotate motor on output #1 500 ms clockwise
-    sparkbitO.rotateMotorDuration(sparkbitO.__outputNumber(1), Directions.Clockwise, 100, 500);
+    sparkbitO.rotateMotorModule(sparkbitO.__sparkbitOutputPort(1), SparkbitDirection.Clockwise, 100, 500);
     basic.pause(100);
-    sparkbitO.stopMotor(1);
+    sparkbitO.stopMotorModule(1);
 
     // set light on output #2 red for 500 ms
-    sparkbitO.setLightModule(sparkbitO.__outputNumber(2), Colors.Red, 100, 500);
+    sparkbitO.setLightModule(sparkbitO.__sparkbitOutputPort(2), SparkbitColors.Red, 100, 500);
     basic.pause(100);
-    sparkbitO.stopLight(2);
+    sparkbitO.stopLightModule(2);
 
     // Play V2 audio on speaker
     soundExpression.giggle.playUntilDone();
@@ -16,7 +16,7 @@
     music.startMelody(music.builtInMelody(Melodies.Dadadadum));
 
     // Read sensor #1
-    basic.showNumber(sparkbitI.readAnalogSensorPercent(1));
+    basic.showNumber(sparkbitI.analogSensorPercent(1));
 
 
 }
