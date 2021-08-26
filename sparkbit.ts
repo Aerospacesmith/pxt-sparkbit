@@ -413,7 +413,6 @@ namespace sparkbitI {
     //% inputPort.fieldEditor="numberdropdown"
     //% inputPort.fieldOptions.width=220
     //% inputPort.fieldOptions.columns=1
-    //% inputPort.fieldOptions.decompileLiterals=true
     //% parts=”v2"
     export function __sparkbitInPortEnum(inputPort: SparkbitInPort): SparkbitInPort {
         return inputPort;
