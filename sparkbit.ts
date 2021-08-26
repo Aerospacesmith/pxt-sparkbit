@@ -66,7 +66,7 @@ enum SparkbitInPort {
 }
 
   /**
-  * Enumeration of Inputs.
+  * Enumeration of Outputs.
   */
 enum SparkbitOutPort {
     //% block="output 1"
@@ -432,6 +432,17 @@ namespace sparkbitI {
     //% blockHidden=true
     //% parts=”v2"
     export function _sparkbitAnglePercent(): number {
+        return 1;
+    }
+ 
+     /**
+      * Return true if both inputs equal each other.
+      */
+    //% blockId=Input1 
+    //% block="input 1"
+    //% blockHidden=true
+    //% parts=”v2"
+    export function _Input1(): number {
         return 1;
     }
  
