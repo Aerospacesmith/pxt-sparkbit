@@ -298,7 +298,7 @@ namespace sparkbitI {
     //% block="$inputPort"
     //% blockHidden=false
     //% inputPort.fieldEditor="gridpicker"
-    //% inputPort.fieldOptions.width=200
+    //% inputPort.fieldOptions.width=100
     //% inputPort.fieldOptions.columns=1
     //% parts=”v2"
     export function _sparkbitInPortEnum(inputPort: SparkbitInPort): SparkbitInPort {
