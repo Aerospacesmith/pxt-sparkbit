@@ -455,7 +455,7 @@ namespace sparkbitI {
     //% parts=”v2"
     export function __sparkbitInPort6(): SparkbitInPort {
         return SparkbitInPort.Input6;
-    
+    }    
     //% blockId=Input7
     //% block="input 7"
     //% blockHidden=true
