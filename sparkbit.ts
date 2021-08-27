@@ -227,7 +227,7 @@ namespace sparkbitI {
 
     /**
      * Returns value of light sensor
-     * @param channel Sensor Input (1-8) eg: 1
+     * @param channel Sensor Input (1-8)
      */
     //% block="light sensor $channel percent (\\%)"
     //% group="Light Sensor (yellow)"
@@ -270,8 +270,8 @@ namespace sparkbitI {
     //% block="IR transmitter $TXpin is received on $RXpin"
     //% group="IR Tx/Rx (black/white or gray/white)"
     //% weight=50
-    //% TXpin.shadow="sparkbitInputPort" TXpin.defl=1
-    //% RXpin.shadow="sparkbitInputPort" RXpin.defl=2
+    //% TXpin.shadow="sparkbitInputPort"
+    //% RXpin.shadow="sparkbitInputPort"
     //% parts=”v2"
     export function irTransmitterIsReceived(TXpin: number, RXpin: number): boolean {
         if (TXpin == RXpin) {   // error, TXpin cannot equal RXpin
