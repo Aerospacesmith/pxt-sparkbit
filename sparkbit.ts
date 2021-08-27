@@ -81,6 +81,10 @@ enum SparkbitOutPort {
     Output4 = 4
 }
 
+//% enumIdentity="Item.Iron"
+//% blockIdentity="sparkbitI.Input1"
+const INPUT1 = SparkbitInPort.Input1;
+
 /**
  * Custom Blocks for Sparkbit Input functionality.
  */
@@ -174,7 +178,7 @@ namespace sparkbitI {
 
     /**
      * Returns value of angle sensor
-     * @param channel Sensor Input (1-8) eg: 1
+     * @param channel Sensor Input (1-8) eg: INPUT1
      */
     //% block="angle sensor $channel $operator"
     //% group="Angle Sensor (green)"
@@ -440,13 +444,12 @@ namespace sparkbitI {
      /**
       * Return true if both inputs equal each other.
       */
+    //% shim=TD_ID
     //% blockId=Input1 
-    //% block="input 1"
-    //% blockHidden=true
+    //% block="input $input"
+    //% blockHidden=false
     //% parts=”v2"
-    export function _Input1(): number {
-        return 1;
-    }
+    function Input1(input: SparkbitInPort): number;
  
 }
 
