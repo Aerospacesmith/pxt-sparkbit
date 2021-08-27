@@ -267,7 +267,7 @@ namespace sparkbitI {
      * @param TXpin Sensor Input (1-8) eg: 1
      * @param RXpin Sensor Input (1-8) eg: 2
      */
-    //% block="IR transmitter $TXpin is received on $RXpin"
+    //% block="IR transmitter $TXpin=sparkbitInPortEnum is received on $RXpin=sparkbitInPortEnum"
     //% group="IR Tx/Rx (black/white or gray/white)"
     //% weight=50
     //% TXpin.shadow="sparkbitInPortEnum" TXpin.defl=1
@@ -314,7 +314,6 @@ namespace sparkbitI {
     //% input.fieldEditor="gridpicker"
     //% input.fieldOptions.width=100
     //% input.fieldOptions.columns=1
-    //% input.fieldOptions.decompileLiterals=true
     //% parts=”v2"
     export function _sparkbitInPortEnum(input: SparkbitInPort): SparkbitInPort {
         return input;
