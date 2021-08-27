@@ -316,7 +316,20 @@ namespace sparkbitI {
     //% input.fieldOptions.columns=1
     //% parts=”v2"
     export function _sparkbitInPortEnum(input: SparkbitInPort): SparkbitInPort {
-        return input;
+        if (typeof input === "number"){
+           switch (input) {
+               case 1: return SparkbitInPort.Input1;
+               case 2: return SparkbitInPort.Input2;
+               case 3: return SparkbitInPort.Input3;
+               case 4: return SparkbitInPort.Input4;
+               case 5: return SparkbitInPort.Input5;
+               case 6: return SparkbitInPort.Input6;
+               case 7: return SparkbitInPort.Input7;
+               case 8: return SparkbitInPort.Input8;
+               default: return SparkbitInPort.Input1;
+        } else {
+            return input;
+        }
     }
 
 
