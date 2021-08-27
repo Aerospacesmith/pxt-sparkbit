@@ -464,7 +464,7 @@ namespace sparkbitO {
     //% weight=90
     //% expandableArgumentMode="toggle"
     //% inlineInputMode=inline
-    //% motor.shadow="sparkbitOutPortEnum"
+    //% motor.shadow="sparkbitOutputPort"
     //% direction.shadow="sparkbitDirectionEnum" direction.defl=SparkbitDirection.Clockwise
     //% speed.min=0 speed.max=100 speed.defl=100
     //% duration.shadow=timePicker
@@ -521,7 +521,7 @@ namespace sparkbitO {
     //% block="stop motor module $motor"
     //% group="Motor Module (red)"
     //% weight=80
-    //% motor.shadow="sparkbitOutPortEnum"
+    //% motor.shadow="sparkbitOutputPort"
     //% parts=”v2"
     export function stopMotorModule(motor: number): void {
         motorWrite(motor, false, 0);
@@ -583,7 +583,7 @@ namespace sparkbitO {
     //% weight=70
     //% expandableArgumentMode="toggle"
     //% inlineInputMode=inline
-    //% motor.shadow="sparkbitOutPortEnum"
+    //% motor.shadow="sparkbitOutputPort"
     //% velocity.min=-100 velocity.max=100
     //% duration.shadow=timePicker
     //% advanced = true
@@ -651,7 +651,7 @@ namespace sparkbitO {
     //% weight=20
     //% expandableArgumentMode="toggle"
     //% inlineInputMode=inline
-    //% output.shadow="sparkbitOutPortEnum"
+    //% output.shadow="sparkbitOutputPort"
     //% color.shadow="sparkbitColorEnum" color.defl=SparkbitColor.Green
     //% brightness.min=0 brightness.max=100 brightness.defl=100
     //% duration.shadow=timePicker
@@ -708,7 +708,7 @@ namespace sparkbitO {
     //% block="turn off light module $output"
     //% group="Light Module (orange)"
     //% weight=10
-    //% output.shadow="sparkbitOutPortEnum"
+    //% output.shadow="sparkbitOutputPort"
     //% parts=”v2"
     export function stopLightModule(output: number): void {
         motorWrite(output, false, 0);
