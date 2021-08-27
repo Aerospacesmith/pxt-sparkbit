@@ -48,21 +48,21 @@ enum SparkbitAngle {
   */
 //% emitAsConstant
 enum SparkbitInPort {
-    //% block='input 1'
+    //% block="1"
     Input1 = 1,
-    //% block="input 2"
+    //% block="2"
     Input2 = 2,
-    //% block="input 3"
+    //% block="3"
     Input3 = 3,
-    //% block="input 4"
+    //% block="4"
     Input4 = 4,
-    //% block="input 5"
+    //% block="5"
     Input5 = 5,
-    //% block="input 6"
+    //% block="6"
     Input6 = 6,
-    //% block="input 7"
+    //% block="7"
     Input7 = 7,
-    //% block="input 8"
+    //% block="8"
     Input8 = 8
 }
 
@@ -311,7 +311,7 @@ namespace sparkbitI {
     * @param input (1-8) eg: 1
     */
     //% blockId=sparkbitInPortEnum
-    //% block="$input"
+    //% block="input $input"
     //% blockHidden=true
     //% input.fieldEditor="gridpicker"
     //% input.fieldOptions.width=100
