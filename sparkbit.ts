@@ -309,9 +309,9 @@ namespace sparkbitI {
     * @param input (1-8) eg: 1
     */
     //% blockId=sparkbitInPortEnum
-    //% block="input $input"
+    //% block="$input"
     //% blockHidden=true
-    //% input.fieldEditor="numberdropdown"
+    //% input.fieldEditor="number"
     //% input.fieldOptions.width=100
     //% input.fieldOptions.columns=1
     //% parts=”v2"
