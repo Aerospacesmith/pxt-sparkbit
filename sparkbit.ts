@@ -81,10 +81,6 @@ enum SparkbitOutPort {
     Output4 = 4
 }
 
-//% enumIdentity="Item.Iron"
-//% blockIdentity="sparkbitI.Input1"
-const INPUT1 = SparkbitInPort.Input1;
-
 /**
  * Custom Blocks for Sparkbit Input functionality.
  */
@@ -315,7 +311,7 @@ namespace sparkbitI {
     * @param input (1-8) eg: 1
     */
     //% blockId=sparkbitInPortEnum
-    //% block="$input"
+    //% block="input $input"
     //% blockHidden=true
     //% input.fieldEditor="gridpicker"
     //% input.fieldOptions.width=100
@@ -440,16 +436,6 @@ namespace sparkbitI {
     export function _sparkbitAnglePercent(): number {
         return 1;
     }
- 
-     /**
-      * Return true if both inputs equal each other.
-      */
-    //% shim=TD_ID
-    //% blockId=Input1 
-    //% block="input $input"
-    //% blockHidden=false
-    //% parts=”v2"
-    function Input1(input: SparkbitInPort): number;
  
 }
 
