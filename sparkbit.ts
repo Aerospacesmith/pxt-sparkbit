@@ -46,6 +46,7 @@ enum SparkbitAngle {
   /**
   * Enumeration of Inputs.
   */
+//% emitAsConstant
 enum SparkbitInPort {
     //% block="input 1"
     Input1 = 1,
@@ -68,6 +69,7 @@ enum SparkbitInPort {
   /**
   * Enumeration of Outputs.
   */
+//% emitAsConstant
 enum SparkbitOutPort {
     //% block="output 1"
     Output1 = 1,
@@ -411,14 +413,6 @@ namespace sparkbitI {
     //% parts="v2"
     export function _sparkbitAnglePercent(): number {
         return 1;
-    }
- 
-    //% blockId=Input1 
-    //% block="input 1"
-    //% blockHidden=false
-    //% parts="v2"
-    export function _Input1(): SparkbitInPort {
-        return SparkbitInPort.Input1
     }
 
  
