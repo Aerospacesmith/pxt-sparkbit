@@ -206,7 +206,7 @@ namespace sparkbitI {
     //% block="angle sensor $channel $operator"
     //% group="Angle Sensor (green)"
     //% channel.shadow="input" channel.defl=sparkbitI._input(INPUT1)
-    //% operator.shadow="sparkbitAngleEnum"
+    //% operator.shadow="sparkbitAngleEnum" operator.defl=SparkbitAngle.Degree
     //% weight=100
     //% parts="v2"
     export function angleSensor(channel: number, operator: SparkbitAngle): number {
