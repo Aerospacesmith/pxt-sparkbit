@@ -47,21 +47,21 @@ enum SparkbitAngle {
   * Enumeration of Inputs.
   */
 enum SparkbitInPort {
-    //% block="1"
+    //% block="input 1"
     Input1 = 1,
-    //% block="2"
+    //% block="input 2"
     Input2 = 2,
-    //% block="3"
+    //% block="input 3"
     Input3 = 3,
-    //% block="4"
+    //% block="input 4"
     Input4 = 4,
-    //% block="5"
+    //% block="input 5"
     Input5 = 5,
-    //% block="6"
+    //% block="input 6"
     Input6 = 6,
-    //% block="7"
+    //% block="input 7"
     Input7 = 7,
-    //% block="8"
+    //% block="input 8"
     Input8 = 8
 }
 
@@ -270,8 +270,8 @@ namespace sparkbitI {
     //% block="IR transmitter $TXpin is received on $RXpin"
     //% group="IR Tx/Rx (black/white or gray/white)"
     //% weight=50
-    //% TXpin.shadow="sparkbitInPortEnum" TXpin.defl=SparkbitInPort.Input1
-    //% RXpin.shadow="sparkbitInPortEnum" RXpin.defl=SparkbitInPort.Input2
+    //% TXpin.shadow="sparkbitInPortEnum" TXpin.defl=1
+    //% RXpin.shadow="sparkbitInPortEnum" RXpin.defl=2
     //% parts=”v2"
     export function irTransmitterIsReceived(TXpin: SparkbitInPort | number, RXpin: SparkbitInPort | number): boolean {
         if (TXpin == RXpin) {   // error, TXpin cannot equal RXpin
