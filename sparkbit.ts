@@ -91,10 +91,10 @@ namespace sparkbitI {
      * @param channel Sensor Input (1-8) eg: 1
      */
     //% block="analog sensor $channel 10 bit value"
-    //% channel.shadow="sparkbitInPortEnum"
+    //% channel.shadow="sparkbitInputPort"
     //% advanced = true
     //% parts=”v2"
-    export function analogSensor(channel: SparkbitInPort | number): number {
+    export function analogSensor(channel: number): number {
         if (channel < 1) channel = 1;
         if (channel > 8) channel = 8;
         switch (channel) { //reverses sensor ports 1-8 to match schematics.
@@ -142,11 +142,11 @@ namespace sparkbitI {
      */
     //% block="analog sensor $channel percent (\\%)"
     //% weight=1
-    //% channel.shadow="sparkbitInPortEnum"
+    //% channel.shadow="sparkbitInputPort"
     //% operator.shadow="sparkbitAngleEnum"
     //% advanced = true
     //% parts=”v2"
-    export function analogSensorPercent(channel: SparkbitInPort | number): number {
+    export function analogSensorPercent(channel: number): number {
         let value = analogSensor(channel);
         value = Math.map(value, 0, 1023, 0, 100);
         value = Math.round(value);
@@ -163,9 +163,9 @@ namespace sparkbitI {
     //% block="bump sensor $channel is pressed"
     //% group="Bump Sensor (blue)"
     //% weight=200
-    //% channel.shadow="sparkbitInPortEnum"
+    //% channel.shadow="sparkbitInputPort"
     //% parts=”v2"
-    export function bumpSensorIsPressed(channel: SparkbitInPort | number): boolean {
+    export function bumpSensorIsPressed(channel: number): boolean {
         return readDigitalSensorBool(channel);
     }
 
@@ -176,11 +176,11 @@ namespace sparkbitI {
      */
     //% block="angle sensor $channel $operator"
     //% group="Angle Sensor (green)"
-    //% channel.shadow="sparkbitInPortEnum"
+    //% channel.shadow="sparkbitInputPort"
     //% operator.shadow="sparkbitAngleEnum"
     //% weight=100
     //% parts=”v2"
-    export function angleSensor(channel: SparkbitInPort | number, operator: SparkbitAngle): number {
+    export function angleSensor(channel: number, operator: SparkbitAngle): number {
         if (operator == SparkbitAngle.Degree) {
             return Math.round(Math.map(analogSensor(channel), 0, 1023, 0, 359));
         }
@@ -198,11 +198,11 @@ namespace sparkbitI {
     //% block="angle sensor $channel $operator $value degrees (°)"
     //% group="Angle Sensor (green)"
     //% weight=99
-    //% channel.shadow="sparkbitInPortEnum"
+    //% channel.shadow="sparkbitInputPort"
     //% operator.shadow="sparkbitLogic_enum"
     //% value.min=0 value.max=359
     //% parts=”v2"
-    export function angleSensorCompareDegree(channel: SparkbitInPort | number, operator: SparkbitLogic, value: number): boolean {
+    export function angleSensorCompareDegree(channel: number, operator: SparkbitLogic, value: number): boolean {
         let percentInputValue = Math.map(analogSensor(channel), 0, 1023, 0, 359);
         return (sparkbitLogicCompare(operator, percentInputValue, value));
     }
@@ -215,11 +215,11 @@ namespace sparkbitI {
     //% block="angle sensor $channel $operator $value percent (\\%)"
     //% group="Angle Sensor (green)"
     //% weight=98
-    //% channel.shadow="sparkbitInPortEnum"
+    //% channel.shadow="sparkbitInputPort"
     //% operator.shadow="sparkbitLogic_enum"
     //% value.min=0 value.max=100
     //% parts=”v2"
-    export function angleSensorComparePercent(channel: SparkbitInPort | number, operator: SparkbitLogic, value: number): boolean {
+    export function angleSensorComparePercent(channel: number, operator: SparkbitLogic, value: number): boolean {
         let percentInputValue = Math.map(analogSensor(channel), 0, 1023, 0, 100);
         return (sparkbitLogicCompare(operator, percentInputValue, value));
     }
@@ -231,11 +231,11 @@ namespace sparkbitI {
      */
     //% block="light sensor $channel percent (\\%)"
     //% group="Light Sensor (yellow)"
-    //% channel.shadow="sparkbitInPortEnum"
+    //% channel.shadow="sparkbitInputPort"
     //% operator.shadow="sparkbitAngleEnum"
     //% weight=150
     //% parts=”v2"
-    export function lightSensorPercent(channel: SparkbitInPort | number): number {
+    export function lightSensorPercent(channel: number): number {
         let value = analogSensor(channel);
         value = Math.map(value, 0, 1023, 0, 100);
         value = Math.round(value);
@@ -252,11 +252,11 @@ namespace sparkbitI {
     //% block="light sensor $channel $operator $value percent (\\%)"
     //% group="Light Sensor (yellow)"
     //% weight=149
-    //% channel.shadow="sparkbitInPortEnum"
+    //% channel.shadow="sparkbitInputPort"
     //% operator.shadow="sparkbitLogic_enum"
     //% value.min=0 value.max=100
     //% parts=”v2"
-    export function lightSensorComparePercent(channel: SparkbitInPort | number, operator: SparkbitLogic, value: number): boolean {
+    export function lightSensorComparePercent(channel: number, operator: SparkbitLogic, value: number): boolean {
         let percentInputValue = Math.map(analogSensor(channel), 0, 1023, 0, 100);
         return (sparkbitLogicCompare(operator, percentInputValue, value));
     }
@@ -270,10 +270,10 @@ namespace sparkbitI {
     //% block="IR transmitter $TXpin=sparkbitInPortEnum is received on $RXpin=sparkbitInPortEnum"
     //% group="IR Tx/Rx (black/white or gray/white)"
     //% weight=50
-    //% TXpin.shadow="sparkbitInPortEnum" TXpin.defl=1
-    //% RXpin.shadow="sparkbitInPortEnum" RXpin.defl=2
+    //% TXpin.shadow="sparkbitInputPort" TXpin.defl=1
+    //% RXpin.shadow="sparkbitInputPort" RXpin.defl=2
     //% parts=”v2"
-    export function irTransmitterIsReceived(TXpin: SparkbitInPort | number, RXpin: SparkbitInPort | number): boolean {
+    export function irTransmitterIsReceived(TXpin: number, RXpin: number): boolean {
         if (TXpin == RXpin) {   // error, TXpin cannot equal RXpin
             TXpin = 1;
             RXpin = 2;
@@ -298,7 +298,7 @@ namespace sparkbitI {
     //% colorSecondary="#FFFFFF"
     //% blockHidden=true
     //% input.fieldEditor="numberdropdown" input.fieldOptions.decompileLiterals=true
-    //% input.fieldOptions.data='[["input 1", 1], ["input 2", 2], ["input 3", 3], ["input 4", 4], ["input 5", 5], ["input 6", 6], ["input 7", 7], ["input 8", 8]]'
+    //% input.fieldOptions.data='[["input 1", 1], [SparkbitInPort.Input2, 2], ["input 3", 3], ["input 4", 4], ["input 5", 5], ["input 6", 6], ["input 7", 7], ["input 8", 8]]'
     //% parts=”v2"
     export function _sparkbitInputPort(input: number): number {
       return input;
