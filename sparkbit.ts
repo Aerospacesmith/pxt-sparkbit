@@ -81,6 +81,11 @@ enum SparkbitOutPort {
     Output4 = 4
 }
 
+//% enumIdentity="SparkbitInPort.Input1"
+const Input1 = SparkbitInPort.Input1;
+//% enumIdentity="SparkbitInPort.Input2"
+const Input2 = SparkbitInPort.Input2;
+
 /**
  * Custom Blocks for Sparkbit Input functionality.
  */
