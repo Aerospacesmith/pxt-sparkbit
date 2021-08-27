@@ -298,7 +298,7 @@ namespace sparkbitI {
     //% colorSecondary="#FFFFFF"
     //% blockHidden=true
     //% input.fieldEditor="numberdropdown" input.fieldOptions.decompileLiterals=true
-    //% input.fieldOptions.data='[["input 1", 1], [SparkbitInPort.Input2, 2], ["input 3", 3], ["input 4", 4], ["input 5", 5], ["input 6", 6], ["input 7", 7], ["input 8", 8]]'
+    //% input.fieldOptions.data='[["input 1", 1], ["input 2", 2], ["input 3", 3], ["input 4", 4], ["input 5", 5], ["input 6", 6], ["input 7", 7], ["input 8", 8]]'
     //% parts=”v2"
     export function _sparkbitInputPort(input: number): number {
       return input;
