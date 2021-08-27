@@ -47,24 +47,22 @@ enum SparkbitAngle {
   * Enumeration of Inputs.
   */
 enum SparkbitInPort {
-    //% block="NULL"
-    NULL,
     //% block="input 1"
-    Input1,
+    Input1 = 1,
     //% block="input 2"
-    Input2,
+    Input2 = 2,
     //% block="input 3"
-    Input3,
+    Input3 = 3,
     //% block="input 4"
-    Input4,
+    Input4 = 4,
     //% block="input 5"
-    Input5,
+    Input5 = 5,
     //% block="input 6"
-    Input6,
+    Input6 = 6,
     //% block="input 7"
-    Input7,
+    Input7 = 7,
     //% block="input 8"
-    Input8
+    Input8 = 8
 }
 
   /**
@@ -316,6 +314,7 @@ namespace sparkbitI {
     //% input.fieldEditor="gridpicker"
     //% input.fieldOptions.width=100
     //% input.fieldOptions.columns=1
+    //% input.fieldOptions.decompileLiterals=true
     //% parts=”v2"
     export function _sparkbitInPortEnum(input: SparkbitInPort): SparkbitInPort {
         return input;
