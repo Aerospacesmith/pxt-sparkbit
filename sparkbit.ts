@@ -176,7 +176,7 @@ namespace sparkbitI {
      */
     //% block="angle sensor $channel $operator"
     //% group="Angle Sensor (green)"
-    //% channel.shadow="sparkbitInputPortConvert" channel.defl=SparkbitInPort.Input1
+    //% channel.shadow="Input" channel.defl=SparkbitInPort.Input1
     //% operator.shadow="sparkbitAngleEnum"
     //% weight=100
     //% parts="v2"
@@ -435,8 +435,9 @@ namespace sparkbitI {
         return 1;
     }
  
+    //% blockId=Input 
     //% block="$input"
-    //% blockHidden=false
+    //% blockHidden=true
     //% parts="v2"
     export function _Input(input : SparkbitInPort): number {
         return input;
