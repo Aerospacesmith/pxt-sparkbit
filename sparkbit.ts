@@ -88,9 +88,9 @@ namespace sparkbitI {
 
     /**
      * Returns 10 bit analog value of sensor
-     * @param channel Sensor Input (1-8)
+     * @param channel Sensor Input (1-8) eg: 1
      */
-    //% block="analog sensor $channel 10 bit value"
+    //% block="analog sensor $channel=input_port_conv 10 bit value"
     //% channel.shadow="sparkbitInputPort"
     //% advanced = true
     //% parts=”v2"
@@ -138,9 +138,9 @@ namespace sparkbitI {
 
     /**
      * Returns value of analog sensor in percentage
-     * @param channel Sensor Input (1-8)
+     * @param channel Sensor Input (1-8) eg: 1
      */
-    //% block="analog sensor $channel percent (\\%)"
+    //% block="analog sensor $channel=input_port_conv percent (\\%)"
     //% weight=1
     //% channel.shadow="sparkbitInputPort"
     //% operator.shadow="sparkbitAngleEnum"
