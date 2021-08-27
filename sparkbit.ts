@@ -323,9 +323,9 @@ namespace sparkbitI {
  
  
  
- //% blockId="input_port_conv" block="%in"
-export function inputs(in : SparkbitInPort) : number {
-  switch(in) {
+ //% blockId="input_port_conv" block="%inPort"
+export function inputConvert(inPort : SparkbitInPort) : number {
+  switch(inPort) {
       case SparkbitInPort.Input1: return 1;
       case SparkbitInPort.Input2: return 2;
       case SparkbitInPort.Input3: return 3;
