@@ -270,7 +270,7 @@ namespace sparkbitI {
     //% block="IR transmitter $TXpin is received on $RXpin"
     //% group="IR Tx/Rx (black/white or gray/white)"
     //% weight=50
-    //% TXpin.shadow="sparkbitInputPortConvert" TXpin.defl=SparkbitInPort.Input1
+    //% TXpin.shadow="_Input" TXpin.defl=SparkbitInPort.Input1
     //% RXpin.shadow="sparkbitInputPortConvert" RXpin.defl=SparkbitInPort.Input1
     //% parts="v2"
     export function irTransmitterIsReceived(TXpin: number, RXpin: number): boolean {
@@ -441,21 +441,6 @@ namespace sparkbitI {
     //% parts="v2"
     export function _Input(input : SparkbitInPort): number {
         return input;
-    }
- 
-    //% blockId=Input1 
-    //% block="input1"
-    //% blockHidden=true
-    //% parts="v2"
-    export function _Input1(): number {
-        return 1;
-    } 
-    //% blockId=Input2 
-    //% block="input2"
-    //% blockHidden=true
-    //% parts="v2"
-    export function _Input2(): number {
-        return 2;
     }
   
 }
