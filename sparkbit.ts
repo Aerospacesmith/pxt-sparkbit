@@ -120,7 +120,7 @@ namespace sparkbitI {
      * @param channel Sensor Input (1-8) eg: 1
      */
     //% block="analog sensor $channel 10 bit value"
-    //% channel.shadow="input" channel.defl=sparkbitI._input(SparkbitInPort.Input1)
+    //% channel.shadow="input" channel.defl=sparkbitI._input(INPUT1)
     //% advanced = true
     //% parts="v2"
     export function analogSensor(channel: number): number {
@@ -171,7 +171,7 @@ namespace sparkbitI {
      */
     //% block="analog sensor $channel percent (\\%)"
     //% weight=1
-    //% channel.shadow="input" channel.defl=sparkbitI._input(SparkbitInPort.Input1)
+    //% channel.shadow="input" channel.defl=sparkbitI._input(INPUT1)
     //% operator.shadow="sparkbitAngleEnum"
     //% advanced = true
     //% parts="v2"
@@ -227,7 +227,7 @@ namespace sparkbitI {
     //% block="angle sensor $channel $operator $value degrees (°)"
     //% group="Angle Sensor (green)"
     //% weight=99
-    //% channel.shadow="input" channel.defl=sparkbitI._input(SparkbitInPort.Input1)
+    //% channel.shadow="input" channel.defl=sparkbitI._input(INPUT1)
     //% operator.shadow="sparkbitLogic_enum"
     //% value.min=0 value.max=359
     //% parts="v2"
@@ -244,7 +244,7 @@ namespace sparkbitI {
     //% block="angle sensor $channel $operator $value percent (\\%)"
     //% group="Angle Sensor (green)"
     //% weight=98
-    //% channel.shadow="input" channel.defl=sparkbitI._input(SparkbitInPort.Input1)
+    //% channel.shadow="input" channel.defl=sparkbitI._input(INPUT1)
     //% operator.shadow="sparkbitLogic_enum"
     //% value.min=0 value.max=100
     //% parts="v2"
@@ -260,7 +260,7 @@ namespace sparkbitI {
      */
     //% block="light sensor $channel percent (\\%)"
     //% group="Light Sensor (yellow)"
-    //% channel.shadow="input" channel.defl=sparkbitI._input(SparkbitInPort.Input1)
+    //% channel.shadow="input" channel.defl=sparkbitI._input(INPUT1)
     //% operator.shadow="sparkbitAngleEnum"
     //% weight=150
     //% parts="v2"
@@ -281,8 +281,8 @@ namespace sparkbitI {
     //% block="light sensor $channel $operator $value percent (\\%)"
     //% group="Light Sensor (yellow)"
     //% weight=149
-    //% channel.shadow="input" channel.defl=sparkbitI._input(SparkbitInPort.Input1)
-    //% operator.shadow="input"
+    //% channel.shadow="input" channel.defl=sparkbitI._input(INPUT1)
+    //% operator.shadow="sparkbitLogic_enum"
     //% value.min=0 value.max=100
     //% parts="v2"
     export function lightSensorComparePercent(channel: number, operator: SparkbitLogic, value: number): boolean {
@@ -299,8 +299,8 @@ namespace sparkbitI {
     //% block="IR transmitter $TXpin is received on $RXpin"
     //% group="IR Tx/Rx (black/white or gray/white)"
     //% weight=50
-    //% TXpin.shadow="input" TXpin.defl=sparkbitI._input(SparkbitInPort.Input1)
-    //% RXpin.shadow="input" RXpin.defl=sparkbitI._input(SparkbitInPort.Input1)
+    //% TXpin.shadow="input" TXpin.defl=sparkbitI._input(INPUT1)
+    //% RXpin.shadow="input" RXpin.defl=sparkbitI._input(INPUT1)
     //% parts="v2"
     export function irTransmitterIsReceived(TXpin: number, RXpin: number): boolean {
         if (TXpin == RXpin) {   // error, TXpin cannot equal RXpin
@@ -463,7 +463,7 @@ namespace sparkbitO {
     //% weight=90
     //% expandableArgumentMode="toggle"
     //% inlineInputMode=inline
-    //% motor.shadow="output" motor.defl=sparkbitO._output(SparkbitOutPort.Output1)
+    //% motor.shadow="output" motor.defl=sparkbitO._output(OUTPUT1)
     //% direction.shadow="sparkbitDirectionEnum" direction.defl=SparkbitDirection.Clockwise
     //% speed.min=0 speed.max=100 speed.defl=100
     //% duration.shadow=timePicker
@@ -520,7 +520,7 @@ namespace sparkbitO {
     //% block="stop motor module $motor"
     //% group="Motor Module (red)"
     //% weight=80
-    //% motor.shadow="output" motor.defl=sparkbitO._output(SparkbitOutPort.Output1)
+    //% motor.shadow="output" motor.defl=sparkbitO._output(OUTPUT1)
     //% parts="v2"
     export function stopMotorModule(motor: number): void {
         motorWrite(motor, false, 0);
@@ -582,7 +582,7 @@ namespace sparkbitO {
     //% weight=70
     //% expandableArgumentMode="toggle"
     //% inlineInputMode=inline
-    //% motor.shadow="output" motor.defl=sparkbitO._output(SparkbitOutPort.Output1)
+    //% motor.shadow="output" motor.defl=sparkbitO._output(OUTPUT1)
     //% velocity.min=-100 velocity.max=100
     //% duration.shadow=timePicker
     //% advanced = true
@@ -650,7 +650,7 @@ namespace sparkbitO {
     //% weight=20
     //% expandableArgumentMode="toggle"
     //% inlineInputMode=inline
-    //% output.shadow="output" output.defl=sparkbitO._output(SparkbitOutPort.Output1)
+    //% output.shadow="output" output.defl=sparkbitO._output(OUTPUT1)
     //% color.shadow="sparkbitColorEnum" color.defl=SparkbitColor.Green
     //% brightness.min=0 brightness.max=100 brightness.defl=100
     //% duration.shadow=timePicker
@@ -707,7 +707,7 @@ namespace sparkbitO {
     //% block="turn off light module $output"
     //% group="Light Module (orange)"
     //% weight=10
-    //% output.shadow="output" output.defl=sparkbitO._output(SparkbitOutPort.Output1)
+    //% output.shadow="output" output.defl=sparkbitO._output(OUTPUT1)
     //% parts="v2"
     export function stopLightModule(output: number): void {
         motorWrite(output, false, 0);
