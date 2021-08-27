@@ -46,7 +46,6 @@ enum SparkbitAngle {
   /**
   * Enumeration of Inputs.
   */
-//% emitAsConstant
 enum SparkbitInPort {
     //% block="1"
     Input1 = 1,
@@ -69,7 +68,6 @@ enum SparkbitInPort {
   /**
   * Enumeration of Outputs.
   */
-//% emitAsConstant
 enum SparkbitOutPort {
     //% block="output 1"
     Output1 = 1,
@@ -317,7 +315,7 @@ namespace sparkbitI {
     //% input.fieldOptions.width=100
     //% input.fieldOptions.columns=1
     //% parts=”v2"
-    export function _sparkbitInPortEnum(input: SparkbitInPort): number {
+    export function _sparkbitInPortEnum(input: SparkbitInPort): SparkbitInPort {
         return input;
     }
 
@@ -436,24 +434,7 @@ namespace sparkbitI {
     export function _sparkbitAnglePercent(): number {
         return 1;
     }
- 
-
- 
-    //% blockId=Input1 
-    //% block="input 1"
-    //% blockHidden=true
-    //% parts=”v2"
-    export function _Input1(): number {
-        return 1;
-    }
-    //% blockId=Input2 
-    //% block="input 2"
-    //% blockHidden=true
-    //% parts=”v2"
-    export function _Input2(): number {
-        return 2;
-    }
- 
+  
 }
 
 /**
@@ -723,6 +704,7 @@ namespace sparkbitO {
     }
 
 
+ 
     //% blockId=sparkbitDirectionEnum
     //% block="$direction"
     //% blockHidden=true
