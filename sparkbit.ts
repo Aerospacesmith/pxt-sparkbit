@@ -327,6 +327,7 @@ namespace sparkbitI {
                case 7: return SparkbitInPort.Input7;
                case 8: return SparkbitInPort.Input8;
                default: return SparkbitInPort.Input1;
+           }
         } else {
             return input;
         }
