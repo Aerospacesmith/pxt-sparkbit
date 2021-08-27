@@ -174,7 +174,7 @@ namespace sparkbitI {
 
     /**
      * Returns value of angle sensor
-     * @param channel Sensor Input (1-8) eg: INPUT1
+     * @param channel Sensor Input (1-8) eg: 1
      */
     //% block="angle sensor $channel $operator"
     //% group="Angle Sensor (green)"
