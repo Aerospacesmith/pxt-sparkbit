@@ -444,11 +444,18 @@ namespace sparkbitI {
     }
  
     //% blockId=Input1 
-    //% block="input 1"
+    //% block="input1"
     //% blockHidden=true
     //% parts="v2"
     export function _Input1(): number {
         return 1;
+    } 
+    //% blockId=Input2 
+    //% block="input2"
+    //% blockHidden=true
+    //% parts="v2"
+    export function _Input2(): number {
+        return 2;
     }
   
 }
