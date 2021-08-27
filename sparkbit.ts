@@ -48,7 +48,7 @@ enum SparkbitAngle {
   */
 //% emitAsConstant
 enum SparkbitInPort {
-    //% block="input 1"
+    //% block='input 1'
     Input1 = 1,
     //% block="input 2"
     Input2 = 2,
@@ -311,13 +311,13 @@ namespace sparkbitI {
     * @param input (1-8) eg: 1
     */
     //% blockId=sparkbitInPortEnum
-    //% block="input $input"
+    //% block="$input"
     //% blockHidden=true
     //% input.fieldEditor="gridpicker"
     //% input.fieldOptions.width=100
     //% input.fieldOptions.columns=1
     //% parts=”v2"
-    export function _sparkbitInPortEnum(input: SparkbitInPort): SparkbitInPort {
+    export function _sparkbitInPortEnum(input: SparkbitInPort): number {
         return input;
     }
 
