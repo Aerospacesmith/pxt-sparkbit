@@ -413,6 +413,15 @@ namespace sparkbitI {
         return 1;
     }
  
+    //% blockId=Input1 
+    //% block="input 1"
+    //% blockHidden=false
+    //% parts="v2"
+    export function _Input1(): SparkbitInPort {
+        return SparkbitInPort.Input1
+    }
+
+ 
 
   
 }
