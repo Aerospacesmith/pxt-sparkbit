@@ -311,7 +311,7 @@ namespace sparkbitI {
     //% blockId=sparkbitInPortEnum
     //% block="input $input"
     //% blockHidden=true
-    //% input.fieldEditor="gridpicker"
+    //% input.fieldEditor="numberdropdown"
     //% input.fieldOptions.width=100
     //% input.fieldOptions.columns=1
     //% parts=”v2"
