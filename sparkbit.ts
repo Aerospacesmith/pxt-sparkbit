@@ -316,7 +316,7 @@ namespace sparkbitI {
     //% input.fieldOptions.columns=1
     //% parts=”v2"
     export function _sparkbitInPortEnum(input: SparkbitInPort): SparkbitInPort {
-             switch (operator) {
+             switch (input) {
             case 1: return SparkbitInPort.Input1;
             case 2: return SparkbitInPort.Input2;
             case 3: return SparkbitInPort.Input3;
