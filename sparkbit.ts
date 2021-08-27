@@ -434,6 +434,13 @@ namespace sparkbitI {
     export function _sparkbitAnglePercent(): number {
         return 1;
     }
+ 
+    //% block="$input"
+    //% blockHidden=false
+    //% parts="v2"
+    export function _Input(input : SparkbitInPort): number {
+        return input;
+    }
   
 }
 
