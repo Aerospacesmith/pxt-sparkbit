@@ -94,7 +94,7 @@ namespace sparkbitI {
     //% channel.shadow="sparkbitInPortEnum"
     //% advanced = true
     //% parts=”v2"
-    export function analogSensor(channel: number): number {
+    export function analogSensor(channel: SparkbitInPort | number): number {
         if (channel < 1) channel = 1;
         if (channel > 8) channel = 8;
         switch (channel) { //reverses sensor ports 1-8 to match schematics.
@@ -146,7 +146,7 @@ namespace sparkbitI {
     //% operator.shadow="sparkbitAngleEnum"
     //% advanced = true
     //% parts=”v2"
-    export function analogSensorPercent(channel: number): number {
+    export function analogSensorPercent(channel: SparkbitInPort | number): number {
         let value = analogSensor(channel);
         value = Math.map(value, 0, 1023, 0, 100);
         value = Math.round(value);
@@ -165,7 +165,7 @@ namespace sparkbitI {
     //% weight=200
     //% channel.shadow="sparkbitInPortEnum"
     //% parts=”v2"
-    export function bumpSensorIsPressed(channel: number): boolean {
+    export function bumpSensorIsPressed(channel: SparkbitInPort | number): boolean {
         return readDigitalSensorBool(channel);
     }
 
@@ -180,7 +180,7 @@ namespace sparkbitI {
     //% operator.shadow="sparkbitAngleEnum"
     //% weight=100
     //% parts=”v2"
-    export function angleSensor(channel: number, operator: SparkbitAngle): number {
+    export function angleSensor(channel: SparkbitInPort | number, operator: SparkbitAngle): number {
         if (operator == SparkbitAngle.Degree) {
             return Math.round(Math.map(analogSensor(channel), 0, 1023, 0, 359));
         }
@@ -202,7 +202,7 @@ namespace sparkbitI {
     //% operator.shadow="sparkbitLogic_enum"
     //% value.min=0 value.max=359
     //% parts=”v2"
-    export function angleSensorCompareDegree(channel: number, operator: SparkbitLogic, value: number): boolean {
+    export function angleSensorCompareDegree(channel: SparkbitInPort | number, operator: SparkbitLogic, value: number): boolean {
         let percentInputValue = Math.map(analogSensor(channel), 0, 1023, 0, 359);
         return (sparkbitLogicCompare(operator, percentInputValue, value));
     }
@@ -219,7 +219,7 @@ namespace sparkbitI {
     //% operator.shadow="sparkbitLogic_enum"
     //% value.min=0 value.max=100
     //% parts=”v2"
-    export function angleSensorComparePercent(channel: number, operator: SparkbitLogic, value: number): boolean {
+    export function angleSensorComparePercent(channel: SparkbitInPort | number, operator: SparkbitLogic, value: number): boolean {
         let percentInputValue = Math.map(analogSensor(channel), 0, 1023, 0, 100);
         return (sparkbitLogicCompare(operator, percentInputValue, value));
     }
@@ -235,7 +235,7 @@ namespace sparkbitI {
     //% operator.shadow="sparkbitAngleEnum"
     //% weight=150
     //% parts=”v2"
-    export function lightSensorPercent(channel: number): number {
+    export function lightSensorPercent(channel: SparkbitInPort | number): number {
         let value = analogSensor(channel);
         value = Math.map(value, 0, 1023, 0, 100);
         value = Math.round(value);
@@ -256,7 +256,7 @@ namespace sparkbitI {
     //% operator.shadow="sparkbitLogic_enum"
     //% value.min=0 value.max=100
     //% parts=”v2"
-    export function lightSensorComparePercent(channel: number, operator: SparkbitLogic, value: number): boolean {
+    export function lightSensorComparePercent(channel: SparkbitInPort | number, operator: SparkbitLogic, value: number): boolean {
         let percentInputValue = Math.map(analogSensor(channel), 0, 1023, 0, 100);
         return (sparkbitLogicCompare(operator, percentInputValue, value));
     }
