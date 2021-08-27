@@ -120,7 +120,7 @@ namespace sparkbitI {
      * @param channel Sensor Input (1-8) eg: 1
      */
     //% block="analog sensor $channel 10 bit value"
-    //% channel.shadow="input" channel.defl=SparkbitInPort.Input1
+    //% channel.shadow="input" channel.defl=SparkbitI._input(SparkbitInPort.Input1)
     //% advanced = true
     //% parts="v2"
     export function analogSensor(channel: number): number {
