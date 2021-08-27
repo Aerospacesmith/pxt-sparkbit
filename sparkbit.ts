@@ -91,7 +91,7 @@ namespace sparkbitI {
      * @param channel Sensor Input (1-8) eg: 1
      */
     //% block="analog sensor $channel 10 bit value"
-    //% channel.shadow="sparkbit_input_port"
+    //% channel.shadow="sparkbitInputPort"
     //% advanced = true
     //% parts="v2"
     export function analogSensor(channel: number): number {
@@ -142,7 +142,7 @@ namespace sparkbitI {
      */
     //% block="analog sensor $channel percent (\\%)"
     //% weight=1
-    //% channel.shadow="sparkbit_input_port"
+    //% channel.shadow="sparkbitInputPort"
     //% operator.shadow="sparkbitAngleEnum"
     //% advanced = true
     //% parts="v2"
@@ -176,7 +176,7 @@ namespace sparkbitI {
      */
     //% block="angle sensor $channel $operator"
     //% group="Angle Sensor (green)"
-    //% channel.shadow="sparkbitInputPorts"
+    //% channel.shadow="sparkbitInputPort"
     //% operator.shadow="sparkbitAngleEnum"
     //% weight=100
     //% parts="v2"
@@ -301,7 +301,7 @@ namespace sparkbitI {
     }
  
     //% blockId="input_port_conv"
-    //% block="%inPort"
+    //% block="$inPort"
     //% blockHidden=true
     //% parts="v2"
     export function _sparkbitInputPortConvert(inPort : SparkbitInPort) : number {
