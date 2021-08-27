@@ -437,6 +437,23 @@ namespace sparkbitI {
         return 1;
     }
  
+
+ 
+    //% blockId=Input1 
+    //% block="input 1"
+    //% blockHidden=true
+    //% parts=”v2"
+    export function _Input1(): number {
+        return 1;
+    }
+    //% blockId=Input2 
+    //% block="input 2"
+    //% blockHidden=true
+    //% parts=”v2"
+    export function _Input2(): number {
+        return 2;
+    }
+ 
 }
 
 /**
