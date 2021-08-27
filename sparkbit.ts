@@ -176,7 +176,7 @@ namespace sparkbitI {
      */
     //% block="angle sensor $channel $operator"
     //% group="Angle Sensor (green)"
-    //% channel.shadow="sparkbitInputPortConvert"
+    //% channel.shadow="sparkbitInputPort"
     //% operator.shadow="sparkbitAngleEnum"
     //% weight=100
     //% parts=”v2"
@@ -289,21 +289,6 @@ namespace sparkbitI {
     }
 
 
-   /**
-    * Input Port #
-    * @param input (1-8) eg: 1
-    */
-    //% blockId=sparkbitInputPort
-    //% block="input $input"
-    //% colorSecondary="#FFFFFF"
-    //% blockHidden=true
-    //% input.fieldEditor="numberdropdown" input.fieldOptions.decompileLiterals=true
-    //% input.fieldOptions.data='[["input 1", 1], ["input 2", 2], ["input 3", 3], ["input 4", 4], ["input 5", 5], ["input 6", 6], ["input 7", 7], ["input 8", 8]]'
-    //% parts=”v2"
-    export function _sparkbitInputPort(input: number): number {
-      return input;
-    }
- 
     /**
     * Input Port #
     * @param input (1-8) eg: 1
@@ -315,59 +300,26 @@ namespace sparkbitI {
     //% input.fieldOptions.width=100
     //% input.fieldOptions.columns=1
     //% parts=”v2"
-    export function _sparkbitInputPortConvert(input: number): number {
+    export function _sparkbitInputPort(input: number): number {
       return input;
     }
  
- 
- 
- 
- 
- //% blockId="input_port_conv" block="%inPort"
-export function inputConvert(inPort : SparkbitInPort) : number {
-  switch(inPort) {
-      case SparkbitInPort.Input1: return 1;
-      case SparkbitInPort.Input2: return 2;
-      case SparkbitInPort.Input3: return 3;
-      case SparkbitInPort.Input4: return 4;
-      case SparkbitInPort.Input5: return 5;
-      case SparkbitInPort.Input6: return 6;
-      case SparkbitInPort.Input7: return 7;
-      case SparkbitInPort.Input8: return 8;
-      default: return 1;
-  }
-}
- 
- 
- 
- 
- 
-   /**
-    * Input Port #
-    * @param input (1-8) eg: 1
-    */
-    //% blockId=sparkbitInPortEnum
-    //% block="$input"
-    //% blockHidden=true
-    //% input.fieldEditor="gridpicker"
-    //% input.fieldOptions.width=100
-    //% input.fieldOptions.columns=1
-    //% parts=”v2"
-    export function _sparkbitInPortEnum(input: SparkbitInPort): SparkbitInPort {
-             switch (input) {
-            case 1: return SparkbitInPort.Input1;
-            case 2: return SparkbitInPort.Input2;
-            case 3: return SparkbitInPort.Input3;
-            case 4: return SparkbitInPort.Input4;
-            case 5: return SparkbitInPort.Input5;
-            case 6: return SparkbitInPort.Input6;
-            case 7: return SparkbitInPort.Input7;
-            case 8: return SparkbitInPort.Input8;
-            default: return SparkbitInPort.Input1;
-        }
-
+    //% blockId="input_port_conv" block="%inPort"
+    export function sparkbitInputPortConvert(inPort : SparkbitInPort) : number {
+      switch(inPort) {
+          case SparkbitInPort.Input1: return 1;
+          case SparkbitInPort.Input2: return 2;
+          case SparkbitInPort.Input3: return 3;
+          case SparkbitInPort.Input4: return 4;
+          case SparkbitInPort.Input5: return 5;
+          case SparkbitInPort.Input6: return 6;
+          case SparkbitInPort.Input7: return 7;
+          case SparkbitInPort.Input8: return 8;
+          default: return 1;
+      }
     }
-
+ 
+  
 
     //% blockId=sparkbitLogic_enum
     //% block="$operator"
