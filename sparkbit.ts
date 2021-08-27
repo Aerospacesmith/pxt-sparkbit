@@ -192,7 +192,7 @@ namespace sparkbitI {
     //% block="bump sensor $channel is pressed"
     //% group="Bump Sensor (blue)"
     //% weight=200
-    //% channel.shadow="input" channel.defl=sparkbitI._input(SparkbitInPort.Input1)
+    //% channel.shadow="input" channel.defl=sparkbitI._input(INPUT1)
     //% parts="v2"
     export function bumpSensorIsPressed(channel: number): boolean {
         return readDigitalSensorBool(channel);
@@ -205,7 +205,7 @@ namespace sparkbitI {
      */
     //% block="angle sensor $channel $operator"
     //% group="Angle Sensor (green)"
-    //% channel.shadow="input" channel.defl=sparkbitI._input(SparkbitInPort.Input1)
+    //% channel.shadow="input" channel.defl=sparkbitI._input(INPUT1)
     //% operator.shadow="sparkbitAngleEnum"
     //% weight=100
     //% parts="v2"
