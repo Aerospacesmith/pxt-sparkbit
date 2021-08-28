@@ -84,23 +84,26 @@ enum SparkbitOutPort {
 //% enumIdentity="SparkbitInPort.Input1"
 //% blockIdentity="sparkbitI._input"
 const INPUT1 = SparkbitInPort.Input1;
-
 //% enumIdentity="SparkbitInPort.Input2"
 //% blockIdentity="sparkbitI._input"
 const INPUT2 = SparkbitInPort.Input2;
-
 //% enumIdentity="SparkbitInPort.Input3"
+//% blockIdentity="sparkbitI._input"
 const INPUT3 = SparkbitInPort.Input3;
-
 //% enumIdentity="SparkbitInPort.Input4"
+//% blockIdentity="sparkbitI._input"
 const INPUT4 = SparkbitInPort.Input4;
 //% enumIdentity="SparkbitInPort.Input5"
+//% blockIdentity="sparkbitI._input"
 const INPUT5 = SparkbitInPort.Input5;
 //% enumIdentity="SparkbitInPort.Input6"
+//% blockIdentity="sparkbitI._input"
 const INPUT6 = SparkbitInPort.Input6;
 //% enumIdentity="SparkbitInPort.Input7"
+//% blockIdentity="sparkbitI._input"
 const INPUT7 = SparkbitInPort.Input7;
 //% enumIdentity="SparkbitInPort.Input8"
+//% blockIdentity="sparkbitI._input"
 const INPUT8 = SparkbitInPort.Input8;
 
 
@@ -304,8 +307,8 @@ namespace sparkbitI {
     //% block="IR transmitter $TXpin is received on $RXpin"
     //% group="IR Tx/Rx (black/white or gray/white)"
     //% weight=50
-    //% TXpin.shadow="input" TXpin.defl=INPUT1
-    //% RXpin.shadow="input" RXpin.defl=INPUT2
+    //% TXpin.shadow="input" TXpin.defl=sparkbitI._input(INPUT1)
+    //% RXpin.shadow="input" RXpin.defl=sparkbitI._input(INPUT2)
     //% parts="v2"
     export function irTransmitterIsReceived(TXpin: number, RXpin: number): boolean {
         if (TXpin == RXpin) {   // error, TXpin cannot equal RXpin
