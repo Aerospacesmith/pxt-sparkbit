@@ -84,24 +84,31 @@ enum SparkbitOutPort {
 //% enumIdentity="SparkbitInPort.Input1"
 //% blockIdentity="sparkbitI._input"
 const INPUT1 = SparkbitInPort.Input1;
+
 //% enumIdentity="SparkbitInPort.Input2"
 //% blockIdentity="sparkbitI._input"
 const INPUT2 = SparkbitInPort.Input2;
+
 //% enumIdentity="SparkbitInPort.Input3"
 //% blockIdentity="sparkbitI._input"
 const INPUT3 = SparkbitInPort.Input3;
+
 //% enumIdentity="SparkbitInPort.Input4"
 //% blockIdentity="sparkbitI._input"
 const INPUT4 = SparkbitInPort.Input4;
+
 //% enumIdentity="SparkbitInPort.Input5"
 //% blockIdentity="sparkbitI._input"
 const INPUT5 = SparkbitInPort.Input5;
+
 //% enumIdentity="SparkbitInPort.Input6"
 //% blockIdentity="sparkbitI._input"
 const INPUT6 = SparkbitInPort.Input6;
+
 //% enumIdentity="SparkbitInPort.Input7"
 //% blockIdentity="sparkbitI._input"
 const INPUT7 = SparkbitInPort.Input7;
+
 //% enumIdentity="SparkbitInPort.Input8"
 //% blockIdentity="sparkbitI._input"
 const INPUT8 = SparkbitInPort.Input8;
@@ -330,7 +337,7 @@ namespace sparkbitI {
     //% block="$input"
     //% blockHidden=false
     //% parts="v2"
-    export function _input(input : SparkbitInPort): number {
+    export function _input(input : SparkbitInPort): SparkbitInPort {
         return input;
     }
 
