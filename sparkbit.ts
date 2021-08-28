@@ -293,14 +293,14 @@ namespace sparkbitI {
  
     /**
      * Pulses IR Transmitter and checks if signal is reflected. Returns Boolean.
-     * @param TXpin Sensor Input (1-8) eg: sparkbitI._input(INPUT1)
-     * @param RXpin Sensor Input (1-8) eg: sparkbitI._input(INPUT2)
+     * @param TXpin Sensor Input (1-8) eg: 1
+     * @param RXpin Sensor Input (1-8) eg: 2
      */
     //% block="IR transmitter $TXpin is received on $RXpin"
     //% group="IR Tx/Rx (black/white or gray/white)"
     //% weight=50
-    //% TXpin.shadow="input" TXpin.defl=INPUT1
-    //% RXpin.shadow="input" RXpin.defl=INPUT2
+    //% TXpin.shadow="input" TXpin.defl=sparkbitI._input(INPUT1)
+    //% RXpin.shadow="input" RXpin.defl=sparkbitI._input(INPUT1)
     //% parts="v2"
     export function irTransmitterIsReceived(TXpin: number, RXpin: number): boolean {
         if (TXpin == RXpin) {   // error, TXpin cannot equal RXpin
@@ -326,6 +326,15 @@ namespace sparkbitI {
         return input;
     }
   
+    //% blockId=INPUT1 
+    //% block="input 1"
+    //% blockHidden=true
+    //% parts="v2"
+    export function _INPUT1(): number {
+        return 1;
+    }
+
+ 
 
     //% blockId=sparkbitLogic_enum
     //% block="$operator"
