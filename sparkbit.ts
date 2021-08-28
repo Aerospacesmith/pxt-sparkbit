@@ -134,7 +134,7 @@ namespace sparkbitI {
      * @param channel Sensor Input (1-8) eg: 1
      */
     //% block="analog sensor $channel 10 bit value"
-    //% channel.shadow="input" channel.defl=sparkbitI._input(INPUT1)
+    //% channel.shadow="input" channel.defl=SparkbitInPort.Input1
     //% advanced = true
     //% parts="v2"
     export function analogSensor(channel: number): number {
@@ -185,7 +185,7 @@ namespace sparkbitI {
      */
     //% block="analog sensor $channel percent (\\%)"
     //% weight=1
-    //% channel.shadow="input" channel.defl=sparkbitI._input(INPUT1)
+    //% channel.shadow="input" channel.defl=SparkbitInPort.Input1
     //% operator.shadow="sparkbitAngleEnum" operator.defl=SparkbitAngle.Degree
     //% advanced = true
     //% parts="v2"
@@ -206,7 +206,7 @@ namespace sparkbitI {
     //% block="bump sensor $channel is pressed"
     //% group="Bump Sensor (blue)"
     //% weight=200
-    //% channel.shadow="input" channel.defl=sparkbitI._input(INPUT1)
+    //% channel.shadow="input" channel.defl=SparkbitInPort.Input1
     //% parts="v2"
     export function bumpSensorIsPressed(channel: number): boolean {
         return readDigitalSensorBool(channel);
@@ -219,7 +219,7 @@ namespace sparkbitI {
      */
     //% block="angle sensor $channel $operator"
     //% group="Angle Sensor (green)"
-    //% channel.shadow="input" channel.defl=INPUT1
+    //% channel.shadow="input" channel.defl=SparkbitInPort.Input1
     //% operator.shadow="sparkbitAngleEnum" operator.defl=SparkbitAngle.Degree
     //% weight=100
     //% parts="v2"
@@ -241,7 +241,7 @@ namespace sparkbitI {
     //% block="angle sensor $channel $operator $value degrees (°)"
     //% group="Angle Sensor (green)"
     //% weight=99
-    //% channel.shadow="input" channel.defl=sparkbitI._input(INPUT1)
+    //% channel.shadow="input" channel.defl=SparkbitInPort.Input1
     //% operator.shadow="sparkbitLogic_enum" operator.defl=SparkbitLogic.EQ
     //% value.min=0 value.max=359
     //% parts="v2"
@@ -258,7 +258,7 @@ namespace sparkbitI {
     //% block="angle sensor $channel $operator $value percent (\\%)"
     //% group="Angle Sensor (green)"
     //% weight=98
-    //% channel.shadow="input" channel.defl=sparkbitI._input(INPUT1)
+    //% channel.shadow="input" channel.defl=SparkbitInPort.Input1
     //% operator.shadow="sparkbitLogic_enum" operator.defl=SparkbitLogic.EQ
     //% value.min=0 value.max=100
     //% parts="v2"
@@ -274,7 +274,7 @@ namespace sparkbitI {
      */
     //% block="light sensor $channel percent (\\%)"
     //% group="Light Sensor (yellow)"
-    //% channel.shadow="input" channel.defl=sparkbitI._input(INPUT1)
+    //% channel.shadow="input" channel.defl=SparkbitInPort.Input1
     //% operator.shadow="sparkbitAngleEnum" operator.defl=SparkbitAngle.Degree
     //% weight=150
     //% parts="v2"
@@ -295,7 +295,7 @@ namespace sparkbitI {
     //% block="light sensor $channel $operator $value percent (\\%)"
     //% group="Light Sensor (yellow)"
     //% weight=149
-    //% channel.shadow="input" channel.defl=sparkbitI._input(INPUT1)
+    //% channel.shadow="input" channel.defl=SparkbitInPort.Input1
     //% operator.shadow="sparkbitLogic_enum" operator.defl=SparkbitLogic.EQ
     //% value.min=0 value.max=100
     //% parts="v2"
@@ -313,8 +313,8 @@ namespace sparkbitI {
     //% block="IR transmitter $TXpin is received on $RXpin"
     //% group="IR Tx/Rx (black/white or gray/white)"
     //% weight=50
-    //% TXpin.shadow="input" TXpin.defl=INPUT1
-    //% RXpin.shadow="input" RXpin.defl=INPUT2
+    //% TXpin.shadow="input" TXpin.defl=SparkbitInPort.Input1
+    //% RXpin.shadow="input" RXpin.defl=SparkbitInPort.Input2
     //% parts="v2"
     export function irTransmitterIsReceived(TXpin: number, RXpin: number): boolean {
         if (TXpin == RXpin) {   // error, TXpin cannot equal RXpin
