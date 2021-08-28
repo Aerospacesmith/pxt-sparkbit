@@ -334,9 +334,9 @@ namespace sparkbitI {
     //% shim=TD_ID
     //% blockId=input 
     //% block="$input"
-    //% blockHidden=false
+    //% blockHidden=true
     //% parts="v2"
-    export function _input(input : SparkbitInPort): SparkbitInPort {
+    export function _input(input : SparkbitInPort): number {
         return input;
     }
 
