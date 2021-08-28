@@ -320,19 +320,12 @@ namespace sparkbitI {
  
     //% blockId=input 
     //% block="$input"
-    //% blockHidden=true
+    //% blockHidden=false
     //% parts="v2"
     export function _input(input : SparkbitInPort): number {
         return input;
     }
-  
-    //% blockId=INPUT1 
-    //% block="input 1"
-    //% blockHidden=true
-    //% parts="v2"
-    export function _INPUT1(): number {
-        return 1;
-    }
+
 
  
 
