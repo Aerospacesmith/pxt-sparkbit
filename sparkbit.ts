@@ -82,13 +82,16 @@ enum SparkbitOutPort {
 }
 
 //% enumIdentity="SparkbitInPort.Input1"
-//% blockIdentity="sparkbitI._input"
+//% blockIdentity="sparkbitI._input(1)"
 const INPUT1 = SparkbitInPort.Input1;
+
 //% enumIdentity="SparkbitInPort.Input2"
-//% blockIdentity="sparkbitI._input"
+//% blockIdentity="sparkbitI._input(2)"
 const INPUT2 = SparkbitInPort.Input2;
+
 //% enumIdentity="SparkbitInPort.Input3"
 const INPUT3 = SparkbitInPort.Input3;
+
 //% enumIdentity="SparkbitInPort.Input4"
 const INPUT4 = SparkbitInPort.Input4;
 //% enumIdentity="SparkbitInPort.Input5"
