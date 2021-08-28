@@ -46,7 +46,6 @@ enum SparkbitAngle {
   /**
   * Enumeration of Inputs.
   */
-//% emitAsConstant
 enum SparkbitInPort {
     //% block="input 1"
     Input1 = 1,
