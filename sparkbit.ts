@@ -82,11 +82,11 @@ enum SparkbitOutPort {
 }
 
 //% enumIdentity="SparkbitInPort.Input1"
-//% blockIdentity="sparkbitI._input(1)"
+//% blockIdentity="sparkbitI._input"
 const INPUT1 = SparkbitInPort.Input1;
 
 //% enumIdentity="SparkbitInPort.Input2"
-//% blockIdentity="sparkbitI._input(2)"
+//% blockIdentity="sparkbitI._input"
 const INPUT2 = SparkbitInPort.Input2;
 
 //% enumIdentity="SparkbitInPort.Input3"
@@ -322,7 +322,7 @@ namespace sparkbitI {
         return ProxIn;
     }
 
- 
+    //% shim=TD_ID
     //% blockId=input 
     //% block="$input"
     //% blockHidden=false
