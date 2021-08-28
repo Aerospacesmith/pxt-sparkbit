@@ -80,47 +80,6 @@ enum SparkbitOutPort {
     Output4 = 4
 }
 
-//% enumIdentity="SparkbitInPort.Input1"
-//% blockIdentity="sparkbitI._input"
-const INPUT1 = SparkbitInPort.Input1;
-
-//% enumIdentity="SparkbitInPort.Input2"
-//% blockIdentity="sparkbitI._input"
-const INPUT2 = SparkbitInPort.Input2;
-
-//% enumIdentity="SparkbitInPort.Input3"
-//% blockIdentity="sparkbitI._input"
-const INPUT3 = SparkbitInPort.Input3;
-
-//% enumIdentity="SparkbitInPort.Input4"
-//% blockIdentity="sparkbitI._input"
-const INPUT4 = SparkbitInPort.Input4;
-
-//% enumIdentity="SparkbitInPort.Input5"
-//% blockIdentity="sparkbitI._input"
-const INPUT5 = SparkbitInPort.Input5;
-
-//% enumIdentity="SparkbitInPort.Input6"
-//% blockIdentity="sparkbitI._input"
-const INPUT6 = SparkbitInPort.Input6;
-
-//% enumIdentity="SparkbitInPort.Input7"
-//% blockIdentity="sparkbitI._input"
-const INPUT7 = SparkbitInPort.Input7;
-
-//% enumIdentity="SparkbitInPort.Input8"
-//% blockIdentity="sparkbitI._input"
-const INPUT8 = SparkbitInPort.Input8;
-
-
-//% enumIdentity="SparkbitOutPort.Output1"
-const OUTPUT1 = SparkbitOutPort.Output1;
-//% enumIdentity="SparkbitOutPort.Output2"
-const OUTPUT2 = SparkbitOutPort.Output2;
-//% enumIdentity="SparkbitOutPort.Output3"
-const OUTPUT3 = SparkbitOutPort.Output3;
-//% enumIdentity="SparkbitOutPort.Output4"
-const OUTPUT4 = SparkbitOutPort.Output4;
 
 /**
  * Custom Blocks for Sparkbit Input functionality.
@@ -479,7 +438,7 @@ namespace sparkbitO {
     //% weight=90
     //% expandableArgumentMode="toggle"
     //% inlineInputMode=inline
-    //% motor.shadow="output" motor.defl=sparkbitO._output(OUTPUT1)
+    //% motor.shadow="output" motor.defl=SparkbitOutPort.Output1
     //% direction.shadow="sparkbitDirectionEnum" direction.defl=SparkbitDirection.Clockwise
     //% speed.min=0 speed.max=100 speed.defl=100
     //% duration.shadow=timePicker
@@ -536,7 +495,7 @@ namespace sparkbitO {
     //% block="stop motor module $motor"
     //% group="Motor Module (red)"
     //% weight=80
-    //% motor.shadow="output" motor.defl=sparkbitO._output(OUTPUT1)
+    //% motor.shadow="output" motor.defl=SparkbitOutPort.Output1
     //% parts="v2"
     export function stopMotorModule(motor: number): void {
         motorWrite(motor, false, 0);
@@ -598,7 +557,7 @@ namespace sparkbitO {
     //% weight=70
     //% expandableArgumentMode="toggle"
     //% inlineInputMode=inline
-    //% motor.shadow="output" motor.defl=sparkbitO._output(OUTPUT1)
+    //% motor.shadow="output" motor.defl=SparkbitOutPort.Output1
     //% velocity.min=-100 velocity.max=100
     //% duration.shadow=timePicker
     //% advanced = true
@@ -666,7 +625,7 @@ namespace sparkbitO {
     //% weight=20
     //% expandableArgumentMode="toggle"
     //% inlineInputMode=inline
-    //% output.shadow="output" output.defl=sparkbitO._output(OUTPUT1)
+    //% output.shadow="output" output.defl=SparkbitOutPort.Output1
     //% color.shadow="sparkbitColorEnum" color.defl=SparkbitColor.Green
     //% brightness.min=0 brightness.max=100 brightness.defl=100
     //% duration.shadow=timePicker
@@ -723,7 +682,7 @@ namespace sparkbitO {
     //% block="turn off light module $output"
     //% group="Light Module (orange)"
     //% weight=10
-    //% output.shadow="output" output.defl=sparkbitO._output(OUTPUT1)
+    //% output.shadow="output" output.defl=SparkbitOutPort.Output1
     //% parts="v2"
     export function stopLightModule(output: number): void {
         motorWrite(output, false, 0);
@@ -754,6 +713,7 @@ namespace sparkbitO {
     }
 
  
+    //% shim=TD_ID
     //% blockId=output 
     //% block="$output"
     //% blockHidden=true
