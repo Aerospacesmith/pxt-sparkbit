@@ -220,7 +220,7 @@ namespace sparkbitI {
      */
     //% block="angle sensor $channel $operator"
     //% group="Angle Sensor (green)"
-    //% channel.shadow="input" channel.defl=sparkbitI._input(INPUT1)
+    //% channel.shadow="input" channel.defl=INPUT1
     //% operator.shadow="sparkbitAngleEnum" operator.defl=SparkbitAngle.Degree
     //% weight=100
     //% parts="v2"
@@ -314,8 +314,8 @@ namespace sparkbitI {
     //% block="IR transmitter $TXpin is received on $RXpin"
     //% group="IR Tx/Rx (black/white or gray/white)"
     //% weight=50
-    //% TXpin.shadow="input" TXpin.defl=sparkbitI._input(INPUT1)
-    //% RXpin.shadow="input" RXpin.defl=sparkbitI._input(INPUT2)
+    //% TXpin.shadow="input" TXpin.defl=INPUT1
+    //% RXpin.shadow="input" RXpin.defl=INPUT2
     //% parts="v2"
     export function irTransmitterIsReceived(TXpin: number, RXpin: number): boolean {
         if (TXpin == RXpin) {   // error, TXpin cannot equal RXpin
