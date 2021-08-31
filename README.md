@@ -16,6 +16,10 @@ Use `sparkbitI.readAnalogSensor(...)` to read a particular input sensor.
 <img src="https://github.com/KidSpark/pxt-sparkbit/blob/master/assets/images/Bump%20Sensor.png?raw=true" alt="Bump Sensor" width="200"/>  
 Returns `true` if pressed, `false` if not pressed.
 
+```sig
+sparkbitI.bumpSensorIsPressed(SparkbitInPort.Input1)
+```
+
 ### Angle Sensor (green)
 <img src="https://github.com/KidSpark/pxt-sparkbit/blob/master/assets/images/AS.png?raw=true" alt="Angle Sensor" width="200"/>  
 Returns angle sensor value as an integer between `0` and `100`.
