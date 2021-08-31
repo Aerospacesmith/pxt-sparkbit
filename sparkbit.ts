@@ -167,6 +167,7 @@ namespace sparkbitI {
     //% weight=200
     //% channel.shadow="input" channel.defl=SparkbitInPort.Input1
     //% parts="v2"
+    //% help=bump-sensor-blue
     export function bumpSensorIsPressed(channel: number): boolean {
         return readDigitalSensorBool(channel);
     }
