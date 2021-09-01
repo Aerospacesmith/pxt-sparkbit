@@ -14,16 +14,19 @@ MakeCode step-by-step tutorials for the STEM Pathways Lab are available on the [
 # Input Sensors
 
 ## Bump Sensor (blue)
-<img src="https://github.com/KidSpark/pxt-sparkbit/blob/master/assets/images/Bump%20Sensor.png?raw=true" alt="Bump Sensor" width="200"/>  
+<img src="https://github.com/KidSpark/pxt-sparkbit/blob/master/assets/images/Bump%20Sensor.png?raw=true" alt="Bump Sensor" width="200"/>
+Used to trigger an event when the bump sensor is pressed.
 
 ### sparkbitI.bumpSensorIsPressed
-Returns `true` if pressed, `false` if not pressed.
-
 ```sig
 sparkbitI.bumpSensorIsPressed(SparkbitInPort.Input1)
 ```
+Returns a Boolean value of `true` if pressed, `false` if not pressed.
 
+**Parameters**
+* Input - select the input number (1-8) where the bump sensor is attached to the Spark:bit.
 
+**Example**
 ```blocks
 basic.forever(function () {
     if (sparkbitI.bumpSensorIsPressed(SparkbitInPort.Input1)){
@@ -149,11 +152,11 @@ The block takes four parameters: motor select, direction, speed, and optionally 
 * Duration is an integer value in milliseconds
 
 
-## Stopping
+Stopping
 When the motor speed is set to zero then it stops. There is also a dedicated function for this.
 Use `sparkbitO.stopMotor(...)` to stop the specified motor module.
 
-### Examples
+Examples
 ```blocks
 // Drive motor #1 clockwise at 60% speed.
 sparkbitO.rotateMotorModule(SparkbitOutPort.Output1, SparkbitDirection.Clockwise, 60)
