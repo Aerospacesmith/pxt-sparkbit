@@ -297,7 +297,7 @@ basic.forever(function () {
 ### sparkbitO.stopLightModule
 Turns off the light module.
 
-``sig
+```sig
 sparkbitO.stopLightModule(SparkbitOutPort.Output1)
 ```
 
