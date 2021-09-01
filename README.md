@@ -23,8 +23,8 @@ sparkbitI.bumpSensorIsPressed(SparkbitInPort.Input1)
 ```
 Returns a the bump sensor value as a Boolean `true` if pressed, `false` if not pressed.
 
-**Parameters**
-* Input - the input number (1-8) where the bump sensor is attached to the Spark:bit.
+**Parameter**
+* Input - the input port (1-8) where the bump sensor is connected to the Spark:bit.
 
 **Example**
 ```blocks
@@ -46,7 +46,7 @@ sparkbitI.angleSensor(SparkbitInPort.Input1, SparkbitAngle.Degree)
 ```
 
 **Paramaters**
-* Input - the input number (1-8) where the angle sensor is attached to the Spark:bit.
+* Input - the input port (1-8) where the angle sensor is connected to the Spark:bit.
 * Angle units - the units of the returned value in degrees (`0-359`) or as a percent (`0-100`). 
 
 **Eample**
@@ -64,7 +64,7 @@ sparkbitI.angleSensorCompareDegree(SparkbitInPort.Input1, SparkbitLogic.EQ, 0)
 ```
 
 **Parameters**
-* Input - the input number (1-8) where the angle sensor is attached to the Spark:bit.
+* Input - the input port (1-8) where the angle sensor is connected to the Spark:bit.
 * Comparison - the mathmatical operand (equal to, not equal to, less than, lass than or equal to, greater than, greater than or equal to).
 * Number - a number in degrees (`0-359`) to compare the angle sensor value against.
 
@@ -84,7 +84,7 @@ sparkbitI.angleSensorComparePercent(SparkbitInPort.Input1, SparkbitLogic.EQ, 0)
 ```
 
 **Parameters**
-* Input - the input number (1-8) where the angle sensor is attached to the Spark:bit.
+* Input - the input port (1-8) where the angle sensor is connected to the Spark:bit.
 * Comparison - the mathmatical operand (equal to, not equal to, less than, lass than or equal to, greater than, greater than or equal to).
 * Number - a number as a percent (`0-100`) to compare the angle sensor value against.
 
@@ -107,8 +107,8 @@ Returns the light sensor value as an integer between `0` dark and `100` bright.
 sparkbitI.lightSensorPercent(SparkbitInPort.Input1)
 ```
 
-**Parameters**
-* Input - the input number (1-8) where the light sensor is attached to the Spark:bit.
+**Parameter**
+* Input - the input port (1-8) where the light sensor is connected to the Spark:bit.
 
 **Example**
 ```blocks
@@ -125,7 +125,7 @@ sparkbitI.lightSensorComparePercent(SparkbitInPort.Input1, SparkbitLogic.EQ, 0)
 ```
 
 **Parameters**
-* Input - the input number (1-8) where the light sensor is attached to the Spark:bit.
+* Input - the input port (1-8) where the light sensor is connected to the Spark:bit.
 * Comparison - the mathmatical operand (equal to, not equal to, less than, lass than or equal to, greater than, greater than or equal to).
 * Number - a number as a percent (`0-100`) to compare the light sensor value against.
 
@@ -155,8 +155,8 @@ sparkbitI.irTransmitterIsReceived(SparkbitInPort.Input1, SparkbitInPort.Input2)
 ```
 
 **Parameters**
-* Transmitter input - the input number (1-8) where the IR transmitter (grey or black) is attached to the Spark:bit.
-* Receiver input - the input number (1-8) where the IR receiver (white) is attached to the Spark:bit.
+* Transmitter input - the input port (1-8) where the IR transmitter (grey or black) is connected to the Spark:bit.
+* Receiver input - the input port (1-8) where the IR receiver (white) is connected to the Spark:bit.
 
 **Example**
 ```blocks
@@ -176,7 +176,7 @@ sparkbitI.analogSensor(SparkbitInPort.Input1)
 ```
 
 **Parameters**
-* Input - the input number (1-8) where the sensor is attached to the Spark:bit.
+* Input - the input port (1-8) where the sensor is connected to the Spark:bit.
 
 **Example**
 ```blocks
@@ -192,8 +192,8 @@ Returns the value of any input sensor as a percent (`0-100`).
 sparkbitI.analogSensorPercent(SparkbitInPort.Input1)
 ```
 
-**Parameters**
-* Input - the input number (1-8) where the sensor is attached to the Spark:bit.
+**Parameter**
+* Input - the input port (1-8) where the sensor is connected to the Spark:bit.
 
 **Example**
 ```blocks
@@ -204,98 +204,113 @@ basic.forever(function () {
 
 # Output Modules
 
-## Motor Module
+## Motor Module (red)
 <img src="https://github.com/KidSpark/pxt-sparkbit/blob/master/assets/images/Motor%20Module.png?raw=true" alt="Motor Module" width="200"/> 
+Used to rotate parts of the mechanism.
 
 ### sparkbitO.rotateMotorModule
+Rotates the motor module based on direction, speed, and optional duration.
 
 ```sig
 sparkbitO.rotateMotorModule(SparkbitOutPort.Output1, SparkbitDirection.Clockwise, 100)
 ```
 
+**Paramters**
+* Output - the output port (1-4) where the motor module is connected to the Spark:bit.
+* Direction - the direction to rotate the motor `clockwise` or `counterclockwise`.
+* Speed - the speed of the motor as an integer value from `0` stop to `100` max speed.
+* Duration (optional) - by expanding the coding block, you may specify the duration for the motor to rotate in milliseconds (1000 ms = 1 second). If no duration is specified, the motor module will rotate until programmed to stop.
+
+**Example**
+```blocks
+basic.forever(function () {
+    if (sparkbitI.bumpSensorIsPressed(SparkbitInPort.Input1)) {
+        sparkbitO.rotateMotorModule(SparkbitOutPort.Output1, SparkbitDirection.Clockwise, 100, 500)
+    }
+})
+```
 
 ### sparkbitO.stopMotorModule
+Stops the motor module.
 
 ```sig
 sparkbitO.stopMotorModule(SparkbitOutPort.Output1)
 ```
 
+**Paramter**
+* Output - the output port (1-4) where the motor module is connected to the Spark:bit.
+
+**Example**
+```blocks
+sparkbitO.rotateMotorModule(SparkbitOutPort.Output1, SparkbitDirection.Clockwise, 100)
+if (sparkbitI.bumpSensorIsPressed(SparkbitInPort.Input1)) {
+    sparkbitO.stopMotorModule(SparkbitOutPort.Output1)
+}
+```
+
 ### sparkbitO.rotateMotorModuleVelocity
+Rotates the motor module based on a velocity and an optional duration. The direction is determined by the value of the velocity, positive values rotate clockwise and negative values rotate counterclockwise.
 
 ```sig
 sparkbitO.rotateMotorModuleVelocity(SparkbitOutPort.Output1, 0)
 ```
 
+**Paramters**
+* Output - the output port (1-4) where the motor module is connected to the Spark:bit.
+* Veloicty - the speed and direction of the motor as an integer value from `-100` to `100`.
+* Duration (optional) - by expanding the coding block, you may specify the duration for the motor to rotate in milliseconds (1000 ms = 1 second). If no duration is specified, the motor module will rotate until programmed to stop.
 
-Use `sparkbitO.rotateMotorDuration(...)` to drive a particular motor either clockwise or counterclockwise.
-You can specify the direction (Clockwise or Counterclockwise) and speed between 0 and 100. You can specify an optional duration (in milliseconds) for the motor to rotate before it automatically stops.
-
-The block takes four parameters: motor select, direction, speed, and optionally duration.
-* Motor select is the output port integer value between `1` and `4`
-* Direction must be either `Clockwise` or `Counterclockwise`
-* Speed is an integer value between `0` and `100`
-* Duration is an integer value in milliseconds
-
-
-Stopping
-When the motor speed is set to zero then it stops. There is also a dedicated function for this.
-Use `sparkbitO.stopMotor(...)` to stop the specified motor module.
-
-Examples
+**Example**
 ```blocks
-// Drive motor #1 clockwise at 60% speed.
-sparkbitO.rotateMotorModule(SparkbitOutPort.Output1, SparkbitDirection.Clockwise, 60)
-
-// Drive motor #2 counterclockwise at 100% speed for 10 seconds (10,000 milliseconds).
-sparkbitO.rotateMotorModule(SparkbitOutPort.Output2, SparkbitDirection.Counterclockwise, 100, 10000)
-
-//Stop motor #1.
-sparkbitO.stopMotorModule(SparkbitOutPort.Output1)
+sparkbitO.rotateMotorModuleVelocity(SparkbitOutPort.Output1, -50)
+if (sparkbitI.bumpSensorIsPressed(SparkbitInPort.Input1)) {
+    sparkbitO.stopMotorModule(SparkbitOutPort.Output1)
+}
 ```
 
-  
-  
 ## Light Module (orange)
 <img src="https://github.com/KidSpark/pxt-sparkbit/blob/master/assets/images/Light%20Module.png?raw=true" alt="Light Module" width="200"/>  
-Use `setLightModule(...)` to turn on the LED in the light module.
-You can specify the color (Green or Red) and brightness between 0 and 100. You can specify an optional duration (in milliseconds) for the LED to illuminate before it automatically turns off.
+Used to illuminate a red or green LED light.
 
 ### sparkbitO.setLightModule
+Turns on a red a green LED at a brightness and optional duration.
 
 ```sig
 sparkbitO.setLightModule(SparkbitOutPort.Output1, SparkbitColor.Green, 100)
 ```
 
+**Parameters**
+* Output - the output port (1-4) where the light module is connected to the Spark:bit.
+* Color - the color of the LED `red` or `green`
+* Brightness - the brightness of the LED as an integer value between `0` off and `100` max brightness.
+* Duration (optional) - by expanding the coding block, you may specify the duration for the light module to stay on in milliseconds (1000 ms = 1 second). If no duration is specified, the light module will stay on until programmed to turn off.
+
+**Example**
+```blocks
+basic.forever(function () {
+    if (sparkbitI.bumpSensorIsPressed(SparkbitInPort.Input1)) {
+        sparkbitO.setLightModule(SparkbitOutPort.Output1, SparkbitColor.Green, 100, 500)
+    }
+})
+```
+
 ### sparkbitO.stopLightModule
+Turns off the light module.
 
 ``sig
 sparkbitO.stopLightModule(SparkbitOutPort.Output1)
 ```
 
-The block takes four parameters: light select, color, brightness, and optionally duration.
-* Light select is the output port integer value between `1` and `4`
-* Color must be either `Green` or `Red`
-* Brightness is an integer value between `0` and `100`
-* Duration is an integer value in milliseconds
+**Parameter**
+* Output - the output port (1-4) where the light module is connected to the Spark:bit.
 
-## Turning off
-When the LED brightness is set to zero then it turns off. There is also a dedicated function for this.
-Use `sparkbitO.stopLight(...)` to turn off the specified light module.
-
-### Examples
+**Example**
 ```blocks
-
-    
-// Turn light module #2 Red at 100% brightness.
-sparkbitO.setLightModule(SparkbitOutPort.Output2, SparkbitColor.Red, 100)
-
-// Turn light module #4 Green at 40% brightness for 10 seconds (10,000 milliseconds).
-sparkbitO.setLightModule(SparkbitOutPort.Output4, SparkbitColor.Green, 40, 10000)
-
-//Turn off Light #2.
-sparkbitO.stopLightModule(SparkbitOutPort.Output2)
+sparkbitO.setLightModule(SparkbitOutPort.Output1, SparkbitColor.Green, 100)
+if (sparkbitI.bumpSensorIsPressed(SparkbitInPort.Input1)) {
+    sparkbitO.stopLightModule(SparkbitOutPort.Output1)
+}
 ```
-
 
 ## Supported targets
 
