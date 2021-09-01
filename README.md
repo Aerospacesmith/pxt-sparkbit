@@ -17,7 +17,7 @@ Use `sparkbitI.readAnalogSensor(...)` to read a particular input sensor.
 Returns `true` if pressed, `false` if not pressed.
 
 ```block
-sparkbitI.bumpSensorIsPressed(1)
+sparkbitI.bumpSensorIsPressed(SparkbitInPort.Input1)
 ```
 
 ### Angle Sensor (green)
