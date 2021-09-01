@@ -156,7 +156,7 @@ sparkbitI.irTransmitterIsReceived(SparkbitInPort.Input1, SparkbitInPort.Input2)
 
 **Parameters**
 * Transmitter input - the input number (1-8) where the IR transmitter (grey or black) is attached to the Spark:bit.
-* Receiver input - the input number (1-8) where the IR recevier (white) is attached to the Spark:bit.
+* Receiver input - the input number (1-8) where the IR receiver (white) is attached to the Spark:bit.
 
 **Example**
 ```blocks
@@ -169,21 +169,38 @@ basic.forever(function () {
 ## Analog Sensor Value
 
 ### sparkbitI.analogSensor
+Returns the value of any input sensor as a 10-bit integer (`0-1023`).
 
 ```sig
 sparkbitI.analogSensor(SparkbitInPort.Input1)
 ```
 
-### sparkbitI.analogSensorPercent
+**Parameters**
+* Input - the input number (1-8) where the sensor is attached to the Spark:bit.
 
-Use `sparkbitI.readAnalogSensor(...)` to read a particular input sensor.
+**Example**
+```blocks
+basic.forever(function () {
+    basic.showNumber(sparkbitI.analogSensor(SparkbitInPort.Input1))
+})
+```
+
+### sparkbitI.analogSensorPercent
+Returns the value of any input sensor as a percent (`0-100`).
 
 ```sig
 sparkbitI.analogSensorPercent(SparkbitInPort.Input1)
 ```
 
+**Parameters**
+* Input - the input number (1-8) where the sensor is attached to the Spark:bit.
 
-
+**Example**
+```blocks
+basic.forever(function () {
+    basic.showNumber(sparkbitI.analogSensorPercent(SparkbitInPort.Input1))
+})
+```
 
 # Output Modules
 
