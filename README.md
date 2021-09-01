@@ -50,7 +50,7 @@ Returns `true` if an IR signal is received from the IR transmitter indicating no
 # Driving the outputs
 
 ## Rotate Motor
-<img src="https://github.com/KidSpark/pxt-sparkbit/blob/master/assets/images/Motor%20Module.png?raw=true" alt="Motor Module" width="200"/>
+<img src="https://github.com/KidSpark/pxt-sparkbit/blob/master/assets/images/Motor%20Module.png?raw=true" alt="Motor Module" width="200"/>  
 Use `sparkbitO.rotateMotorDuration(...)` to drive a particular motor either clockwise or counterclockwise.
 You can specify the direction (Clockwise or Counterclockwise) and speed between 0 and 100. You can specify an optional duration (in milliseconds) for the motor to rotate before it automatically stops.
 
@@ -80,7 +80,7 @@ sparkbitO.stopMotorModule(SparkbitOutPort.Output1)
   
   
 ## Light module (orange)
-<img src="https://github.com/KidSpark/pxt-sparkbit/blob/master/assets/images/Light%20Module.png" alt="Light Module" width="200"/>
+<img src="https://github.com/KidSpark/pxt-sparkbit/blob/master/assets/images/Light%20Module.png?raw=true" alt="Light Module" width="200"/>  
 Use `setLightModule(...)` to turn on the LED in the light module.
 You can specify the color (Green or Red) and brightness between 0 and 100. You can specify an optional duration (in milliseconds) for the LED to illuminate before it automatically turns off.
 
