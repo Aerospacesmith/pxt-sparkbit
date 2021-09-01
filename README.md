@@ -21,10 +21,10 @@ Used to trigger an event when the bump sensor is pressed.
 ```sig
 sparkbitI.bumpSensorIsPressed(SparkbitInPort.Input1)
 ```
-Returns a Boolean value of `true` if pressed, `false` if not pressed.
+Returns a the bump sensor value as a Boolean `true` if pressed, `false` if not pressed.
 
 **Parameters**
-* Input - select the input number (1-8) where the bump sensor is attached to the Spark:bit.
+* Input - the input number (1-8) where the bump sensor is attached to the Spark:bit.
 
 **Example**
 ```blocks
@@ -35,30 +35,65 @@ basic.forever(function () {
 ```
 
 ## Angle Sensor (green)
-<img src="https://github.com/KidSpark/pxt-sparkbit/blob/master/assets/images/AS.png?raw=true" alt="Angle Sensor" width="200"/>  
+<img src="https://github.com/KidSpark/pxt-sparkbit/blob/master/assets/images/AS.png?raw=true" alt="Angle Sensor" width="200"/>
+Used to measure the rotation angle between two parts of the mechanism.
 
 ### sparkbitI.angleSensor
-Returns angle sensor value as an integer in degrees or as a percent.
+Returns the angle sensor value as an integer in degrees (`0-359`) or as a percent (`0-100`).
 
 ```sig
 sparkbitI.angleSensor(SparkbitInPort.Input1, SparkbitAngle.Degree)
 ```
 
-Paramaters
-Degree
-Percent
+**Paramaters**
+* Input - the input number (1-8) where the angle sensor is attached to the Spark:bit.
+* Angle units - the units of the returned value in degrees (`0-359`) or as a percent (`0-100`). 
+
+**Eample**
+```blocks
+basic.forever(function () {
+    basic.showNumber(sparkbitI.angleSensor(SparkbitInPort.Input1, SparkbitAngle.Degree))
+})
+```
 
 ### sparkbitI.angleSensorCompareDegree
+Compares the angle sensor value to a number in degrees (`0-359`) and returns a Boolean value of `true` or `false`.
 
 ```sig
 sparkbitI.angleSensorCompareDegree(SparkbitInPort.Input1, SparkbitLogic.EQ, 0)
 ```
 
+**Parameters**
+* Input - the input number (1-8) where the angle sensor is attached to the Spark:bit.
+* Operand - the mathmatical comparison (equal to, not equal to, less than, lass than or equal to, greater than, greater than or equal to).
+* Number - a number in degrees (`0-359`) to compare the angle sensor value against.
+
+**Example**
+```blocks
+basic.forever(function () {
+    if (sparkbitI.angleSensorCompareDegree(SparkbitInPort.Input1, SparkbitLogic.GT, 90)) {
+    }
+```
+
 ### sparkbitI.angleSensorComparePercent
+Compares the angle sensor value to a number as a percent (`0-100`) and returns a Boolean value of `true` or `false`.
 
 ```sig
 sparkbitI.angleSensorComparePercent(SparkbitInPort.Input1, SparkbitLogic.EQ, 0)
 ```
+
+**Parameters**
+* Input - the input number (1-8) where the angle sensor is attached to the Spark:bit.
+* Operand - the mathmatical comparison (equal to, not equal to, less than, lass than or equal to, greater than, greater than or equal to).
+* Number - a number as a percent (`0-100`) to compare the angle sensor value against.
+
+**Example**
+```blocks
+basic.forever(function () {
+    if (sparkbitI.angleSensorComparePercent(SparkbitInPort.Input1, SparkbitLogic.GT, 25)) {
+    }
+```
+
 
 
 ## Light Sensor (yellow)
