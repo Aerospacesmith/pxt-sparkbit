@@ -1,19 +1,22 @@
-## MakeCode Package for Kid Spark Education Spark:bit robotics platform.
+## MakeCode Extension for Kid Spark Education Spark:bit robotics platform.
 
 This repository can be added as an **extension** in MakeCode.
 
 * open [https://makecode.microbit.org/](https://makecode.microbit.org/)
 * click on **New Project**
-* click on **Extensions** under the gearwheel menu
+* click on **Extensions** under the **Advanced** category
 * search for **https://github.com/kidspark/pxt-sparkbit** and import
 
-# Reading the inputs
+## Tutorials
 
-###
-Use `sparkbitI.readAnalogSensor(...)` to read a particular input sensor.
+MakeCode step-by-step tutorials for the STEM Pathways Lab are available on the [Kid Spark Education](https://kidsparkeducation.org/robotics) website.
 
-### Bump Sensor (blue)
+# Input Sensors
+
+## Bump Sensor (blue)
 <img src="https://github.com/KidSpark/pxt-sparkbit/blob/master/assets/images/Bump%20Sensor.png?raw=true" alt="Bump Sensor" width="200"/>  
+
+### sparkbitI.bumpSensorIsPressed
 Returns `true` if pressed, `false` if not pressed.
 
 ```blocks
@@ -21,36 +24,63 @@ basic.forever(function () {
     if (sparkbitI.bumpSensorIsPressed(SparkbitInPort.Input1)){
     }
 })
-
 ```
 
-### Angle Sensor (green)
+## Angle Sensor (green)
 <img src="https://github.com/KidSpark/pxt-sparkbit/blob/master/assets/images/AS.png?raw=true" alt="Angle Sensor" width="200"/>  
+
+### sparkbitI.angleSensor
 Returns angle sensor value as an integer between `0` and `100`.
 
-### Light Sensor (yellow)
+### sparkbitI.angleSensorCompareDegree
+
+### sparkbitI.angleSensorComparePercent
+
+## Light Sensor (yellow)
 <img src="https://github.com/KidSpark/pxt-sparkbit/blob/master/assets/images/Light%20Sensor.png?raw=true" alt="Light Sensor" width="200"/>  
+
+
+### sparkbitI.lightSensorPercent
+
+### sparkbitI.lightSensorComparePercent
 Returns light sensor value as an integer between `0` and `100`.
 
 
 ## IR Tx/Rx
-### Light Gate
-To make a light gate, use an IR Receiver (white) and Low Power IR Transmitter (grey).  
+## Light Gate
+To make a light gate, use an IR Receiver (white) and Low-Power IR Transmitter (grey).  
 <img src="https://github.com/KidSpark/pxt-sparkbit/blob/master/assets/images/IR%20Sensing%20Receiver.png?raw=true" alt="IR Receiver" width="200"/>
 <img src="https://github.com/KidSpark/pxt-sparkbit/blob/master/assets/images/Low%20Power%20IR%20Transmitter.png?raw=true" alt="Low Power IR Transmitter" width="200"/>  
 
-### Proximity Detector
-To make a proximity detector, use an IR Receiver (white) and High Power IR Transmitter (black).  
+## Proximity Detector
+To make a proximity detector, use an IR Receiver (white) and High-Power IR Transmitter (black).  
 <img src="https://github.com/KidSpark/pxt-sparkbit/blob/master/assets/images/IR%20Sensing%20Receiver.png?raw=true" alt="IR Receiver" width="200"/>
 <img src="https://github.com/KidSpark/pxt-sparkbit/blob/master/assets/images/High%20Power%20IR%20Transmitter.png?raw=true" alt="High Power IR Transmitter " width="200"/>  
 
+### sparkbitI.irTransmitterIsReceived
+
 Returns `true` if an IR signal is received from the IR transmitter indicating no obstical. Use a `not` block 
 
-  
-# Driving the outputs
+## Analog Sensor Value
 
-## Rotate Motor
-<img src="https://github.com/KidSpark/pxt-sparkbit/blob/master/assets/images/Motor%20Module.png?raw=true" alt="Motor Module" width="200"/>  
+### sparkbitI.analogSensor
+
+### sparkbitI.analogSensorPercent
+
+Use `sparkbitI.readAnalogSensor(...)` to read a particular input sensor.
+  
+# Output Modules
+
+## Motor Module
+<img src="https://github.com/KidSpark/pxt-sparkbit/blob/master/assets/images/Motor%20Module.png?raw=true" alt="Motor Module" width="200"/> 
+
+### sparkbitO.rotateMotorModule
+
+### sparkbitO.stopMotorModule
+
+### sparkbitO.rotateMotorModuleVelocity
+
+
 Use `sparkbitO.rotateMotorDuration(...)` to drive a particular motor either clockwise or counterclockwise.
 You can specify the direction (Clockwise or Counterclockwise) and speed between 0 and 100. You can specify an optional duration (in milliseconds) for the motor to rotate before it automatically stops.
 
@@ -79,10 +109,14 @@ sparkbitO.stopMotorModule(SparkbitOutPort.Output1)
 
   
   
-## Light module (orange)
+## Light Module (orange)
 <img src="https://github.com/KidSpark/pxt-sparkbit/blob/master/assets/images/Light%20Module.png?raw=true" alt="Light Module" width="200"/>  
 Use `setLightModule(...)` to turn on the LED in the light module.
 You can specify the color (Green or Red) and brightness between 0 and 100. You can specify an optional duration (in milliseconds) for the LED to illuminate before it automatically turns off.
+
+### sparkbitO.setLightModule
+
+### sparkbitO.stopLightModule
 
 The block takes four parameters: light select, color, brightness, and optionally duration.
 * Light select is the output port integer value between `1` and `4`
