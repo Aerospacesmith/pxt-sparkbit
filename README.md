@@ -15,6 +15,7 @@ MakeCode step-by-step tutorials for the STEM Pathways Lab are available on the [
 
 ## Bump Sensor (blue)
 <img src="https://github.com/KidSpark/pxt-sparkbit/blob/master/assets/images/Bump%20Sensor.png?raw=true" alt="Bump Sensor" width="200"/>
+
 Used to trigger an event when the bump sensor is pressed.
 
 ### sparkbitI.bumpSensorIsPressed
@@ -36,6 +37,7 @@ basic.forever(function () {
 
 ## Angle Sensor (green)
 <img src="https://github.com/KidSpark/pxt-sparkbit/blob/master/assets/images/AS.png?raw=true" alt="Angle Sensor" width="200"/>
+
 Used to measure the rotation angle between two parts of the mechanism.
 
 ### sparkbitI.angleSensor
@@ -98,6 +100,7 @@ basic.forever(function () {
 
 ## Light Sensor (yellow)
 <img src="https://github.com/KidSpark/pxt-sparkbit/blob/master/assets/images/Light%20Sensor.png?raw=true" alt="Light Sensor" width="200"/>  
+
 Used to measure the amount of light.
 
 ### sparkbitI.lightSensorPercent
@@ -206,6 +209,7 @@ basic.forever(function () {
 
 ## Motor Module (red)
 <img src="https://github.com/KidSpark/pxt-sparkbit/blob/master/assets/images/Motor%20Module.png?raw=true" alt="Motor Module" width="200"/> 
+
 Used to rotate parts of the mechanism.
 
 ### sparkbitO.rotateMotorModule
@@ -270,6 +274,7 @@ if (sparkbitI.bumpSensorIsPressed(SparkbitInPort.Input1)) {
 
 ## Light Module (orange)
 <img src="https://github.com/KidSpark/pxt-sparkbit/blob/master/assets/images/Light%20Module.png?raw=true" alt="Light Module" width="200"/>  
+
 Used to illuminate a red or green LED light.
 
 ### sparkbitO.setLightModule
