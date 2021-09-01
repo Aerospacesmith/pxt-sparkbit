@@ -60,6 +60,7 @@ The block takes four parameters: motor select, direction, speed, and optionally 
 * Speed is an integer value between `0` and `100`
 * Duration is an integer value in milliseconds
 
+
 ## Stopping
 When the motor speed is set to zero then it stops. There is also a dedicated function for this.
 Use `sparkbitO.stopMotor(...)` to stop the specified motor module.
@@ -67,13 +68,13 @@ Use `sparkbitO.stopMotor(...)` to stop the specified motor module.
 ### Examples
 ```blocks
 // Drive motor #1 clockwise at 60% speed.
-sparkbitO.rotateMotorDuration(1, Directions.Clockwise, 60)
+sparkbitO.rotateMotorModule(SparkbitOutPort.Output1, SparkbitDirection.Clockwise, 60)
 
 // Drive motor #2 counterclockwise at 100% speed for 10 seconds (10,000 milliseconds).
-sparkbitO.rotateMotorDuration(2, Directions.Counterclockwise, 100, 10000)
+sparkbitO.rotateMotorModule(SparkbitOutPort.Output2, SparkbitDirection.Counterclockwise, 100, 10000)
 
 //Stop motor #1.
-sparkbitO.stopMotor(1)
+sparkbitO.stopMotorModule(SparkbitOutPort.Output1)
 ```
 
   
