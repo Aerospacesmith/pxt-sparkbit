@@ -208,7 +208,7 @@ basic.forever(function () {
 # Output Modules
 
 ## Motor Module (red)
-<img src="https://github.com/KidSpark/pxt-sparkbit/blob/master/assets/images/Motor%20Module.png?raw=true" alt="Motor Module" width="200"/>  
+<img src="https://github.com/KidSpark/pxt-sparkbit/blob/master/assets/images/Motor%20Module.png?raw=true" alt="Motor Module" width="400"/>  
 
 Used to rotate parts of the mechanism.
 
