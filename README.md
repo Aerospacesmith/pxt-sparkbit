@@ -20,7 +20,7 @@ Returns `true` if pressed, `false` if not pressed.
 basic.forever(function () {
     if (sparkbitI.bumpSensorIsPressed(SparkbitInPort.Input1)){
     }
-}
+})
 
 ```
 
