@@ -65,7 +65,7 @@ sparkbitI.angleSensorCompareDegree(SparkbitInPort.Input1, SparkbitLogic.EQ, 0)
 
 **Parameters**
 * Input - the input number (1-8) where the angle sensor is attached to the Spark:bit.
-* Operand - the mathmatical comparison (equal to, not equal to, less than, lass than or equal to, greater than, greater than or equal to).
+* Comparison - the mathmatical operand (equal to, not equal to, less than, lass than or equal to, greater than, greater than or equal to).
 * Number - a number in degrees (`0-359`) to compare the angle sensor value against.
 
 **Example**
@@ -73,6 +73,7 @@ sparkbitI.angleSensorCompareDegree(SparkbitInPort.Input1, SparkbitLogic.EQ, 0)
 basic.forever(function () {
     if (sparkbitI.angleSensorCompareDegree(SparkbitInPort.Input1, SparkbitLogic.GT, 90)) {
     }
+})
 ```
 
 ### sparkbitI.angleSensorComparePercent
@@ -84,7 +85,7 @@ sparkbitI.angleSensorComparePercent(SparkbitInPort.Input1, SparkbitLogic.EQ, 0)
 
 **Parameters**
 * Input - the input number (1-8) where the angle sensor is attached to the Spark:bit.
-* Operand - the mathmatical comparison (equal to, not equal to, less than, lass than or equal to, greater than, greater than or equal to).
+* Comparison - the mathmatical operand (equal to, not equal to, less than, lass than or equal to, greater than, greater than or equal to).
 * Number - a number as a percent (`0-100`) to compare the angle sensor value against.
 
 **Example**
@@ -92,28 +93,49 @@ sparkbitI.angleSensorComparePercent(SparkbitInPort.Input1, SparkbitLogic.EQ, 0)
 basic.forever(function () {
     if (sparkbitI.angleSensorComparePercent(SparkbitInPort.Input1, SparkbitLogic.GT, 25)) {
     }
+})
 ```
-
-
 
 ## Light Sensor (yellow)
 <img src="https://github.com/KidSpark/pxt-sparkbit/blob/master/assets/images/Light%20Sensor.png?raw=true" alt="Light Sensor" width="200"/>  
-
+Used to measure the amount of light.
 
 ### sparkbitI.lightSensorPercent
+Returns the light sensor value as an integer between `0` dark and `100` bright.
 
 ```sig
 sparkbitI.lightSensorPercent(SparkbitInPort.Input1)
 ```
 
+**Parameters**
+* Input - the input number (1-8) where the light sensor is attached to the Spark:bit.
+
+**Example**
+```blocks
+basic.forever(function () {
+    basic.showNumber(sparkbitI.lightSensorPercent(SparkbitInPort.Input1))
+})
+```
 
 ### sparkbitI.lightSensorComparePercent
-Returns light sensor value as an integer between `0` and `100`.
+Compares the light sensor value to a number as a percent (`0-100`) and returns a Boolean value of `true` or `false`.
 
 ```sig
 sparkbitI.lightSensorComparePercent(SparkbitInPort.Input1, SparkbitLogic.EQ, 0)
 ```
 
+**Parameters**
+* Input - the input number (1-8) where the light sensor is attached to the Spark:bit.
+* Comparison - the mathmatical operand (equal to, not equal to, less than, lass than or equal to, greater than, greater than or equal to).
+* Number - a number as a percent (`0-100`) to compare the light sensor value against.
+
+**Example**
+```blocks
+basic.forever(function () {
+    if (sparkbitI.lightSensorComparePercent(SparkbitInPort.Input1, SparkbitLogic.LT, 50)) {
+    }
+})
+```
 
 ## IR Tx/Rx
 
@@ -126,11 +148,22 @@ To make a proximity detector, use an IR Receiver (white) and High-Power IR Trans
 <img src="https://github.com/KidSpark/pxt-sparkbit/blob/master/assets/images/High%20Power%20IR%20Transmitter.png?raw=true" alt="High Power IR Transmitter " width="200"/>  
 
 ### sparkbitI.irTransmitterIsReceived
-
-Returns `true` if an IR signal is received from the IR transmitter indicating no obstical. Use a `not` block 
+Returns a Boolean value of `true` if an IR signal is received from the IR transmitter indicating no obstical. Returns a Boolean value of `false` if the IR signal is not received due to an obstical or being too far apart. This coding block works with both the low-power transmitter (grey) and the high-power transmitter (black).
 
 ```sig
 sparkbitI.irTransmitterIsReceived(SparkbitInPort.Input1, SparkbitInPort.Input2)
+```
+
+**Parameters**
+* Transmitter input - the input number (1-8) where the IR transmitter (grey or black) is attached to the Spark:bit.
+* Receiver input - the input number (1-8) where the IR recevier (white) is attached to the Spark:bit.
+
+**Example**
+```blocks
+basic.forever(function () {
+    if (sparkbitI.irTransmitterIsReceived(SparkbitInPort.Input1, SparkbitInPort.Input2)) {
+    }
+})
 ```
 
 ## Analog Sensor Value
