@@ -96,14 +96,16 @@ Use `sparkbitO.stopLight(...)` to turn off the specified light module.
 
 ### Examples
 ```blocks
-// Turn light module #2 Red at 100% brightness.
-sparkbitO.setLightModule(2, Colors.Red, 100)
 
-// Turn light module #4 Green at 80% brightness for 10 seconds (10,000 milliseconds).
-sparkbitO.setLightModule(4, Colors.Green, 80, 10000)
+    
+// Turn light module #2 Red at 100% brightness.
+sparkbitO.setLightModule(SparkbitOutPort.Output2, SparkbitColor.Red, 100)
+
+// Turn light module #4 Green at 40% brightness for 10 seconds (10,000 milliseconds).
+sparkbitO.setLightModule(SparkbitOutPort.Output4, SparkbitColor.Green, 40, 10000)
 
 //Turn off Light #2.
-sparkbitO.stopLight(2)
+sparkbitO.stopLightModule(SparkbitOutPort.Output2)
 ```
 
 
