@@ -21,7 +21,7 @@ Used to trigger an event when the bump sensor is pressed.
 ```sig
 sparkbitI.bumpSensorIsPressed(SparkbitInPort.Input1)
 ```
-Returns a the bump sensor value as a Boolean `true` if pressed, `false` if not pressed.
+Returns the bump sensor value as a Boolean `true` if pressed, `false` if not pressed.
 
 **Parameter**
 * Input - the input port (1-8) where the bump sensor is connected to the Spark:bit.
