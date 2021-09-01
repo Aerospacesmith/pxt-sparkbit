@@ -14,7 +14,7 @@ MakeCode step-by-step tutorials for the STEM Pathways Lab are available on the [
 # Input Sensors
 
 ## Bump Sensor (blue)
-<img src="https://github.com/KidSpark/pxt-sparkbit/blob/master/assets/images/Bump%20Sensor.png?raw=true" alt="Bump Sensor" width="200"/>
+<img src="https://github.com/KidSpark/pxt-sparkbit/blob/master/assets/images/Bump%20Sensor.png?raw=true" alt="Bump Sensor" width="200"/>  
 
 Used to trigger an event when the bump sensor is pressed.
 
@@ -36,7 +36,7 @@ basic.forever(function () {
 ```
 
 ## Angle Sensor (green)
-<img src="https://github.com/KidSpark/pxt-sparkbit/blob/master/assets/images/AS.png?raw=true" alt="Angle Sensor" width="200"/>
+<img src="https://github.com/KidSpark/pxt-sparkbit/blob/master/assets/images/AS.png?raw=true" alt="Angle Sensor" width="200"/>  
 
 Used to measure the rotation angle between two parts of the mechanism.
 
@@ -208,7 +208,7 @@ basic.forever(function () {
 # Output Modules
 
 ## Motor Module (red)
-<img src="https://github.com/KidSpark/pxt-sparkbit/blob/master/assets/images/Motor%20Module.png?raw=true" alt="Motor Module" width="200"/> 
+<img src="https://github.com/KidSpark/pxt-sparkbit/blob/master/assets/images/Motor%20Module.png?raw=true" alt="Motor Module" width="200"/>  
 
 Used to rotate parts of the mechanism.
 
