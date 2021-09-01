@@ -16,7 +16,7 @@ Use `sparkbitI.readAnalogSensor(...)` to read a particular input sensor.
 <img src="https://github.com/KidSpark/pxt-sparkbit/blob/master/assets/images/Bump%20Sensor.png?raw=true" alt="Bump Sensor" width="200"/>  
 Returns `true` if pressed, `false` if not pressed.
 
-```sig
+```block
 sparkbitI.bumpSensorIsPressed(1)
 ```
 
