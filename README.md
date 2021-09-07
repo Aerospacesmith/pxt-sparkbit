@@ -255,7 +255,7 @@ if (sparkbitI.bumpSensorIsPressed(SparkbitInPort.Input1)) {
 ```
 
 ### sparkbitO.rotateMotorModuleVelocity
-Rotates the motor module based on a velocity and an optional duration. The direction is determined by the value of the velocity, positive values rotate clockwise and negative values rotate counterclockwise.
+Rotates the motor module based on a velocity and an optional duration. The direction is determined by the value of the velocity, positive values rotate counterclockwise and negative values rotate clockwise.
 
 ```sig
 sparkbitO.rotateMotorModuleVelocity(SparkbitOutPort.Output1, 0)
