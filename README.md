@@ -9,7 +9,7 @@ This repository can be added as an **extension** in MakeCode.
 
 ## Tutorials
 
-MakeCode step-by-step tutorials for the STEM Pathways Lab are available on the [Kid Spark Education](https://kidsparkeducation.org/robotics) website.
+MakeCode step-by-step tutorials for the [STEM Pathways Lab](https://kidsparkeducation.org/stem-labs) are available on the [Kid Spark Education](https://kidsparkeducation.org/robotics) website.
 
 # Input Sensors
 
@@ -141,16 +141,15 @@ basic.forever(function () {
 ```
 
 ## IR Tx/Rx
-
-IR transmiter and receiver block pairs can be combined to make different sensors. A high power pair can project IR light farther to act as a proximity detector or longer range light gate.
-
-To make a low power IR pair, use a Low-Power IR Transmitter (grey) and an IR Receiver (white).  
+Low-Power IR Transmitter (grey) with an IR Receiver (white).  
 <img src="https://github.com/KidSpark/pxt-sparkbit/blob/master/assets/images/Low%20Power%20IR%20Transmitter.png?raw=true" alt="Low Power IR Transmitter" width="200"/>
 <img src="https://github.com/KidSpark/pxt-sparkbit/blob/master/assets/images/IR%20Sensing%20Receiver.png?raw=true" alt="IR Receiver" width="200"/>  
 
-To make a high power IR pair, use a High-Power IR Transmitter (black) and an IR Receiver (white).  
+High-Power IR Transmitter (black) with an IR Receiver (white).  
 <img src="https://github.com/KidSpark/pxt-sparkbit/blob/master/assets/images/High%20Power%20IR%20Transmitter.png?raw=true" alt="High Power IR Transmitter " width="200"/>
 <img src="https://github.com/KidSpark/pxt-sparkbit/blob/master/assets/images/IR%20Sensing%20Receiver.png?raw=true" alt="IR Receiver" width="200"/>  
+
+Used to detect if an infrared (IR) signal successfully travels from the transmitter (Tx) to the recevier (Rx). Applications include detecting proximity of the receiver to the transmitter and detecting an obstical blocking the IR signal.
 
 ### sparkbitI.irTransmitterIsReceived
 Returns a Boolean value of `true` if an IR signal is received from the IR transmitter indicating no obstical. Returns a Boolean value of `false` if the IR signal is not received due to an obstical or being too far apart. This coding block works with both the low-power transmitter (grey) and the high-power transmitter (black).
