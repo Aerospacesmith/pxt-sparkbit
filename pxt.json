@@ -1,6 +1,6 @@
 {
     "name": "Sparkbit",
-    "version": "0.0.0",
+    "version": "0.1.0",
     "description": "Microsoft MakeCode package for Kid Spark Education Spark:bit programmable robotics platform.",
     "license": "MIT",
     "dependencies": {
