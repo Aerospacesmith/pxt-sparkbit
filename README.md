@@ -2,7 +2,7 @@
 <img src="https://github.com/KidSpark/pxt-sparkbit/blob/master/assets/images/stem-pathways-lab.png?raw=true" alt="STEM Pathways Lab" width="400"/>
 
 * The Spark:bit is part of a comprehensive STEM program for students ages 8-14 that includes standards-aligned curriculum, lesson plans, student assessments, and professional learning courses for educators.
-* The STEM program uses the [STEM Pathways Lab](https://kidsparkeducation.org/stem-labs) that includes an assortment of structural building componenets, sensors, and motors to program with the Spark:bit.
+* The STEM program uses the [STEM Pathways Lab](https://kidsparkeducation.org/stem-labs) that includes an assortment of structural building components, sensors, and motors to program with the Spark:bit.
 * The STEM Pathways Lab is available for purchase from the [Kid Spark store](https://kidsparkeducation.org/purchase).
 
 # Tutorials
