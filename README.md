@@ -1,15 +1,12 @@
-## MakeCode Extension for Kid Spark Education Spark:bit robotics platform.
+## MakeCode Extension for Kid Spark Education Spark:bit robotics controller.
 
-This repository can be added as an **extension** in MakeCode.
-
-* open [https://makecode.microbit.org/](https://makecode.microbit.org/)
-* click on **New Project**
-* click on **Extensions** under the **Advanced** category
-* search for **https://github.com/kidspark/pxt-sparkbit** and import
+* The Spark:bit is part of a comprehensive STEM program for students ages 8-14 that includes standards-aligned curriculum, lesson plans, student assessments, and professional learning courses for educators.
+* The STEM program uses the [STEM Pathways Lab](https://kidsparkeducation.org/stem-labs) that includes an assortment of structural building componenets, sensors, and motors to program with the Spark:bit.
+* The STEM Pathways Lab is available for purchase from the [Kid Spark store](https://kidsparkeducation.org/purchase).
 
 ## Tutorials
 
-MakeCode step-by-step tutorials for the [STEM Pathways Lab](https://kidsparkeducation.org/stem-labs) are available on the [Kid Spark Education](https://kidsparkeducation.org/robotics) website.
+Step-by-step tutorials for programming the Spark:bit are available on the [Kid Spark student portal](https://kidsparkeducation.org/robotics).
 
 # Input Sensors
 
