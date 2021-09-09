@@ -5,7 +5,7 @@
 * The STEM program uses the [STEM Pathways Lab](https://kidsparkeducation.org/stem-labs) that includes an assortment of structural building componenets, sensors, and motors to program with the Spark:bit.
 * The STEM Pathways Lab is available for purchase from the [Kid Spark store](https://kidsparkeducation.org/purchase).
 
-## Tutorials
+# Tutorials
 
 Step-by-step tutorials for programming the Spark:bit are available on the [Kid Spark student portal](https://kidsparkeducation.org/robotics).
 
