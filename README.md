@@ -1,4 +1,4 @@
-# MakeCode Extension for Kid Spark Education Spark:bit robotics controller.
+# MakeCode extension for Kid Spark Education Spark:bit robotics controller.
 <img src="https://github.com/KidSpark/pxt-sparkbit/blob/master/assets/images/stem-pathways-lab.png?raw=true" alt="STEM Pathways Lab" width="400"/>
 
 * The Spark:bit is part of a comprehensive STEM program for students ages 8-14 that includes standards-aligned curriculum, lesson plans, student assessments, and professional learning courses for educators.
