@@ -3,10 +3,7 @@
 // Inputs
 
     //sparkbitI.bumpSensorIsPressed
-    if (sparkbitI.bumpSensorIsPressed(SparkbitInPort.Input1)){
-        basic.showIcon(IconNames.Heart)
-        basic.pause(500)
-        basic.clearScreen()
+    if (sparkbitI.bumpSensorIsPressed(SparkbitInPort.Input1)) {
     }
 
     //sparkbitI.angleSensor
