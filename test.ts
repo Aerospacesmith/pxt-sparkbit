@@ -1,28 +1,70 @@
 {
-    // rotate motor on output #1 clockwise for 500 ms non-blocking
-    sparkbitO.rotateMotorModule(SparkbitOutPort.Output1, SparkbitDirection.Clockwise, 100, 500)
 
-    //rotate motor on output #2 Counterclockwise for 2000 ms blocking program until complete
-    sparkbitO.rotateMotorModule(SparkbitOutPort.Output2, SparkbitDirection.Counterclockwise, 100)
-    basic.pause(2000);
-    sparkbitO.stopMotorModule(SparkbitOutPort.Output2);
+// Inputs
 
-    // set light on output #3 red for 3000 ms non-blocking
-    sparkbitO.setLightModule(SparkbitOutPort.Output3, SparkbitColor.Red, 100, 3000)
+    //sparkbitI.bumpSensorIsPressed
+    if (sparkbitI.bumpSensorIsPressed(SparkbitInPort.Input1)){
+        basic.showIcon(IconNames.Heart)
+        basic.pause(500)
+        basic.clearScreen()
+    }
 
-    //set light on output #4 green for 5000 ms blocking program until complete
-    sparkbitO.setLightModule(SparkbitOutPort.Output4, SparkbitColor.Green, 100)
-    basic.pause(5000)
-    sparkbitO.stopLightModule(SparkbitOutPort.Output4)
+    //sparkbitI.angleSensor
+    basic.showNumber(sparkbitI.angleSensor(SparkbitInPort.Input1, SparkbitAngle.Degree))
 
-    // Play V2 audio on speaker
-    //soundExpression.giggle.playUntilDone()
+    //sparkbitI.angleSensorCompareDegree
+    if (sparkbitI.angleSensorCompareDegree(SparkbitInPort.Input1, SparkbitLogic.GT, 90)) {
+    }
 
-    // Play V1 audio on speaker
-    //music.startMelody(music.builtInMelody(Melodies.Dadadadum))
+    //sparkbitI.angleSensorComparePercent
+    if (sparkbitI.angleSensorComparePercent(SparkbitInPort.Input1, SparkbitLogic.GT, 25)) {
+    }
 
-    // Read sensor #1
+    //sparkbitI.lightSensorPercent
+    basic.showNumber(sparkbitI.lightSensorPercent(SparkbitInPort.Input1))
+
+    //sparkbitI.lightSensorComparePercent
+    if (sparkbitI.lightSensorComparePercent(SparkbitInPort.Input1, SparkbitLogic.LT, 50)) {
+    }
+
+    //sparkbitI.irTransmitterIsReceived
+    if (sparkbitI.irTransmitterIsReceived(SparkbitInPort.Input1, SparkbitInPort.Input2)) {
+    }
+
+    //sparkbitI.analogSensor
+    basic.showNumber(sparkbitI.analogSensor(SparkbitInPort.Input1))
+
+    //sparkbitI.analogSensorPercent
     basic.showNumber(sparkbitI.analogSensorPercent(SparkbitInPort.Input1))
 
 
+// Outputs
+
+    //sparkbitO.rotateMotorModule
+    if (sparkbitI.bumpSensorIsPressed(SparkbitInPort.Input1)) {
+        sparkbitO.rotateMotorModule(SparkbitOutPort.Output1, SparkbitDirection.Clockwise, 100, 500)
+    }
+
+    //sparkbitO.stopMotorModule
+    sparkbitO.rotateMotorModule(SparkbitOutPort.Output1, SparkbitDirection.Clockwise, 100)
+    if (sparkbitI.bumpSensorIsPressed(SparkbitInPort.Input1)) {
+        sparkbitO.stopMotorModule(SparkbitOutPort.Output1)
+    }
+
+    //sparkbitO.rotateMotorModuleVelocity
+    sparkbitO.rotateMotorModuleVelocity(SparkbitOutPort.Output1, -50)
+    if (sparkbitI.bumpSensorIsPressed(SparkbitInPort.Input1)) {
+        sparkbitO.stopMotorModule(SparkbitOutPort.Output1)
+    }
+
+    //sparkbitO.setLightModule
+    if (sparkbitI.bumpSensorIsPressed(SparkbitInPort.Input1)) {
+        sparkbitO.setLightModule(SparkbitOutPort.Output1, SparkbitColor.Green, 100, 500)
+    }
+
+    //sparkbitO.stopLightModule
+    sparkbitO.setLightModule(SparkbitOutPort.Output1, SparkbitColor.Green, 100)
+    if (sparkbitI.bumpSensorIsPressed(SparkbitInPort.Input1)) {
+        sparkbitO.stopLightModule(SparkbitOutPort.Output1)
+    }
 }
