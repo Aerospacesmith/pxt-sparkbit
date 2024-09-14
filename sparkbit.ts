@@ -201,7 +201,7 @@ namespace sparkbitI {
     //% group="Angle Sensor (green)"
     //% weight=99
     //% channel.shadow="input" channel.defl=SparkbitInPort.Input1
-    //% operator.shadow="sparkbitLogic_enum" operator.defl=SparkbitLogic.EQ
+    //% operator.defl=SparkbitLogic.EQ
     //% value.min=0 value.max=359
     //% parts="v2"
     export function angleSensorCompareDegree(channel: number, operator: SparkbitLogic, value: number): boolean {
@@ -218,7 +218,7 @@ namespace sparkbitI {
     //% group="Angle Sensor (green)"
     //% weight=98
     //% channel.shadow="input" channel.defl=SparkbitInPort.Input1
-    //% operator.shadow="sparkbitLogic_enum" operator.defl=SparkbitLogic.EQ
+    //% operator.defl=SparkbitLogic.EQ
     //% value.min=0 value.max=100
     //% parts="v2"
     export function angleSensorComparePercent(channel: number, operator: SparkbitLogic, value: number): boolean {
@@ -255,7 +255,7 @@ namespace sparkbitI {
     //% group="Light Sensor (yellow)"
     //% weight=149
     //% channel.shadow="input" channel.defl=SparkbitInPort.Input1
-    //% operator.shadow="sparkbitLogic_enum" operator.defl=SparkbitLogic.EQ
+    //% operator.defl=SparkbitLogic.EQ
     //% value.min=0 value.max=100
     //% parts="v2"
     export function lightSensorComparePercent(channel: number, operator: SparkbitLogic, value: number): boolean {
@@ -439,7 +439,7 @@ namespace sparkbitO {
     //% expandableArgumentMode="toggle"
     //% inlineInputMode=inline
     //% motor.shadow="output" motor.defl=SparkbitOutPort.Output1
-    //% direction.shadow="sparkbitDirectionEnum" direction.defl=SparkbitDirection.Clockwise
+    //% direction.defl=SparkbitDirection.Clockwise
     //% speed.min=0 speed.max=100 speed.defl=100
     //% duration.shadow=timePicker
     //% parts="v2"
@@ -626,7 +626,7 @@ namespace sparkbitO {
     //% expandableArgumentMode="toggle"
     //% inlineInputMode=inline
     //% output.shadow="output" output.defl=SparkbitOutPort.Output1
-    //% color.shadow="sparkbitColorEnum" color.defl=SparkbitColor.Green
+    //% color.defl=SparkbitColor.Green
     //% brightness.min=0 brightness.max=100 brightness.defl=100
     //% duration.shadow=timePicker
     //% parts="v2"
